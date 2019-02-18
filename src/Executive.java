@@ -1,6 +1,11 @@
+import java.util.List;
+import schemas.Film;
 import schemas.User;
 
-public class Rules {
+public class Executive {
+
+    private static User user;
+    private static List<Film> movies;
 
     public static boolean hasFreeTime(User user) {
         return user.getFreeTime() != User.FreeTime.NONE;
@@ -32,5 +37,21 @@ public class Rules {
 
     public static void quitMovie(User user) {
         user.setCurrentFilm(null);
+    }
+
+    public static void initializePersona1() {
+
+    }
+
+    public static void initializePersona2() {
+
+    }
+
+    public static void initializePersona3() {
+
+    }
+
+    public static void initializePersona4() {
+
     }
 }

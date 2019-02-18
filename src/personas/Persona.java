@@ -1,20 +1,16 @@
 package personas;
 
+import java.util.List;
+import schemas.Film;
 import schemas.User;
 
 public abstract class Persona {
 
-    private static User simulatedUser;
-
-    public static void populate() {
-
+    public static User createUser() {
+        return null;
     }
 
-    public static User getSimulatedUser() {
-        return simulatedUser;
-    }
-
-    public static void setSimulatedUser(User simulatedUser) {
-        Persona.simulatedUser = simulatedUser;
+    public static List<Film> createMovies() {
+        return null;
     }
 }
