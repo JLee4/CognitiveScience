@@ -19,7 +19,7 @@ public class Executive {
 
     }
 
-    public static void chooseMoviedOnSavedList(User user) {
+    public static void chooseMovieBasedOnSavedList(User user) {
 
     }
 
