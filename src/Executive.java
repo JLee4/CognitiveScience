@@ -29,7 +29,7 @@ public class Executive {
 
     }
 
-    public static void AddMovieToSavedList(User user) {
+    public static void addMovieToSavedList(User user) {
 
     }
 
