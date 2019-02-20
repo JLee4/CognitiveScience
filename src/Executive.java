@@ -12,7 +12,9 @@ public class Executive {
     }
 
     public static void chooseMovieBasedOnGroupSize(User user) {
-        
+        if (user.getGroupSize() != User.GroupSize.ALONE) {
+            System.out.println("Watch a comedy or horror movie");
+        }
     }
 
     public static void chooseMovieBasedOnRecommendation(User user) {
