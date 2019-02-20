@@ -22,7 +22,9 @@ public class User {
         ALONE,
         PAIR,
         WITH_ROMANTIC_PARTNER,
-        WITH_GROUP
+        SMALL_GROUP,
+        MEDIUM_GROUP,
+        LARGE_GROUP
     }
     public enum Attention {
         NONE,
