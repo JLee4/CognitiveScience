@@ -45,7 +45,6 @@ public class Film extends Media {
         this.summary = summary;
         this.coverPhoto = coverPhoto;
         this.cast = cast;
-
     }
 
     public Duration getLength() {
