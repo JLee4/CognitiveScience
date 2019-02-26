@@ -59,6 +59,29 @@ public class Executive {
         } 
     }               
 
+    public static void chooseMovieBasedOnRating(Film film) {
+        // the system will isolate movies that align with gthe constraints
+        // printed below based on Rating
+        if (film.getRating() == film.Rating.3STARS || film.getRating() == film.Rating.2STARS || film.getRating() == film.Rating.1STAR) {
+            System.out.println("Movies with 1, 2 or 3 stars will be eliminated from potential watch list.");
+        }
+    }
+                   
+    public static void chooseMovieBasedOnSummary(Film film) {
+        // the system will isolate movies that align with the constraints
+        // printed below based on the Summary
+        if (film.getHookLevel() == film.Hook.BAD) {
+            System.out.println("movie with a bad hook will be eliminated from potential watch list.")
+        } 
+    }
+                   
+    public static void chooseMovieBasedOnCastMember(Film film) {
+        // the system will isolate movies that align with the constraints
+        // printed below based on the Cast Member
+        if (film.getReputation() == film.Reputation.BAD || film.getReputation() == film.Reputation.AWFUL) {
+            System.out.println("a movie that has a cast member whose reputation is bad or awful will be eliminate from potential watch list.");
+        }
+    }
     public static void addMovieToSavedList(User user) {
 
     }
