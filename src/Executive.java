@@ -26,17 +26,14 @@ public class Executive {
     }
 
     public static void chooseMovieBasedOnAttention(User user) {
-
+        // based on attention level the system will isolate the movies 
+        // that align with the constraints printed below
+        if (user.getAttention() == User.Attention.LITTLE) {
+            System.out.println("Watch a comedy or rom-com movie");
+        } else if (user.getAttention() == User.Attention.FULL) {
+             System.out.println("Watch a drama or action movie");
+        }
     }
-    
-    public static void chooseMovieBasedOnGenre(User user) {
-
-    }
-    
-    public static void chooseMovieBasedOnMood(User user) {
-
-    }
-
 
     public static void addMovieToSavedList(User user) {
 
@@ -51,11 +48,11 @@ public class Executive {
     }
 
     public static void initializePersona1() {
-
+        
     }
 
     public static void initializePersona2() {
-
+        
     }
 
     public static void initializePersona3() {
