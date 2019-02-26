@@ -28,6 +28,15 @@ public class Executive {
     public static void chooseMovieBasedOnAttention(User user) {
 
     }
+    
+    public static void chooseMovieBasedOnGenre(User user) {
+
+    }
+    
+    public static void chooseMovieBasedOnMood(User user) {
+
+    }
+
 
     public static void addMovieToSavedList(User user) {
 
