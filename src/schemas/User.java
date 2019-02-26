@@ -27,7 +27,6 @@ public class User {
         LARGE_GROUP
     }
     public enum Attention {
-        NONE,
         LITTLE,
         MEDIUM,
         FULL
