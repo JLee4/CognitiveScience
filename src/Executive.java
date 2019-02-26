@@ -34,6 +34,30 @@ public class Executive {
              System.out.println("Watch a drama or action movie");
         }
     }
+    
+    public static void chooseMovieBasedOnPreferredGenre(User user) {
+        // based on the preferred genres of the user the system will 
+        // isolate the movies that align with the constraints printed below
+        if (user.getPreferredGenre().contains("Comedy")) {
+            System.out.println("Watch a comedy movie");
+        } else if (user.getPreferredGenre().contains("Drama") {
+            System.out.println("Watch a drama movie");
+        } else if (user.getPreferredGenre().contains("Horror") {
+            System.out.println("Watch a horror movie");
+        }
+    }
+    
+    public static void chooseMovieBasedOnMood(User user) {
+        // based on mood the system will isolate the movies 
+        // that align with the constraints printed below
+        if (user.getMood() == User.Mood.HAPPY) {
+            System.out.println("Watch a comedy or rom-com movie");
+        } else if (user.getMood() == User.Mood.SAD) {
+             System.out.println("Watch a drama movie");
+        }  else if (user.getMood() == User.Mood.STRESSED) {
+             System.out.println("Watch a comedy or action movie");
+        } 
+    }               
 
     public static void addMovieToSavedList(User user) {
 
