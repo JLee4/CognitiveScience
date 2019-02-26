@@ -41,9 +41,8 @@ public class User {
     private List<String> moviePreferences;
     private List<Film> savedFilms;
     private Film currentFilm;
-    private List<String> preferredGenre;
 
-    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, Film currentFilm, List<String> preferredGenre) {
+    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, Film currentFilm) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.groupSize = groupSize;
@@ -52,7 +51,6 @@ public class User {
         this.moviePreferences = new ArrayList<>();
         this.savedFilms = new ArrayList<>();
         this.currentFilm = currentFilm;
-        this.preferredGenre = preferredGenre;
     }
 
     public Mood getMood() {
@@ -97,6 +95,14 @@ public class User {
 
     public List<String> getMoviePreferences() {
         return moviePreferences;
+    }
+
+    public void addPreferredGenre(String preferredGenre) {
+        preferredGenre.add(preferredGenre);
+    }
+    
+    public List<String> getPreferredGenre() {
+        return preferredGenre;
     }
 
     public void addMoviePreference(String moviePreference) {
