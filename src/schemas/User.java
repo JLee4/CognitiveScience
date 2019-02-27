@@ -43,7 +43,7 @@ public class User {
     private List<String> preferredGenre;
     
 
-    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, preferredGenre genre) {
+    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, preferredGenre genres) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.groupSize = groupSize;
