@@ -21,7 +21,9 @@ public class Executive {
     }
 
     public static void chooseMovieBasedOnRecommendation(User user) {
-
+        // the system will isolate movies that align with the constraints
+        // printed below based on recommendation
+        
     }
 
     public static void chooseMovieBasedOnSavedList(User user) {
@@ -84,6 +86,17 @@ public class Executive {
         if (castMember.getReputation() == CastMember.Reputation.BAD || castMember.getReputation() == CastMember.Reputation.AWFUL) {
             System.out.println("a movie that has a cast member whose reputation is bad or awful will be eliminate from potential watch list.");
         }
+    }
+    
+    public static void chooseMovieBasedOnCoverPhoto(CoverPhoto coverPhoto) {
+        // the system will isolate movies that align with the constraints
+        // printed below based on the Cover Photo
+        if (coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_ACTORS|| coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT 
+                    || coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT_ACTORS) {
+            System.out.println("a movie that has a coverphoto that does not reveal attractive actors will be eliminated from potential watch list.);
+            System.out.println("DISCLAIMER: attraction is subjective!);
+        }
+        
     }
     public static void addMovieToSavedList(User user) {
 
