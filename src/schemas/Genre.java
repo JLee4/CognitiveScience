@@ -8,5 +8,6 @@ public enum Genre {
     HORROR,
     THRILLER,
     FANTASY,
+    SCIFI,
     ANIMATED
 }

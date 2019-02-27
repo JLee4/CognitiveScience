@@ -71,11 +71,11 @@ public class Film extends Media {
         this.ageRating = ageRating;
     }
 
-    public String getGenre() {
+    public Genre getGenre() {
         return genre;
     }
 
-    public void setGenre(String genre) {
+    public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
