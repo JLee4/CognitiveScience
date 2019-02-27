@@ -2,7 +2,7 @@ package personas;
 
 // Persona 5 loves to watch movies of all kind and spends several hours a day watching movies. 
 
-// Persona 5 specifically likes the "science fiction" GENRE and classic movies, but watches all genres. 
+// Persona 5 watches all GENRES but specifically likes "science fiction" and classics.
 
 // Persona 5 watches movies that have been recommended to him/her and have been Oscar nominated. 
 
