@@ -1,10 +1,7 @@
 package schemas;
 
 public class CoverPhoto {
-    public enum Size {
-        SMALL,
-        MEDIUM,
-        LARGE
+    
     }
     //Represents how many different elements are in the cover photo
     public enum Complexity {
@@ -14,6 +11,7 @@ public class CoverPhoto {
     }
     public enum MovieRelation {
         REVEALS_ACTORS,
+        REVEALS_ATTRACTIVE_ACTORS,
         REVEALS_PLOT,
         REVEALS_PLOT_ACTORS
     }
@@ -26,14 +24,6 @@ public class CoverPhoto {
         this.size = size;
         this.complexity = complexity;
         this.movieRelation = movieRelation;
-    }
-
-    public Size getSize() {
-        return size;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
     }
 
     public Complexity getComplexity() {
