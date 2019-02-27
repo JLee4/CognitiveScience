@@ -2,7 +2,7 @@ package schemas;
 
 public enum Genre {
     COMEDY,
-    ROMANTIC_COMEDY,
+    ROMCOM,
     DRAMA,
     ACTION,
     HORROR,
