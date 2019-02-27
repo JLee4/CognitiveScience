@@ -7,5 +7,6 @@ public enum Genre {
     ACTION,
     HORROR,
     THRILLER,
-    FANTASY
+    FANTASY, 
+    SCIFI
 }
