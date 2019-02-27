@@ -1,24 +1,24 @@
-package Schemas; 
+package schemas;
 
 public class Recommendation {
 
-    public enum Recommended_By {
+    public enum RecommendedBy {
       FAMILY, 
       FRIEND,
       ONLINE
     }
     
-    private Recommended_By recommender;
+    private RecommendedBy recommender;
     
-    public Recommendation(Recommended_By recommender) {
-      this.Recommended_By = recommender;
+    public Recommendation(RecommendedBy recommender) {
+      this.recommender = recommender;
     }
     
-    public String getRecommender() {
+    public RecommendedBy getRecommender() {
       return recommender;
     }
     
-    public void setRecommender(Recommended_By recommender) {
+    public void setRecommender(RecommendedBy recommender) {
       this.recommender = recommender;
     }
 }

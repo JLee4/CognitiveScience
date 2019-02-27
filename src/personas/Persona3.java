@@ -8,6 +8,7 @@ package personas;
 
 // Persona 3 will only watch movies alone. 
 
+import java.util.ArrayList;
 import java.util.List;
 import schemas.Film;
 import schemas.User;
@@ -21,7 +22,8 @@ public class Persona3 extends Persona {
         preferredGenres.add("ACTION");
         preferredGenres.add("HORROR");
   
-        User persona3 = new User(Mood.SAD, FreeTime.THREE_HOURS, GroupSize.ALONE, Attention.MEDIUM, preferredGenres);
+        User persona3 = new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, User.GroupSize.ALONE, User.Attention.MEDIUM, preferredGenres);
+        return persona3;
     }
 
     public static List<Film> createMovies() {

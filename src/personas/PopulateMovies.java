@@ -25,7 +25,7 @@ public class PopulateMovies {
                 Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(, CoverPhoto.Complexity.MEDIUM, CoverPhoto.MovieRelation.REVEALS_PLOT),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.MovieRelation.REVEALS_PLOT),
                 new Cast(new CastMember(CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
                         CastMember.Fame.B_LIST))));
 

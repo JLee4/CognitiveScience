@@ -10,6 +10,7 @@ package personas;
 
 // Persona 5 is typically in a "cathartic" mood and will only watch movies if the plot summary has a good hook.
 
+import java.util.ArrayList;
 import java.util.List;
 import schemas.Film;
 import schemas.User;
@@ -25,7 +26,8 @@ public class Persona5 extends Persona {
         preferredGenres.add("ACTION");
         preferredGenres.add("THRILLER");
   
-        User persona5 = new User(Mood.CATHARTIC, FreeTime.MORE_THAN_THREE_HOURS, GroupSize.ALONE, Attention.FULL, preferredGenres);
+        User persona5 = new User(User.Mood.CATHARTIC, User.FreeTime.MORE_THAN_THREE_HOURS, User.GroupSize.ALONE, User.Attention.FULL, preferredGenres);
+        return persona5;
     }
 
     public static List<Film> createMovies() {

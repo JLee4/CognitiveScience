@@ -10,7 +10,7 @@ public class ChooseStreamedMovie {
     public static void main(String[] args) {
         if (args.length != 1) {
             System.out.print("When you run this, you must input a <number> corresponding to a persona." +
-                    "\nExample: \"java ChooseStreamedMovie 1\" for running the task with Persona1");
+                    "\nExample: \"java ChooseStreamedMovie 1\" for running the task with Personas");
             exit(0);
         }
 

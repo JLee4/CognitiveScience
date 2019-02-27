@@ -8,6 +8,7 @@ package personas;
 
 // Persona 1 is typically in a "happy" mood and enjoys the genres "comedy" and "drama".
 
+import java.util.ArrayList;
 import java.util.List;
 import schemas.Film;
 import schemas.User;
@@ -18,7 +19,7 @@ public class Persona1 extends Persona {
         List<String> preferredGenres = new ArrayList<String>();
         preferredGenres.add("COMEDY");
         preferredGenres.add("DRAMA");
-        User persona1 = new User(Mood.HAPPY, FreeTime.TWO_HOURS, GroupSize.ALONE, Attention.FULL, preferredGenres);
+        User persona1 = new User(User.Mood.HAPPY, User.FreeTime.TWO_HOURS, User.GroupSize.ALONE, User.Attention.FULL, preferredGenres);
         return persona1;
     }
 

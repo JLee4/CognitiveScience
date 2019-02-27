@@ -9,6 +9,7 @@ package personas;
 // Persona 4 does not pay attention to plot summaries.
 
 import java.util.List;
+import java.util.ArrayList;
 import schemas.Film;
 import schemas.User;
 
@@ -19,7 +20,9 @@ public class Persona4 extends Persona {
         preferredGenres.add("COMEDY");
         preferredGenres.add("ROMCOM");
   
-        User persona4 = new User(Mood.CATHARTIC, FreeTime.TWO_HOURS, GroupSize.LARGE_GROUP, Attention.LITTLE, preferredGenres);
+        User persona4 = new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, User.GroupSize.LARGE_GROUP, User.Attention.LITTLE, preferredGenres);
+
+        return persona4;
     }
 
     public static List<Film> createMovies() {
