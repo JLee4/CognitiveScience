@@ -15,8 +15,8 @@ public class Persona1 extends Persona {
 
     public static User createUser() {
         List<String> preferredGenres = new ArrayList<String>();
-        preferredGenres.add("comedy");
-        preferredGenres.add("drama");
+        preferredGenres.add("COMEDY");
+        preferredGenres.add("DRAMA");
         User persona1 = new User(Mood.HAPPY, FreeTime.TWO_HOURS, GroupSize.ALONE, Attention.FULL, preferredGenres);
         return persona1;
     }
