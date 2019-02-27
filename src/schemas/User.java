@@ -41,10 +41,10 @@ public class User {
     private List<String> moviePreferences;
     private List<Film> savedFilms;
     //private Film currentFilm;
-    private List<String> preferredGenre;
+    private List<String> preferredGenres;
     
 
-    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, preferredGenre genres) {
+    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, List<String> genres) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.groupSize = groupSize;
@@ -53,7 +53,7 @@ public class User {
         this.moviePreferences = new ArrayList<>();
         this.savedFilms = new ArrayList<>();
         //this.currentFilm = currentFilm;
-        this.preferredGenre = genre;
+        this.preferredGenres = genres;
     }
 
     public Mood getMood() {
@@ -101,11 +101,11 @@ public class User {
     }
 
     public void addPreferredGenre(String preferredGenre) {
-        preferredGenre.add(preferredGenre);
+        preferredGenres.add(preferredGenre);
     }
     
     public List<String> getPreferredGenre() {
-        return preferredGenre;
+        return preferredGenres;
     }
 
     public void addMoviePreference(String moviePreference) {
@@ -118,13 +118,5 @@ public class User {
 
     public void addSavedFilms(Film savedFilm) {
         this.savedFilms.add(savedFilm);
-    }
-
-    public Film getCurrentFilm() {
-        return currentFilm;
-    }
-
-    public void setCurrentFilm(Film currentFilm) {
-        this.currentFilm = currentFilm;
     }
 }

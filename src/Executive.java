@@ -1,5 +1,8 @@
 import java.util.List;
+import schemas.CastMember;
 import schemas.Film;
+import schemas.Rating;
+import schemas.Summary;
 import schemas.User;
 
 public class Executive {
@@ -40,9 +43,9 @@ public class Executive {
         // isolate the movies that align with the constraints printed below
         if (user.getPreferredGenre().contains("Comedy")) {
             System.out.println("Watch a comedy movie");
-        } else if (user.getPreferredGenre().contains("Drama") {
+        } else if (user.getPreferredGenre().contains("Drama")) {
             System.out.println("Watch a drama movie");
-        } else if (user.getPreferredGenre().contains("Horror") {
+        } else if (user.getPreferredGenre().contains("Horror")) {
             System.out.println("Watch a horror movie");
         }
     }
@@ -60,9 +63,9 @@ public class Executive {
     }               
 
     public static void chooseMovieBasedOnRating(Film film) {
-        // the system will isolate movies that align with gthe constraints
+        // the system will isolate movies that align with the constraints
         // printed below based on Rating
-        if (film.getRating() == film.Rating.3STARS || film.getRating() == film.Rating.2STARS || film.getRating() == film.Rating.1STAR) {
+        if (film.getRating() == Rating.THREE_STARS || film.getRating() == Rating.TWO_STARS || film.getRating() == Rating.ONE_STAR) {
             System.out.println("Movies with 1, 2 or 3 stars will be eliminated from potential watch list.");
         }
     }
@@ -70,28 +73,20 @@ public class Executive {
     public static void chooseMovieBasedOnSummary(Film film) {
         // the system will isolate movies that align with the constraints
         // printed below based on the Summary
-        if (film.getHookLevel() == film.Hook.BAD) {
-            System.out.println("movie with a bad hook will be eliminated from potential watch list.")
+        if (film.getSummary().getHookLevel() == Summary.Hook.BAD) {
+            System.out.println("movie with a bad hook will be eliminated from potential watch list.");
         } 
     }
                    
-    public static void chooseMovieBasedOnCastMember(Film film) {
+    public static void chooseMovieBasedOnCastMember(CastMember castMember) {
         // the system will isolate movies that align with the constraints
         // printed below based on the Cast Member
-        if (film.getReputation() == film.Reputation.BAD || film.getReputation() == film.Reputation.AWFUL) {
+        if (castMember.getReputation() == CastMember.Reputation.BAD || castMember.getReputation() == CastMember.Reputation.AWFUL) {
             System.out.println("a movie that has a cast member whose reputation is bad or awful will be eliminate from potential watch list.");
         }
     }
     public static void addMovieToSavedList(User user) {
 
-    }
-
-    public static void rewatchMovie(User user) {
-
-    }
-
-    public static void quitMovie(User user) {
-        user.setCurrentFilm(null);
     }
 
     public static void initializePersona1() {

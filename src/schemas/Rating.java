@@ -1,9 +1,9 @@
 package schemas;
 
 public enum Rating {
-    5STARS,
-    4STARS,
-    3STARS,
-    2STARS,
-    1STAR
+    FIVE_STARS,
+    FOUR_STARS,
+    THREE_STARS,
+    TWO_STARS,
+    ONE_STAR
 }

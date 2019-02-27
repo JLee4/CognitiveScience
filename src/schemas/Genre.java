@@ -1,6 +1,6 @@
 package schemas;
 
-public enum AgeRating {
+public enum Genre {
     COMEDY,
     ROMANTIC_COMEDY,
     DRAMA,
