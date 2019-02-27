@@ -14,7 +14,8 @@ import schemas.User;
 public class Persona1 extends Persona {
 
     public static User createUser() {
-        return null;
+        User persona1 = new User(Mood.HAPPY, FreeTime.TWO_HOURS, GroupSize.ALONE, Attention.FULL);
+        return persona1;
     }
 
     public static List<Film> createMovies() {
