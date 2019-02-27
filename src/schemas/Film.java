@@ -18,11 +18,10 @@ public class Film extends Media {
         NEW
     }
 
-
     private Duration length;
     private Rating rating;
     private AgeRating ageRating;
-    private String genre;
+    private Genre genre;
     private GoreAmount goreAmount;
     private String atmosphere;
     private Age age;
@@ -32,7 +31,7 @@ public class Film extends Media {
     private CoverPhoto coverPhoto;
     private Cast cast;
 
-    public Film(String name, Type type, String language, Duration length, Rating rating, AgeRating ageRating, String genre, GoreAmount goreAmount, String atmosphere, Age age, Preview preview, Summary summary, CoverPhoto coverPhoto, Cast cast) {
+    public Film(String name, Type type, String language, Duration length, Rating rating, AgeRating ageRating, Genre genre, GoreAmount goreAmount, String atmosphere, Age age, Preview preview, Summary summary, CoverPhoto coverPhoto, Cast cast) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;
