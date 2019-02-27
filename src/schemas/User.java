@@ -9,6 +9,7 @@ public class User {
         USUAL,
         SAD,
         HAPPY,
+        STRESSED,
         CATHARTIC
     }
     public enum FreeTime {
