@@ -17,14 +17,7 @@ public class Film extends Media {
         RECOMMENDED,
         NEW
     }
-    public enum Genre {
-        COMEDY,
-        ROMCOM,
-        ACTION,
-        DRAMA,
-        HORROR,
-        THRILLER
-    }
+
 
     private Duration length;
     private Rating rating;
