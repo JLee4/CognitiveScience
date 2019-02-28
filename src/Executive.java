@@ -1,5 +1,11 @@
 import java.util.List;
+import personas.Persona1;
+import personas.Persona2;
+import personas.Persona3;
+import personas.Persona4;
+import personas.PopulateMovies;
 import schemas.CastMember;
+import schemas.CoverPhoto;
 import schemas.Film;
 import schemas.Rating;
 import schemas.Summary;
@@ -93,8 +99,8 @@ public class Executive {
         // printed below based on the Cover Photo
         if (coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_ACTORS|| coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT 
                     || coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT_ACTORS) {
-            System.out.println("a movie that has a coverphoto that does not reveal attractive actors will be eliminated from potential watch list.);
-            System.out.println("DISCLAIMER: attraction is subjective!);
+            System.out.println("a movie that has a coverphoto that does not reveal attractive actors will be eliminated from potential watch list.");
+            System.out.println("DISCLAIMER: attraction is subjective!");
         }
         
     }
@@ -102,19 +108,23 @@ public class Executive {
 
     }
 
-    public static void initializePersona1() {
-        
+    static void initializePersona1() {
+        movies = PopulateMovies.populateMovies();
+        user = Persona1.createUser();
     }
 
-    public static void initializePersona2() {
-        
+    static void initializePersona2() {
+        movies = PopulateMovies.populateMovies();
+        user = Persona2.createUser();
     }
 
-    public static void initializePersona3() {
-
+    static void initializePersona3() {
+        movies = PopulateMovies.populateMovies();
+        user = Persona3.createUser();
     }
 
-    public static void initializePersona4() {
-
+    static void initializePersona4() {
+        movies = PopulateMovies.populateMovies();
+        user = Persona4.createUser();
     }
 }

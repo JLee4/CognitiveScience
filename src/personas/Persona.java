@@ -9,8 +9,4 @@ public abstract class Persona {
     public static User createUser() {
         return null;
     }
-
-    public static List<Film> createMovies() {
-        return null;
-    }
 }

@@ -29,6 +29,7 @@ public class PopulateMovies {
                 new Cast(new CastMember(CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
                         CastMember.Fame.B_LIST))));
 
+        //Use this as a template for more movie objects
         movies.add(new Film("Coco", Media.Type.FILM, "English", Duration.ZERO.plusSeconds(6300),
                 Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, "Light",
                 Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),

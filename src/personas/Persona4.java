@@ -16,16 +16,10 @@ import schemas.User;
 public class Persona4 extends Persona {
 
     public static User createUser() {
-        List<String> preferredGenres = new ArrayList<String>();
+        List<String> preferredGenres = new ArrayList<>();
         preferredGenres.add("COMEDY");
         preferredGenres.add("ROMCOM");
-  
-        User persona4 = new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, User.GroupSize.LARGE_GROUP, User.Attention.LITTLE, preferredGenres);
 
-        return persona4;
-    }
-
-    public static List<Film> createMovies() {
-        return null;
+        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, User.GroupSize.LARGE_GROUP, User.Attention.LITTLE, preferredGenres);
     }
 }

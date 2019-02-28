@@ -18,19 +18,14 @@ import schemas.User;
 public class Persona5 extends Persona {
 
     public static User createUser() {
-        List<String> preferredGenres = new ArrayList<String>();
+        List<String> preferredGenres = new ArrayList<>();
         preferredGenres.add("SCIFI"); 
         preferredGenres.add("COMEDY");
         preferredGenres.add("ROMCOM");
         preferredGenres.add("DRAMA");
         preferredGenres.add("ACTION");
         preferredGenres.add("THRILLER");
-  
-        User persona5 = new User(User.Mood.CATHARTIC, User.FreeTime.MORE_THAN_THREE_HOURS, User.GroupSize.ALONE, User.Attention.FULL, preferredGenres);
-        return persona5;
-    }
 
-    public static List<Film> createMovies() {
-        return null;
+        return new User(User.Mood.CATHARTIC, User.FreeTime.MORE_THAN_THREE_HOURS, User.GroupSize.ALONE, User.Attention.FULL, preferredGenres);
     }
 }
