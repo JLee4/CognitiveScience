@@ -22,14 +22,24 @@ public class CastMember {
         C_LIST,
         D_LIST
     }
+    private String name;
     private CastType castType;
     private Reputation reputation;
     private Fame fame;
 
-    public CastMember(CastType castType, Reputation reputation, Fame fame) {
+    public CastMember(String name, CastType castType, Reputation reputation, Fame fame) {
+        this.name = name;
         this.castType = castType;
         this.reputation = reputation;
         this.fame = fame;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public CastType getCastType() {
