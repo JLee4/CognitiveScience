@@ -11,6 +11,7 @@ package personas;
 import java.util.ArrayList;
 import java.util.List;
 import schemas.Film;
+import schemas.Group;
 import schemas.User;
 
 public class Persona3 extends Persona {
@@ -22,6 +23,6 @@ public class Persona3 extends Persona {
         preferredGenres.add("ACTION");
         preferredGenres.add("HORROR");
 
-        return new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, User.GroupSize.ALONE, User.Attention.MEDIUM, preferredGenres);
+        return new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, new Group(1, false, false), User.Attention.MEDIUM, preferredGenres);
     }
 }

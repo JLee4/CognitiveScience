@@ -53,6 +53,7 @@ class Executive {
             exit(0);
         }
 
+
     }
 
     private static boolean hasFreeTime(User user) {
@@ -60,7 +61,7 @@ class Executive {
     }
 
     private static void chooseMovieBasedOnGroupSize(User user) {
-        if (user.getGroupSize() != User.GroupSize.ALONE) {
+        if (user.getGroup().getGroupSize() != 1) {
             System.out.println("Watch a comedy or horror movie");
         }
     }

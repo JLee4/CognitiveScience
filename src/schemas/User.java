@@ -19,14 +19,7 @@ public class User {
         THREE_HOURS,
         MORE_THAN_THREE_HOURS
     }
-    public enum GroupSize {
-        ALONE,
-        PAIR,
-        WITH_ROMANTIC_PARTNER,
-        SMALL_GROUP,
-        MEDIUM_GROUP,
-        LARGE_GROUP
-    }
+
     public enum Attention {
         LITTLE,
         MEDIUM,
@@ -35,19 +28,18 @@ public class User {
 
     private Mood mood;
     private FreeTime freeTime;
-    private GroupSize groupSize;
+    private Group group;
     private Attention attention;
     private List<Film> seenMovies;
     private List<String> moviePreferences;
     private List<Film> savedFilms;
     //private Film currentFilm;
     private List<String> preferredGenres;
-    
 
-    public User(Mood mood, FreeTime freeTime, GroupSize groupSize, Attention attention, List<String> genres) {
+    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<String> genres) {
         this.mood = mood;
         this.freeTime = freeTime;
-        this.groupSize = groupSize;
+        this.group = group;
         this.attention = attention;
         this.seenMovies = new ArrayList<>();
         this.moviePreferences = new ArrayList<>();
@@ -72,12 +64,12 @@ public class User {
         this.freeTime = freeTime;
     }
 
-    public GroupSize getGroupSize() {
-        return groupSize;
+    public Group getGroup() {
+        return group;
     }
 
-    public void setGroupSize(GroupSize groupSize) {
-        this.groupSize = groupSize;
+    public void setGroup(Group group) {
+        this.group = group;
     }
 
     public Attention getAttention() {

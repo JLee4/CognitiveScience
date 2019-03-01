@@ -10,6 +10,7 @@ package personas;
 
 import java.util.ArrayList;
 import java.util.List;
+import schemas.Group;
 import schemas.User;
 
 public class Persona1 extends Persona {
@@ -18,6 +19,6 @@ public class Persona1 extends Persona {
         List<String> preferredGenres = new ArrayList<>();
         preferredGenres.add("COMEDY");
         preferredGenres.add("DRAMA");
-        return new User(User.Mood.HAPPY, User.FreeTime.TWO_HOURS, User.GroupSize.ALONE, User.Attention.MEDIUM, preferredGenres);
+        return new User(User.Mood.HAPPY, User.FreeTime.TWO_HOURS, new Group(1, false, false), User.Attention.MEDIUM, preferredGenres);
     }
 }

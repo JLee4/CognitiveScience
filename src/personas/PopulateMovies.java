@@ -13,6 +13,7 @@ import schemas.Film;
 import schemas.Genre;
 import schemas.GoreAmount;
 import schemas.Media;
+import schemas.MediaType;
 import schemas.Preview;
 import schemas.Rating;
 import schemas.Summary;
@@ -22,8 +23,8 @@ public class PopulateMovies {
     public static List<Film> populateMovies(boolean isVerbose) {
         List<Film> movies = new ArrayList<>();
         //Coco
-        Film coco = new Film("Coco", Media.Type.FILM, "English", Duration.ZERO.plusSeconds(6300),
-                Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, "Light",
+        Film coco = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
+                Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
                 Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
@@ -36,8 +37,8 @@ public class PopulateMovies {
         movies.add(coco);
 
         //Use this as a template for more movie objects (i.e. replace the field with another movie)
-        Film template = new Film("Coco", Media.Type.FILM, "English", Duration.ZERO.plusSeconds(6300),
-                Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, "Light",
+        Film template = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
+                Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
                 Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),

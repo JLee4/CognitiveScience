@@ -11,6 +11,7 @@ package personas;
 import java.util.List;
 import java.util.ArrayList;
 import schemas.Film;
+import schemas.Group;
 import schemas.User;
 
 public class Persona4 extends Persona {
@@ -20,6 +21,6 @@ public class Persona4 extends Persona {
         preferredGenres.add("COMEDY");
         preferredGenres.add("ROMCOM");
 
-        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, User.GroupSize.LARGE_GROUP, User.Attention.LITTLE, preferredGenres);
+        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, new Group(6, false, false), User.Attention.LITTLE, preferredGenres);
     }
 }

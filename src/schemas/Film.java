@@ -12,10 +12,23 @@ public class Film extends Media {
         SOMEWHAT_OLD,
         OLD
     }
+
     public enum StreamingCategory {
         FEATURED,
         RECOMMENDED,
         NEW
+    }
+
+    public enum Atmosphere {
+        CHEERFUL,
+        HUMOROUS,
+        IDYLLIC,
+        CHAOTIC,
+        MELANCHOLIC,
+        MYSTERIOUS,
+        ROMANTIC,
+        OFFENSIVE,
+        GRIM
     }
 
     private Duration length;
@@ -23,7 +36,7 @@ public class Film extends Media {
     private AgeRating ageRating;
     private Genre genre;
     private GoreAmount goreAmount;
-    private String atmosphere;
+    private Atmosphere atmosphere;
     private Age age;
     private List<StreamingCategory> categories;
     private Preview preview;
@@ -31,7 +44,7 @@ public class Film extends Media {
     private CoverPhoto coverPhoto;
     private Cast cast;
 
-    public Film(String name, Type type, String language, Duration length, Rating rating, AgeRating ageRating, Genre genre, GoreAmount goreAmount, String atmosphere, Age age, Preview preview, Summary summary, CoverPhoto coverPhoto, Cast cast) {
+    public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating, Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary, CoverPhoto coverPhoto, Cast cast) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;
@@ -87,11 +100,11 @@ public class Film extends Media {
         this.goreAmount = goreAmount;
     }
 
-    public String getAtmosphere() {
+    public Atmosphere getAtmosphere() {
         return atmosphere;
     }
 
-    public void setAtmosphere(String atmosphere) {
+    public void setAtmosphere(Atmosphere atmosphere) {
         this.atmosphere = atmosphere;
     }
 
