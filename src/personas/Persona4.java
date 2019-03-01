@@ -4,7 +4,7 @@ package personas;
 
 // Persona 4 enjoys the GENRES "comedy" and "romantic comedy". 
 
-// Persona 4 also cares about well known actors and actresses, and will watch a movie if it has a coverphoto that reveals an attractive cast member.
+// Persona 4 also cares about well known actors and actresses, and will watch a movie if it has a cover photo that reveals an attractive cast member.
 
 // Persona 4 does not pay attention to plot summaries.
 
@@ -21,6 +21,6 @@ public class Persona4 extends Persona {
         preferredGenres.add("COMEDY");
         preferredGenres.add("ROMCOM");
 
-        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, new Group(6, false, false), User.Attention.LITTLE, preferredGenres);
+        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, new Group(6, false, false), User.Attention.LITTLE,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
     }
 }

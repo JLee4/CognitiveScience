@@ -50,40 +50,6 @@ public class PopulateMovies {
         template.getCast().addActor(new CastMember("Benjamin Bratt", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
         movies.add(coco);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        if (isVerbose) {
-            int i = 1;
-            for (Film movie: movies) {
-                System.out.println("Movie " + i + ":");
-                System.out.println("Name: " + movie.getName());
-                System.out.println("Language: " + movie.getLanguage());
-                System.out.println("Duration: " + LocalTime.MIDNIGHT.plus(movie.getLength()).format(DateTimeFormatter.ofPattern("HH:mm:ss")));
-                System.out.println("Rating: " + movie.getRating().name());
-                System.out.println("Age Rating: " + movie.getAgeRating().name());
-                System.out.println("Genre: " + movie.getGenre().name());
-                System.out.println("Gore Amount: " + movie.getGoreAmount().name());
-                System.out.println("Atmosphere: " + movie.getAtmosphere());
-                System.out.println("Movie Age: " + movie.getAge().name());
-                System.out.println("Summary: ");
-                System.out.println("    Words: " + movie.getSummary().getSummaryWordLength());
-                System.out.println("    Comprehensive: " + movie.getSummary().getComprehensive().name());
-                System.out.println("    Hook Quality: " + movie.getSummary().getHookLevel().name());
-                System.out.println("    Reading Difficulty: " + movie.getSummary().getReadingDifficulty().name());
-                System.out.println("Cover Photo: ");
-                System.out.println("    Complexity: " + movie.getCoverPhoto().getComplexity().name());
-                System.out.println("    Relation to Movie: " + movie.getCoverPhoto().getMovieRelation().name());
-                System.out.println("Cast: ");
-                System.out.println("    Director: " + movie.getCast().getDirector().getName() + ", Reputation: "
-                        + movie.getCast().getDirector().getReputation().name() + ", "
-                        + movie.getCast().getDirector().getFame());
-                System.out.println("    Actors:");
-                for (CastMember actor : movie.getCast().getActors()) {
-                    System.out.println(actor.getName() + ", Reputation: " + actor.getReputation().name() + ", " + actor.getFame().name());
-                }
-                System.out.println();
-                i++;
-            }
-        }
         return movies;
     }
 }

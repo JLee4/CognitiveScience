@@ -23,6 +23,6 @@ public class Persona3 extends Persona {
         preferredGenres.add("ACTION");
         preferredGenres.add("HORROR");
 
-        return new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, new Group(1, false, false), User.Attention.MEDIUM, preferredGenres);
+        return new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, new Group(1, false, false), User.Attention.MEDIUM,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
     }
 }

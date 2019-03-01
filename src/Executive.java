@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import personas.Persona1;
 import personas.Persona2;
@@ -46,6 +48,17 @@ class Executive {
             default:
                 System.out.println("You must input a valid number of a persona as an argument.");
                 exit(0);
+        }
+
+        if (isVerbose) {
+            System.out.println(user.toString() + "\n");
+            int i = 1;
+            for (Film movie: movies) {
+                System.out.println("Movie " + i + ":");
+                System.out.println(movie.toString());
+                System.out.println();
+                i++;
+            }
         }
 
         if (!hasFreeTime(user)) {

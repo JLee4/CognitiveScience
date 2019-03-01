@@ -1,6 +1,8 @@
 package schemas;
 
 import java.time.Duration;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -154,5 +156,46 @@ public class Film extends Media {
 
     public void setCast(Cast cast) {
         this.cast = cast;
+    }
+
+    @Override
+    public String toString() {
+        return
+            "\nName: " + getName() +
+            "\nLanguage: " + getLanguage() +
+            "\nDuration: " + LocalTime.MIDNIGHT.plus(getLength()).format(DateTimeFormatter.ofPattern("HH:mm")) + //This is really hacky btw
+            "\nRating: " + getRating().name() +
+            "\nAge Rating: " + getAgeRating().name() +
+            "\nGenre: " + getGenre().name() +
+            "\nGore Amount: " + getGoreAmount().name() +
+            "\nAtmosphere: " + getAtmosphere() +
+            "\nMovie Age: " + getAge().name() +
+            "\nSummary: " +
+            "\n    Words: " + getSummary().getSummaryWordLength() +
+            "\n    Comprehensive: " + getSummary().getComprehensive().name() +
+            "\n    Hook Quality: " + getSummary().getHookLevel().name() +
+            "\n    Reading Difficulty: " + getSummary().getReadingDifficulty().name() +
+            "\nCover Photo: " +
+            "\n    Complexity: " + getCoverPhoto().getComplexity().name() +
+            "\n    Relation to Movie: " + getCoverPhoto().getMovieRelation().name() +
+            "\nCast: " +
+            "\n    Director: " + getCast().getDirector().getName() + ", Reputation: "
+                    + getCast().getDirector().getReputation().name() + ", "
+                    + getCast().getDirector().getFame() +
+            "\n    Actors: " +
+                actorsToString();
+    }
+
+    private String actorsToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (CastMember actor : getCast().getActors()) {
+            stringBuilder.append(actor.getName());
+            stringBuilder.append(", Reputation: ");
+            stringBuilder.append(actor.getReputation().name());
+            stringBuilder.append(", ");
+            stringBuilder.append(actor.getFame().name());
+            stringBuilder.append("; ");
+        }
+        return stringBuilder.toString();
     }
 }
