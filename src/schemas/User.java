@@ -1,5 +1,6 @@
 package schemas;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -179,18 +180,33 @@ public class User {
 
     @Override
     public String toString() {
+        String chosenFilmName = (chosenFilm != null) ? chosenFilm.getName() : "null";
         return
-            "User: \n" +
-            "\nMood: " + mood +
-            ",\nFree Time: " + freeTime.toString() +
-            ",\nGroup Size: " + group.getGroupSize() +
-            ",\nWith Significant Other: " + group.isWithSignificantOther() +
-            ",\nWith Family: " + group.isWithFamily() +
-            ",\nAttention: " + attention +
-            ",\nMovies Seen: [" + seenMoviesToString() +
-            "],\nUses Saved List: " + usesSavedList +
-            ",\nSaved Movies: [" + savedMoviesToString() +
-            "],\nPreferred Genres: [" + preferredGeneresToString() + "]\n";
+            "User:" +
+            "\n    Mood: " + mood +
+            ",\n    Free Time: " + freeTime.toString() +
+            ",\n    Group Size: " + group.getGroupSize() +
+            ",\n    With Significant Other: " + group.isWithSignificantOther() +
+            ",\n    With Family: " + group.isWithFamily() +
+            ",\n    Attention: " + attention +
+            ",\n    Movies Seen: [" + seenMoviesToString() +
+            "],\n    Uses Saved List: " + usesSavedList +
+            ",\n    Saved Movies: [" + savedMoviesToString() +
+            "],\n    Preferred Genres: [" + preferredGeneresToString()  +
+            ",\n    User Checks : [" + Arrays.toString(checks.toArray()) +
+            "],\n    Has Chosen Movie: " + hasChosenMovie +
+            ",\n    Chosen Film: " + chosenFilmName +
+            ",\n    Liked Actors: [" + likedActorsToString() +
+            "],\n    Minimum Rating: ";
+    }
+
+    private String likedActorsToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (CastMember actor : likedActors) {
+            stringBuilder.append(actor.getName());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
     }
 
     private String seenMoviesToString() {

@@ -171,6 +171,10 @@ public class Film extends Media {
             "\nGore Amount: " + getGoreAmount().name() +
             "\nAtmosphere: " + getAtmosphere() +
             "\nMovie Age: " + getAge().name() +
+            "\nMovie Categories: " + categoriesToString() +
+            "\nPreview: " +
+            "\n    Duration: " + LocalTime.MIDNIGHT.plus(getPreview().getLength()).format(DateTimeFormatter.ofPattern("HH:mm")) +
+            "\n    Appeal: " + getPreview().getAppeal().getAppealLevel().toString() +
             "\nSummary: " +
             "\n    Words: " + getSummary().getSummaryWordLength() +
             "\n    Comprehensive: " + getSummary().getComprehensive().name() +
@@ -184,8 +188,7 @@ public class Film extends Media {
             "\n    Director: " + getCast().getDirector().getName() + ", Reputation: "
                     + getCast().getDirector().getReputation().name() + ", "
                     + getCast().getDirector().getFame() +
-            "\n    Actors: " +
-                actorsToString();
+            "\n    Actors: " + actorsToString();
     }
 
     private String actorsToString() {
@@ -205,6 +208,15 @@ public class Film extends Media {
         StringBuilder stringBuilder = new StringBuilder();
         for (CastMember actor : getCast().getActors()) {
             stringBuilder.append(actor.getName());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
+    public String categoriesToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (StreamingCategory category : categories) {
+            stringBuilder.append(category.name());
             stringBuilder.append(", ");
         }
         return stringBuilder.toString();
