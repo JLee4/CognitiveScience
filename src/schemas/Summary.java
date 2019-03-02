@@ -11,9 +11,9 @@ public class Summary {
     }
     //Represents how well the summary can hook a user into watching the movie
     public enum Hook {
-        GOOD,
         BAD,
-        OKAY
+        OKAY,
+        GOOD
     }
     public enum ReadingDifficulty {
         ELEMENTARY_LEVEL,

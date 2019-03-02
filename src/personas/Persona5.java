@@ -29,6 +29,6 @@ public class Persona5 extends Persona {
         preferredGenres.add(Genre.ACTION);
         preferredGenres.add(Genre.THRILLER);
 
-        return new User(User.Mood.CATHARTIC, new FreeTime(5, 0), new Group(1, false, false), User.Attention.FULL,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
+        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1, false, false), User.Attention.FULL,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>(), 3);
     }
 }

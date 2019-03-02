@@ -1,9 +1,13 @@
 package schemas;
 
 public enum Rating {
-    FIVE_STARS,
-    FOUR_STARS,
-    THREE_STARS,
+    ONE_STAR,
     TWO_STARS,
-    ONE_STAR
+    THREE_STARS,
+    FOUR_STARS,
+    FIVE_STARS;
+
+    public int getRatingLevel() {
+        return ordinal() + 1;
+    }
 }

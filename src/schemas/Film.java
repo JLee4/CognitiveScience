@@ -176,7 +176,8 @@ public class Film extends Media {
             "\n    Reading Difficulty: " + getSummary().getReadingDifficulty().name() +
             "\nCover Photo: " +
             "\n    Complexity: " + getCoverPhoto().getComplexity().name() +
-            "\n    Relation to Movie: " + getCoverPhoto().getMovieRelation().name() +
+            "\n    Iconography: " + getCoverPhoto().getIconography().name() +
+            "\n    Appeal Level: " + getCoverPhoto().getAppeal().toString() +
             "\nCast: " +
             "\n    Director: " + getCast().getDirector().getName() + ", Reputation: "
                     + getCast().getDirector().getReputation().name() + ", "
@@ -194,6 +195,15 @@ public class Film extends Media {
             stringBuilder.append(", ");
             stringBuilder.append(actor.getFame().name());
             stringBuilder.append("; ");
+        }
+        return stringBuilder.toString();
+    }
+
+    public String actorNamesToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (CastMember actor : getCast().getActors()) {
+            stringBuilder.append(actor.getName());
+            stringBuilder.append(", ");
         }
         return stringBuilder.toString();
     }

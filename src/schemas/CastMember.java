@@ -1,5 +1,7 @@
 package schemas;
 
+import java.util.Objects;
+
 public class CastMember {
 
     public enum CastType {
@@ -64,5 +66,16 @@ public class CastMember {
 
     public void setFame(Fame fame) {
         this.fame = fame;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CastMember)) return false;
+        CastMember that = (CastMember) o;
+        return Objects.equals(getName(), that.getName()) &&
+                getCastType() == that.getCastType() &&
+                getReputation() == that.getReputation() &&
+                getFame() == that.getFame();
     }
 }

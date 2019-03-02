@@ -1,5 +1,4 @@
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import personas.Persona1;
@@ -8,12 +7,8 @@ import personas.Persona3;
 import personas.Persona4;
 import personas.Persona5;
 import personas.PopulateMovies;
-import schemas.CastMember;
-import schemas.CoverPhoto;
 import schemas.Film;
 import schemas.Genre;
-import schemas.Rating;
-import schemas.Summary;
 import schemas.User;
 
 import static java.lang.System.exit;
@@ -64,11 +59,49 @@ class Executive {
         }
 
         if (!hasFreeTime()) {
-            System.out.println("I don't have enough free time to watch a movie....");
+            System.out.println("I don't have enough free time to even choose a movie....");
             exit(0);
         }
 
-        if (user.getGroup().getGroupSize() > 1 && !user.getGroup().isWithFamily()) {
+        List<Film> categorizedMovies = new ArrayList<>();
+        if (user.getChecks().contains(User.Checks.FEATURED_MOVIES)) {
+            System.out.println("I'll check out the featured movies for something to watch.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getCategories().contains(Film.StreamingCategory.FEATURED)) {
+                    categorizedMovies.add(movie);
+                }
+            }
+        }
+
+        if (user.getChecks().contains(User.Checks.RECOMMENDED_MOVIES)) {
+            System.out.println("I'll check out the recommended movies for something to watch.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (!movie.getCategories().contains(Film.StreamingCategory.RECOMMENDED)) {
+                    categorizedMovies.add(movie);
+                }
+            }
+        }
+
+        if (user.getChecks().contains(User.Checks.NEW_MOVIES)) {
+            System.out.println("I'll check out the new movies for something to watch.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (!movie.getCategories().contains(Film.StreamingCategory.NEW)) {
+                    categorizedMovies.add(movie);
+                }
+            }
+        }
+
+        if (!categorizedMovies.isEmpty()) {
+            movies = categorizedMovies;
+        }
+
+        if (user.getGroup().getGroupSize() > 2 && !user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with friends, I'll choose a comedy or a horror.");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
@@ -174,71 +207,61 @@ class Executive {
             System.out.println("My mood is like usual, I don't need to watch anything to change my mood. I'll just stick with my favorite genres");
         }
 
+        noMoviesCheck();
+        for (Film movie : movies) {
+            if (user.getChecks().contains(User.Checks.COVER_PHOTO)) {
+                if (movie.getCoverPhoto().getAppeal().getLevel() > 0) {
+                    System.out.println(movie.getName() + "'s cover photo is neat.");
+                    user.setChosenFilm(movie);
+                }
+            }
 
+            if (user.getChecks().contains(User.Checks.PREVIEW)) {
+                if (movie.getPreview().getAppeal().getLevel() > 0) {
+                    System.out.println("The preview is good.");
+                    user.setChosenFilm(movie);
+                }
+            }
+
+            if (user.getChecks().contains(User.Checks.SUMMARY)) {
+                if (movie.getSummary().getHookLevel().ordinal() > 0) {
+                    System.out.println("Summary is interesting too.");
+                    user.setChosenFilm(movie);
+                }
+            }
+
+            if (user.getChecks().contains(User.Checks.RATING)) {
+                if (movie.getRating().getRatingLevel() >= user.getMinimumRating()) {
+                    System.out.println("People seem to rate " + movie.getName() + " well.;");
+                    user.setChosenFilm(movie);
+                }
+            }
+
+            if (user.getChecks().contains(User.Checks.CAST)) {
+                if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
+                    System.out.println("I like the actors in " + movie.getName());
+                }
+            }
+        }
+        noMoviesCheck();
+        System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty good.");
+
+        //TODO: So I’m thinking if the user uses the saved list of movies then we can create a scenario where the user
+        // has saved the movie they were watching for later because they didn’t have enough free time then we can output
+        // that some time has passed and the user wants to continue
+//        if (user.usesSavedList() && user.getFreeTime().getHours() < 2 && user.hasChosenMovie()) {
+//            System.out.println("I don't have time to watch all of " + user.getChosenFilm().getName() + " so I'll add it to my saved list");
+//        }
     }
 
     private static boolean hasFreeTime() {
-        return user.getFreeTime().getHours() != 0 && user.getFreeTime().getMinutes() != 0;
+        return user.getFreeTime().getHours() != 0 && (user.getFreeTime().getHours() != 0 || user.getFreeTime().getMinutes() != 0);
     }
 
-    private static void chooseMovieBasedOnRecommendation() {
-        // the system will isolate movies that align with the constraints
-        // printed below based on recommendation
-
-    }
-    
-    private static void chooseMovieBasedOnMood() {
-        // based on mood the system will isolate the movies 
-        // that align with the constraints printed below
-        if (user.getMood() == User.Mood.HAPPY) {
-            System.out.println("Watch a comedy or rom-com movie");
-        } else if (user.getMood() == User.Mood.SAD) {
-             System.out.println("Watch a drama movie");
-        }  else if (user.getMood() == User.Mood.STRESSED) {
-             System.out.println("Watch a comedy or action movie");
-        } 
-    }               
-
-    private static void chooseMovieBasedOnRating(Film film) {
-        // the system will isolate movies that align with the constraints
-        // printed below based on Rating
-        if (film.getRating() == Rating.THREE_STARS || film.getRating() == Rating.TWO_STARS || film.getRating() == Rating.ONE_STAR) {
-            System.out.println("Movies with 1, 2 or 3 stars will be eliminated from potential watch list.");
+    private static void noMoviesCheck() {
+        if (!user.hasChosenMovie()) {
+            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.");
+            exit(0);
         }
-    }
-                   
-    private static void chooseMovieBasedOnSummary(Film film) {
-        // the system will isolate movies that align with the constraints
-        // printed below based on the Summary
-        if (film.getSummary().getHookLevel() == Summary.Hook.BAD) {
-            System.out.println("movie with a bad hook will be eliminated from potential watch list.");
-        } 
-    }
-                   
-    private static void chooseMovieBasedOnCastMember(CastMember castMember) {
-        // the system will isolate movies that align with the constraints
-        // printed below based on the Cast Member
-        if (castMember.getReputation() == CastMember.Reputation.BAD || castMember.getReputation() == CastMember.Reputation.AWFUL) {
-            System.out.println("a movie that has a cast member whose reputation is bad or awful will be eliminate from potential watch list.");
-        }
-    }
-    
-    private static void chooseMovieBasedOnCoverPhoto(CoverPhoto coverPhoto) {
-        // the system will isolate movies that align with the constraints
-        // printed below based on the Cover Photo
-        if (coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_ACTORS|| coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT 
-                    || coverPhoto.getMovieRelation() == CoverPhoto.MovieRelation.REVEALS_PLOT_ACTORS) {
-            System.out.println("a movie that has a coverphoto that does not reveal attractive actors will be eliminated from potential watch list.");
-            System.out.println("DISCLAIMER: attraction is subjective!");
-        }
-        
-    }
-
-    private static void addMovieToSavedList() {
-
-    }
-
-    private static void chooseMovieBasedOnSavedList() {
-
     }
 }

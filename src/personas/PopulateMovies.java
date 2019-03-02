@@ -1,18 +1,16 @@
 package personas;
 
 import java.time.Duration;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import schemas.AgeRating;
+import schemas.Appeal;
 import schemas.Cast;
 import schemas.CastMember;
 import schemas.CoverPhoto;
 import schemas.Film;
 import schemas.Genre;
 import schemas.GoreAmount;
-import schemas.Media;
 import schemas.MediaType;
 import schemas.Preview;
 import schemas.Rating;
@@ -25,10 +23,10 @@ public class PopulateMovies {
         //Coco
         Film coco = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
                 Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
-                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.MovieRelation.REVEALS_PLOT),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
                         CastMember.Fame.B_LIST)));
         coco.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));
@@ -39,10 +37,10 @@ public class PopulateMovies {
         //Use this as a template for more movie objects (i.e. replace the field with another movie)
         Film template = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
                 Rating.FOUR_STARS, AgeRating.PG, Genre.ANIMATED, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
-                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60)),
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.MovieRelation.REVEALS_PLOT),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
                         CastMember.Fame.B_LIST)));
         template.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));

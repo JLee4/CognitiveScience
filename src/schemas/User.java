@@ -12,18 +12,22 @@ public class User {
         BORED
     }
 
-    public enum Attention { //TODO: pull this out and make it a class with preferred genres on the level of attention
+    public enum Attention {
         LITTLE,
         MEDIUM,
         FULL
     }
 
-    //Determines whether or not the user checks this element of the movie
+    //Determines whether or not the user checks this streaming category or element of the movie
     public enum Checks {
         PREVIEW,
+        RATING,
         COVER_PHOTO,
         SUMMARY,
-        CAST
+        CAST,
+        FEATURED_MOVIES,
+        NEW_MOVIES,
+        RECOMMENDED_MOVIES
     }
 
     private Mood mood;
@@ -33,11 +37,14 @@ public class User {
     private List<Film> seenMovies;
     private boolean usesSavedList;
     private List<Film> savedMovies;
-    //private Film currentFilm;
     private List<Genre> preferredGenres;
     private List<Checks> checks;
+    private boolean hasChosenMovie;
+    private Film chosenFilm;
+    private List<CastMember> likedActors;
+    private int minimumRating;
 
-    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies, boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks) {
+    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies, boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks, int minimumRating) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.group = group;
@@ -47,6 +54,8 @@ public class User {
         this.savedMovies = savedMovies;
         this.preferredGenres = preferredGenres;
         this.checks = checks;
+        this.hasChosenMovie = false;
+        this.minimumRating = minimumRating;
     }
 
     public Mood getMood() {
@@ -105,16 +114,12 @@ public class User {
         this.seenMovies = seenMovies;
     }
 
-    public boolean isUsesSavedList() {
+    public boolean usesSavedList() {
         return usesSavedList;
     }
 
     public void setUsesSavedList(boolean usesSavedList) {
         this.usesSavedList = usesSavedList;
-    }
-
-    public void setsavedMovies(List<Film> savedMovies) {
-        this.savedMovies = savedMovies;
     }
 
     public List<Genre> getPreferredGenres() {
@@ -123,6 +128,50 @@ public class User {
 
     public void setPreferredGenres(List<Genre> preferredGenres) {
         this.preferredGenres = preferredGenres;
+    }
+
+    public void setSavedMovies(List<Film> savedMovies) {
+        this.savedMovies = savedMovies;
+    }
+
+    public List<Checks> getChecks() {
+        return checks;
+    }
+
+    public void setChecks(List<Checks> checks) {
+        this.checks = checks;
+    }
+
+    public boolean hasChosenMovie() {
+        return hasChosenMovie;
+    }
+
+    public void setHasChosenMovie(boolean hasChosenMovie) {
+        this.hasChosenMovie = hasChosenMovie;
+    }
+
+    public Film getChosenFilm() {
+        return chosenFilm;
+    }
+
+    public void setChosenFilm(Film currentFilm) {
+        this.chosenFilm = currentFilm;
+    }
+
+    public List<CastMember> getLikedActors() {
+        return likedActors;
+    }
+
+    public void setLikedActors(List<CastMember> LikedActors) {
+        this.likedActors = LikedActors;
+    }
+
+    public int getMinimumRating() {
+        return minimumRating;
+    }
+
+    public void setMinimumRating(int minimumRating) {
+        this.minimumRating = minimumRating;
     }
 
     @Override
@@ -161,9 +210,9 @@ public class User {
 
     public String preferredGeneresToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < preferredGenres.size() - 1; i++) {
+        for (int i = 0; i < preferredGenres.size(); i++) {
             Genre genre = preferredGenres.get(i);
-            if (i == preferredGenres.size() - 2) {
+            if (i == preferredGenres.size() - 1 && preferredGenres.size() != 1) {
                 stringBuilder.append("or ");
                 stringBuilder.append(genre.name());
             } else {

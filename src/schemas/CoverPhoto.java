@@ -8,19 +8,21 @@ public class CoverPhoto {
         MEDIUM,
         COMPLEX
     }
-    public enum MovieRelation {
+    public enum Iconography {
+        REVEALS_THEME,
         REVEALS_ACTORS,
-        REVEALS_ATTRACTIVE_ACTORS,
         REVEALS_PLOT,
         REVEALS_PLOT_ACTORS
     }
 
     private Complexity complexity;
-    private MovieRelation movieRelation;
+    private Iconography iconography;
+    private Appeal appeal;
 
-    public CoverPhoto(Complexity complexity, MovieRelation movieRelation) {
+    public CoverPhoto(Complexity complexity, Iconography iconography, Appeal appeal) {
         this.complexity = complexity;
-        this.movieRelation = movieRelation;
+        this.iconography = iconography;
+        this.appeal = appeal;
     }
 
     public Complexity getComplexity() {
@@ -31,11 +33,19 @@ public class CoverPhoto {
         this.complexity = complexity;
     }
 
-    public MovieRelation getMovieRelation() {
-        return movieRelation;
+    public Iconography getIconography() {
+        return iconography;
     }
 
-    public void setMovieRelation(MovieRelation movieRelation) {
-        this.movieRelation = movieRelation;
+    public void setIconography(Iconography iconography) {
+        this.iconography = iconography;
+    }
+
+    public Appeal getAppeal() {
+        return appeal;
+    }
+
+    public void setAppeal(Appeal appeal) {
+        this.appeal = appeal;
     }
 }
