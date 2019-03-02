@@ -1,5 +1,6 @@
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.List;
 import personas.Persona1;
 import personas.Persona2;
@@ -10,6 +11,7 @@ import personas.PopulateMovies;
 import schemas.CastMember;
 import schemas.CoverPhoto;
 import schemas.Film;
+import schemas.Genre;
 import schemas.Rating;
 import schemas.Summary;
 import schemas.User;
@@ -61,31 +63,50 @@ class Executive {
             }
         }
 
-        if (!hasFreeTime(user)) {
+        if (!hasFreeTime()) {
             System.out.println("I don't have enough free time to watch a movie....");
             exit(0);
         }
 
+        //If with friends but not family
+        if (user.getGroup().getGroupSize() > 1 && !user.getGroup().isWithFamily()) {
+            System.out.println("Since I'm with friends, I'll choose a comedy or a horror.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.HORROR) {
+                    iterator.remove();
+                }
+            }
+        }
 
-    }
+        if (user.getGroup().getGroupSize() == 1) {
+            System.out.println("Since I'm alone, I will choose a " + user.preferredGeneresToString() + " movie");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.HORROR) {
+                    iterator.remove();
+                }
+            }
+        }
 
-    private static boolean hasFreeTime(User user) {
-        return user.getFreeTime() != User.FreeTime.NONE;
-    }
+        if (user.getAttention() == User.Attention.LITTLE) {
 
-    private static void chooseMovieBasedOnGroupSize(User user) {
-        if (user.getGroup().getGroupSize() != 1) {
-            System.out.println("Watch a comedy or horror movie");
         }
     }
 
-    private static void chooseMovieBasedOnRecommendation(User user) {
+    private static boolean hasFreeTime() {
+        return user.getFreeTime().getHours() != 0 && user.getFreeTime().getMinutes() != 0;
+    }
+
+    private static void chooseMovieBasedOnRecommendation() {
         // the system will isolate movies that align with the constraints
         // printed below based on recommendation
         
     }
 
-    private static void chooseMovieBasedOnAttention(User user) {
+    private static void chooseMovieBasedOnAttention() {
         // based on attention level the system will isolate the movies 
         // that align with the constraints printed below
         if (user.getAttention() == User.Attention.LITTLE) {
@@ -95,7 +116,7 @@ class Executive {
         }
     }
     
-    private static void chooseMovieBasedOnPreferredGenre(User user) {
+    private static void chooseMovieBasedOnPreferredGenre() {
         // based on the preferred genres of the user the system will 
         // isolate the movies that align with the constraints printed below
         if (user.getPreferredGenre().contains("Comedy")) {
@@ -107,7 +128,7 @@ class Executive {
         }
     }
     
-    private static void chooseMovieBasedOnMood(User user) {
+    private static void chooseMovieBasedOnMood() {
         // based on mood the system will isolate the movies 
         // that align with the constraints printed below
         if (user.getMood() == User.Mood.HAPPY) {
@@ -154,11 +175,11 @@ class Executive {
         
     }
 
-    private static void addMovieToSavedList(User user) {
+    private static void addMovieToSavedList() {
 
     }
 
-    private static void chooseMovieBasedOnSavedList(User user) {
+    private static void chooseMovieBasedOnSavedList() {
 
     }
 }

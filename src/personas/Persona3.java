@@ -10,19 +10,20 @@ package personas;
 
 import java.util.ArrayList;
 import java.util.List;
-import schemas.Film;
+import schemas.FreeTime;
+import schemas.Genre;
 import schemas.Group;
 import schemas.User;
 
 public class Persona3 extends Persona {
 
     public static User createUser() {
-        List<String> preferredGenres = new ArrayList<>();
-        preferredGenres.add("COMEDY");
-        preferredGenres.add("ROMCOM");
-        preferredGenres.add("ACTION");
-        preferredGenres.add("HORROR");
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ACTION);
+        preferredGenres.add(Genre.HORROR);
 
-        return new User(User.Mood.SAD, User.FreeTime.THREE_HOURS, new Group(1, false, false), User.Attention.MEDIUM,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
+        return new User(User.Mood.SAD, new FreeTime(3, 0), new Group(1, false, false), User.Attention.MEDIUM,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
     }
 }

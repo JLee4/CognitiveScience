@@ -1,6 +1,5 @@
 package schemas;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -12,15 +11,8 @@ public class User {
         STRESSED,
         CATHARTIC
     }
-    public enum FreeTime {
-        NONE,
-        ONE_HOUR,
-        TWO_HOURS,
-        THREE_HOURS,
-        MORE_THAN_THREE_HOURS
-    }
 
-    public enum Attention {
+    public enum Attention { //TODO: pull this out and make it a class with preferred genres on the level of attention
         LITTLE,
         MEDIUM,
         FULL
@@ -42,10 +34,10 @@ public class User {
     private boolean usesSavedList;
     private List<Film> savedMovies;
     //private Film currentFilm;
-    private List<String> preferredGenres;
+    private List<Genre> preferredGenres;
     private List<Checks> checks;
 
-    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies, boolean usesSavedList, List<Film> savedMovies, List<String> preferredGenres, List<Checks> checks) {
+    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies, boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.group = group;
@@ -97,11 +89,11 @@ public class User {
         seenMovies.add(seenMovie);
     }
 
-    public void addPreferredGenre(String preferredGenre) {
+    public void addPreferredGenre(Genre preferredGenre) {
         preferredGenres.add(preferredGenre);
     }
     
-    public List<String> getPreferredGenre() {
+    public List<Genre> getPreferredGenre() {
         return preferredGenres;
     }
 
@@ -129,11 +121,11 @@ public class User {
         this.savedMovies = savedMovies;
     }
 
-    public List<String> getPreferredGenres() {
+    public List<Genre> getPreferredGenres() {
         return preferredGenres;
     }
 
-    public void setPreferredGenres(List<String> preferredGenres) {
+    public void setPreferredGenres(List<Genre> preferredGenres) {
         this.preferredGenres = preferredGenres;
     }
 
@@ -142,7 +134,7 @@ public class User {
         return
             "User: \n" +
             "\nMood: " + mood +
-            ",\nFree Time: " + freeTime +
+            ",\nFree Time: " + freeTime.toString() +
             ",\nGroup Size: " + group.getGroupSize() +
             ",\nWith Significant Other: " + group.isWithSignificantOther() +
             ",\nWith Family: " + group.isWithFamily() +
@@ -171,11 +163,17 @@ public class User {
         return stringBuilder.toString();
     }
 
-    private String preferredGeneresToString() {
+    public String preferredGeneresToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (String genre : preferredGenres) {
-            stringBuilder.append(genre);
-            stringBuilder.append(", ");
+        for (int i = 0; i < preferredGenres.size() - 1; i++) {
+            Genre genre = preferredGenres.get(i);
+            if (i == preferredGenres.size() - 2) {
+                stringBuilder.append("or ");
+                stringBuilder.append(genre.name());
+            } else {
+                stringBuilder.append(genre.name());
+                stringBuilder.append(", ");
+            }
         }
         return stringBuilder.toString();
     }

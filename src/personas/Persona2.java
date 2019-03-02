@@ -13,19 +13,21 @@ package personas;
 import java.util.ArrayList;
 import java.util.List;
 import schemas.Film;
+import schemas.FreeTime;
+import schemas.Genre;
 import schemas.Group;
 import schemas.User;
 
 public class Persona2 extends Persona {
 
     public static User createUser() {
-        List<String> preferredGenres = new ArrayList<>();
-        preferredGenres.add("COMEDY");
-        preferredGenres.add("ROMCOM");
-        preferredGenres.add("DRAMA");
-        preferredGenres.add("ACTION");
-        preferredGenres.add("THRILLER");
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.DRAMA);
+        preferredGenres.add(Genre.ACTION);
+        preferredGenres.add(Genre.THRILLER);
 
-        return new User(User.Mood.CATHARTIC, User.FreeTime.TWO_HOURS, new Group(1, false, false), User.Attention.FULL, new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
+        return new User(User.Mood.CATHARTIC, new FreeTime(2, 0), new Group(1, false, false), User.Attention.FULL, new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
     }
 }

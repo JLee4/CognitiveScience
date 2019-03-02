@@ -4,22 +4,25 @@ package personas;
 
 // Persona 1 cares about MOOD and GENRE of a potential movie. 
 
-// Persona 1 does not care about low-level aspects such as RATING and PLOT SUMMARY
+// Persona 1 does looks at the cover photo but only that
 
 // Persona 1 is typically in a "happy" mood and enjoys the genres "comedy" and "drama".
 
 import java.util.ArrayList;
 import java.util.List;
-import schemas.Film;
+import schemas.FreeTime;
+import schemas.Genre;
 import schemas.Group;
 import schemas.User;
 
 public class Persona1 extends Persona {
 
     public static User createUser() {
-        List<String> preferredGenres = new ArrayList<>();
-        preferredGenres.add("COMEDY");
-        preferredGenres.add("DRAMA");
-        return new User(User.Mood.HAPPY, User.FreeTime.TWO_HOURS, new Group(1, false, false), User.Attention.MEDIUM, new ArrayList<>(), false, null, preferredGenres, new ArrayList<>());
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.DRAMA);
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO); //TODO: add this for all personas
+        return new User(User.Mood.HAPPY, new FreeTime(2, 0), new Group(1, false, false), User.Attention.MEDIUM, new ArrayList<>(), false, null, preferredGenres, checks);
     }
 }
