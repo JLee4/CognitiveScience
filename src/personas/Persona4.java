@@ -23,6 +23,6 @@ public class Persona4 extends Persona {
         preferredGenres.add(Genre.COMEDY);
         preferredGenres.add(Genre.ROMANTIC_COMEDY);
 
-        return new User(User.Mood.BORED, new FreeTime(2, 0), new Group(6, false, false), User.Attention.LITTLE,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>(), 3);
+        return new User(User.Mood.BORED, new FreeTime(2, 0), new Group(6, false, false), User.Attention.LITTLE,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>(), 3, null);
     }
 }

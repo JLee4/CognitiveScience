@@ -207,12 +207,14 @@ class Executive {
             System.out.println("My mood is like usual, I don't need to watch anything to change my mood. I'll just stick with my favorite genres");
         }
 
-        noMoviesCheck();
         for (Film movie : movies) {
             if (user.getChecks().contains(User.Checks.COVER_PHOTO)) {
                 if (movie.getCoverPhoto().getAppeal().getLevel() > 0) {
                     System.out.println(movie.getName() + "'s cover photo is neat.");
                     user.setChosenFilm(movie);
+                } else {
+                    System.out.println(movie.getName() + "'s cover photo looks bad.");
+                    continue;
                 }
             }
 
@@ -220,6 +222,9 @@ class Executive {
                 if (movie.getPreview().getAppeal().getLevel() > 0) {
                     System.out.println("The preview is good.");
                     user.setChosenFilm(movie);
+                } else {
+                    System.out.println("Preview was " + movie.getPreview().getAppeal().toString());
+                    user.setChosenFilm(null);
                 }
             }
 
@@ -227,6 +232,9 @@ class Executive {
                 if (movie.getSummary().getHookLevel().ordinal() > 0) {
                     System.out.println("Summary is interesting too.");
                     user.setChosenFilm(movie);
+                } else {
+                    System.out.println("The summary is just not good.");
+                    user.setChosenFilm(null);
                 }
             }
 
@@ -234,17 +242,27 @@ class Executive {
                 if (movie.getRating().getRatingLevel() >= user.getMinimumRating()) {
                     System.out.println("People seem to rate " + movie.getName() + " well.;");
                     user.setChosenFilm(movie);
+                } else {
+                    System.out.println(movie.getName() + " is rated too low.");
+                    user.setChosenFilm(null);
                 }
             }
 
             if (user.getChecks().contains(User.Checks.CAST)) {
                 if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
                     System.out.println("I like the actors in " + movie.getName());
+                } else {
+                    System.out.println("I don't like the actors.");
+                    user.setChosenFilm(null);
                 }
             }
+            if (user.getChosenFilm() != null) {
+                user.setHasChosenMovie(true);
+                break;
+            } else {
+                System.out.println("There's probably something better than " + movie.getName());
+            }
         }
-        noMoviesCheck();
-        System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty good.");
 
         //TODO: So I’m thinking if the user uses the saved list of movies then we can create a scenario where the user
         // has saved the movie they were watching for later because they didn’t have enough free time then we can output
@@ -252,16 +270,15 @@ class Executive {
 //        if (user.usesSavedList() && user.getFreeTime().getHours() < 2 && user.hasChosenMovie()) {
 //            System.out.println("I don't have time to watch all of " + user.getChosenFilm().getName() + " so I'll add it to my saved list");
 //        }
+
+        if (user.hasChosenMovie()) {
+            System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining.");
+        } else {
+            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.");
+        }
     }
 
     private static boolean hasFreeTime() {
         return user.getFreeTime().getHours() != 0 && (user.getFreeTime().getHours() != 0 || user.getFreeTime().getMinutes() != 0);
-    }
-
-    private static void noMoviesCheck() {
-        if (!user.hasChosenMovie()) {
-            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.");
-            exit(0);
-        }
     }
 }

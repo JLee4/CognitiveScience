@@ -45,7 +45,9 @@ public class Film extends Media {
     private CoverPhoto coverPhoto;
     private Cast cast;
 
-    public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating, Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary, CoverPhoto coverPhoto, Cast cast) {
+    public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating,
+                Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary,
+                CoverPhoto coverPhoto, Cast cast) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;

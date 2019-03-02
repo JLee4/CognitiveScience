@@ -44,7 +44,9 @@ public class User {
     private List<CastMember> likedActors;
     private int minimumRating;
 
-    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies, boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks, int minimumRating) {
+    public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies,
+                boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks,
+                int minimumRating, List<CastMember> likedActors) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.group = group;
@@ -56,6 +58,7 @@ public class User {
         this.checks = checks;
         this.hasChosenMovie = false;
         this.minimumRating = minimumRating;
+        this.likedActors = likedActors;
     }
 
     public Mood getMood() {
