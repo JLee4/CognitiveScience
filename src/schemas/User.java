@@ -223,6 +223,6 @@ public class User {
                 stringBuilder.append(", ");
             }
         }
-        return stringBuilder.toString();
+        return stringBuilder.toString().toLowerCase();
     }
 }

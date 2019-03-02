@@ -46,6 +46,6 @@ public class Appeal {
 
     @Override
     public String toString() {
-        return appealLevel.name();
+        return appealLevel.name().toLowerCase();
     }
 }
