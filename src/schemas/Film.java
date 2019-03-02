@@ -28,7 +28,6 @@ public class Film extends Media {
         CHAOTIC,
         MELANCHOLIC,
         MYSTERIOUS,
-        ROMANTIC,
         OFFENSIVE,
         GRIM
     }

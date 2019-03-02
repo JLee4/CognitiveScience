@@ -9,7 +9,7 @@ public class User {
         SAD,
         HAPPY,
         STRESSED,
-        CATHARTIC
+        BORED
     }
 
     public enum Attention { //TODO: pull this out and make it a class with preferred genres on the level of attention
@@ -91,10 +91,6 @@ public class User {
 
     public void addPreferredGenre(Genre preferredGenre) {
         preferredGenres.add(preferredGenre);
-    }
-    
-    public List<Genre> getPreferredGenre() {
-        return preferredGenres;
     }
 
     public List<Film> getSavedMovies() {

@@ -2,6 +2,7 @@ package schemas;
 
 public enum Genre {
     COMEDY,
+    ROMANTIC,
     ROMANTIC_COMEDY,
     DRAMA,
     ACTION,
@@ -9,5 +10,6 @@ public enum Genre {
     THRILLER,
     FANTASY,
     SCIFI,
-    ANIMATED
+    ANIMATED,
+    DOCUMENTARY
 }

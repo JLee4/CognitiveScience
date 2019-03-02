@@ -68,32 +68,113 @@ class Executive {
             exit(0);
         }
 
-        //If with friends but not family
         if (user.getGroup().getGroupSize() > 1 && !user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with friends, I'll choose a comedy or a horror.");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.HORROR) {
+                if (movie.getGenre() != Genre.COMEDY && movie.getGenre() != Genre.HORROR) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getGroup().getGroupSize() > 1 && user.getGroup().isWithFamily()) {
+            System.out.println("Since I'm with family, I will choose a movie with less dark themes.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() == Film.Atmosphere.OFFENSIVE || movie.getAtmosphere() == Film.Atmosphere.GRIM || movie.getAtmosphere() == Film.Atmosphere.MELANCHOLIC) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getGroup().getGroupSize() == 2 && user.getGroup().isWithSignificantOther()) {
+            System.out.println("Since I'm with my significant other, I will choose a romantic movie.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getGenre() != Genre.ROMANTIC_COMEDY && movie.getGenre() != Genre.ROMANTIC) {
                     iterator.remove();
                 }
             }
         }
 
         if (user.getGroup().getGroupSize() == 1) {
-            System.out.println("Since I'm alone, I will choose a " + user.preferredGeneresToString() + " movie");
+            System.out.println("Since I'm alone, I will prefer a " + user.preferredGeneresToString() + " movie.");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.HORROR) {
+                if (!user.getPreferredGenres().contains(movie.getGenre())) {
                     iterator.remove();
                 }
             }
         }
 
         if (user.getAttention() == User.Attention.LITTLE) {
-
+            System.out.println("I won't be paying much attention to the movie so I'll put on a lighthearted movie.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() != Film.Atmosphere.CHEERFUL && movie.getAtmosphere() != Film.Atmosphere.HUMOROUS) {
+                    iterator.remove();
+                }
+            }
         }
+
+        if (user.getMood() == User.Mood.HAPPY) {
+            System.out.println("I'm feeling happy right now, so I'll put on something romantic, lighthearted, or maybe idyllic.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() != Film.Atmosphere.CHEERFUL && movie.getAtmosphere() != Film.Atmosphere.HUMOROUS
+                        && movie.getAtmosphere() != Film.Atmosphere.IDYLLIC) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getMood() == User.Mood.BORED) {
+            System.out.println("I'm feeling particularly bored. I really wanna watch something that makes me feel emotional in some way.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() != Film.Atmosphere.MELANCHOLIC) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getMood() == User.Mood.SAD) {
+            System.out.println("I feel pretty sad. I need to watch something to brighten up my day or something exciting.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() == Film.Atmosphere.MELANCHOLIC || movie.getAtmosphere() == Film.Atmosphere.MYSTERIOUS
+                        || movie.getAtmosphere() == Film.Atmosphere.OFFENSIVE || movie.getAtmosphere() == Film.Atmosphere.GRIM) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getMood() == User.Mood.STRESSED) {
+            System.out.println("I'm so stressed today, I need to watch something cathartic.");
+            Iterator<Film> iterator = movies.iterator();
+            while (iterator.hasNext()) {
+                Film movie = iterator.next();
+                if (movie.getAtmosphere() != Film.Atmosphere.IDYLLIC && movie.getAtmosphere() != Film.Atmosphere.CHEERFUL
+                        && movie.getAtmosphere() != Film.Atmosphere.HUMOROUS) {
+                    iterator.remove();
+                }
+            }
+        }
+
+        if (user.getMood() == User.Mood.USUAL) {
+            System.out.println("My mood is like usual, I don't need to watch anything to change my mood. I'll just stick with my favorite genres");
+        }
+
+
     }
 
     private static boolean hasFreeTime() {
@@ -103,29 +184,7 @@ class Executive {
     private static void chooseMovieBasedOnRecommendation() {
         // the system will isolate movies that align with the constraints
         // printed below based on recommendation
-        
-    }
 
-    private static void chooseMovieBasedOnAttention() {
-        // based on attention level the system will isolate the movies 
-        // that align with the constraints printed below
-        if (user.getAttention() == User.Attention.LITTLE) {
-            System.out.println("Watch a comedy or rom-com movie");
-        } else if (user.getAttention() == User.Attention.FULL) {
-             System.out.println("Watch a drama or action movie");
-        }
-    }
-    
-    private static void chooseMovieBasedOnPreferredGenre() {
-        // based on the preferred genres of the user the system will 
-        // isolate the movies that align with the constraints printed below
-        if (user.getPreferredGenre().contains("Comedy")) {
-            System.out.println("Watch a comedy movie");
-        } else if (user.getPreferredGenre().contains("Drama")) {
-            System.out.println("Watch a drama movie");
-        } else if (user.getPreferredGenre().contains("Horror")) {
-            System.out.println("Watch a horror movie");
-        }
     }
     
     private static void chooseMovieBasedOnMood() {
