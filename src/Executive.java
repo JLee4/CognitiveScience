@@ -120,6 +120,9 @@ class Executive {
                 if (movie.getAtmosphere() == Film.Atmosphere.OFFENSIVE || movie.getAtmosphere() == Film.Atmosphere.GRIM || movie.getAtmosphere() == Film.Atmosphere.MELANCHOLIC) {
                     iterator.remove();
                 }
+                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.FAMILY) {
+                    iterator.remove();
+                }
             }
         }
 
@@ -218,6 +221,15 @@ class Executive {
                 }
             }
 
+            if (user.getChecks().contains(User.Checks.BOOK)) {
+                if (movie.hasBook()) {
+                    System.out.println("I've read the book for " + movie.getName());
+                    user.setChosenFilm(movie);
+                } else {
+                    System.out.println("I'm a huge reader so I wanna watch the movies of books I've read.");
+                    continue;
+                }
+            }
             if (user.getChecks().contains(User.Checks.PREVIEW)) {
                 if (movie.getPreview().getAppeal().getLevel() > 0) {
                     System.out.println("The preview is good.");

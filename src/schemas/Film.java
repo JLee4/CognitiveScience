@@ -44,10 +44,11 @@ public class Film extends Media {
     private Summary summary;
     private CoverPhoto coverPhoto;
     private Cast cast;
+    private boolean hasBook;
 
     public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating,
                 Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary,
-                CoverPhoto coverPhoto, Cast cast) {
+                CoverPhoto coverPhoto, Cast cast, boolean hasBook) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;
@@ -61,6 +62,7 @@ public class Film extends Media {
         this.summary = summary;
         this.coverPhoto = coverPhoto;
         this.cast = cast;
+        this.hasBook = hasBook;
     }
 
     public Duration getLength() {
@@ -157,6 +159,14 @@ public class Film extends Media {
 
     public void setCast(Cast cast) {
         this.cast = cast;
+    }
+
+    public boolean hasBook() {
+        return hasBook;
+    }
+
+    public void setHasBook(boolean hasBook) {
+        this.hasBook = hasBook;
     }
 
     @Override

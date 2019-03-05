@@ -28,7 +28,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
-                        CastMember.Fame.B_LIST)));
+                        CastMember.Fame.B_LIST)), false);
         coco.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));
         coco.getCast().addActor(new CastMember( "Gael Garcia Bernal",CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
         coco.getCast().addActor(new CastMember("Benjamin Bratt", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
@@ -42,7 +42,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
-                        CastMember.Fame.B_LIST)));
+                        CastMember.Fame.B_LIST)), false);
         template.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));
         template.getCast().addActor(new CastMember( "Gael Garcia Bernal",CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
         template.getCast().addActor(new CastMember("Benjamin Bratt", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));

@@ -11,5 +11,6 @@ public enum Genre {
     FANTASY,
     SCIFI,
     ANIMATED,
-    DOCUMENTARY
+    DOCUMENTARY,
+    FAMILY
 }

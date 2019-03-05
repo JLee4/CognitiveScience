@@ -28,7 +28,8 @@ public class User {
         CAST,
         FEATURED_MOVIES,
         NEW_MOVIES,
-        RECOMMENDED_MOVIES
+        RECOMMENDED_MOVIES,
+        BOOK
     }
 
     private Mood mood;
