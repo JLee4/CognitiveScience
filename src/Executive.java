@@ -19,7 +19,18 @@ class Executive {
 
     private static User user = null;
     private static List<Film> movies;
+    private static final int NUM_PERSONAS = 5;
 
+    //Overloaded method that considers is runAll is true.
+    static void executive(int persona, boolean isVerbose, boolean runAll) {
+        if (runAll) {
+            for (int i = 1; i < NUM_PERSONAS + 1; i++) {
+                executive(i, isVerbose);
+            }
+        } else {
+            executive(persona, isVerbose);
+        }
+    }
     /**
      * executive provides the overall management of the task and makes decisions on current state
      * no other method/class should call this method except main() in Main.java
@@ -28,8 +39,6 @@ class Executive {
      */
     static void executive(int persona, boolean isVerbose) {
         //TODO: add more personas
-        //TODO: add more comments on the decisions
-        //TODO: add more schemas (complex ones)
         movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:
@@ -53,7 +62,6 @@ class Executive {
         }
 
         if (isVerbose) {
-            System.out.println(user.toString() + "\n");
             int i = 1;
             for (Film movie: movies) {
                 System.out.println("Movie " + i + ":");
@@ -61,13 +69,16 @@ class Executive {
                 System.out.println();
                 i++;
             }
+            System.out.println(user.toString() + "\n");
         }
 
+        //If user doesn't have free time
         if (!hasFreeTime()) {
             System.out.println("I don't have enough free time to even choose a movie....");
             exit(0);
         }
 
+        //Narrows list of movies to only featured movies, meaning only movies seen by user are featured
         List<Film> categorizedMovies = new ArrayList<>();
         if (user.getChecks().contains(User.Checks.FEATURED_MOVIES)) {
             System.out.println("I'll check out the featured movies for something to watch.");
@@ -80,6 +91,7 @@ class Executive {
             }
         }
 
+        //Narrows list of movies to only recommended movies, meaning only movies seen by user are recommended
         if (user.getChecks().contains(User.Checks.RECOMMENDED_MOVIES)) {
             System.out.println("I'll check out the recommended movies for something to watch.");
             Iterator<Film> iterator = movies.iterator();
@@ -91,6 +103,7 @@ class Executive {
             }
         }
 
+        //Narrows list of movies to only new movies, meaning only movies seen by user are new
         if (user.getChecks().contains(User.Checks.NEW_MOVIES)) {
             System.out.println("I'll check out the new movies for something to watch.");
             Iterator<Film> iterator = movies.iterator();
@@ -106,6 +119,7 @@ class Executive {
             movies = categorizedMovies;
         }
 
+        //when the group is more than 2 (the user is not alone or with one person), the user starts looking at the horror or comedy movies
         if (user.getGroup().getGroupSize() > 2 && !user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with friends, I'll choose a comedy or a horror.");
             Iterator<Film> iterator = movies.iterator();
@@ -117,6 +131,7 @@ class Executive {
             }
         }
 
+        //If user is with family, the user avoids choosing non-family-friendly movies
         if (user.getGroup().getGroupSize() > 1 && user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with family, I will choose a movie with less dark themes.");
             Iterator<Film> iterator = movies.iterator();
@@ -131,6 +146,7 @@ class Executive {
             }
         }
 
+        //If user is only with significant other, then the user will choose something romantic
         if (user.getGroup().getGroupSize() == 2 && user.getGroup().isWithSignificantOther()) {
             System.out.println("Since I'm with my significant other, I will choose a romantic movie.");
             Iterator<Film> iterator = movies.iterator();
@@ -142,6 +158,7 @@ class Executive {
             }
         }
 
+        //If the user is alone, then they will just narrow the movies down to their preferred genres.
         if (user.getGroup().getGroupSize() == 1) {
             System.out.println("Since I'm alone, I will prefer a " + user.preferredGeneresToString() + " movie.");
             Iterator<Film> iterator = movies.iterator();
@@ -153,6 +170,7 @@ class Executive {
             }
         }
 
+        //When users don't pay much attention (e.g. background noise), they choose a lightheated movie.
         if (user.getAttention() == User.Attention.LITTLE) {
             System.out.println("I won't be paying much attention to the movie so I'll put on a lighthearted movie.");
             Iterator<Film> iterator = movies.iterator();
@@ -164,6 +182,7 @@ class Executive {
             }
         }
 
+        //If user is happy, then choose happy movies
         if (user.getMood() == User.Mood.HAPPY) {
             System.out.println("I'm feeling happy right now, so I'll put on something romantic, lighthearted, or maybe idyllic.");
             Iterator<Film> iterator = movies.iterator();
@@ -176,6 +195,7 @@ class Executive {
             }
         }
 
+        //If user is bored, then narrow to engaging movies that aren't sad
         if (user.getMood() == User.Mood.BORED) {
             System.out.println("I'm feeling particularly bored. I really wanna watch something that makes me feel emotional in some way.");
             Iterator<Film> iterator = movies.iterator();
@@ -187,6 +207,7 @@ class Executive {
             }
         }
 
+        //If user is sad, then they should decide on movies that uplifts their mood
         if (user.getMood() == User.Mood.SAD) {
             System.out.println("I feel pretty sad. I need to watch something to brighten up my day or something exciting.");
             Iterator<Film> iterator = movies.iterator();
@@ -199,6 +220,7 @@ class Executive {
             }
         }
 
+        //If user is stressed, then they will choose a happy movie
         if (user.getMood() == User.Mood.STRESSED) {
             System.out.println("I'm so stressed today, I need to watch something cathartic.");
             Iterator<Film> iterator = movies.iterator();
@@ -211,11 +233,15 @@ class Executive {
             }
         }
 
+        //If user's mood is neutral(their usual mood), then they will choose their preferred genres
         if (user.getMood() == User.Mood.USUAL) {
             System.out.println("My mood is like usual, I don't need to watch anything to change my mood. I'll just stick with my favorite genres");
         }
 
+        //Since we are done with narrowing down the movies the user will choose, the user will start choosing a movie
+        //based on cover photo, preview, etc.
         for (Film movie : movies) {
+            //User checks the cover photo
             if (user.getChecks().contains(User.Checks.COVER_PHOTO)) {
                 if (movie.getCoverPhoto().getAppeal().getLevel() > 0) {
                     System.out.println(movie.getName() + "'s cover photo is neat.");
@@ -226,8 +252,9 @@ class Executive {
                 }
             }
 
+            //User has read the book of the movie before
             if (user.getChecks().contains(User.Checks.BOOK)) {
-                if (movie.hasBook()) {
+                if (user.getReadBooks().contains(movie.getBook())) {
                     System.out.println("I've read the book for " + movie.getName());
                     user.setChosenFilm(movie);
                 } else {
@@ -235,6 +262,8 @@ class Executive {
                     continue;
                 }
             }
+
+            //User watches the preview/trailer to see if it's appealing
             if (user.getChecks().contains(User.Checks.PREVIEW)) {
                 if (movie.getPreview().getAppeal().getLevel() > 0) {
                     System.out.println("The preview is good.");
@@ -245,6 +274,7 @@ class Executive {
                 }
             }
 
+            //User reads the summary to see if the movie is interesting
             if (user.getChecks().contains(User.Checks.SUMMARY)) {
                 if (movie.getSummary().getHookLevel().ordinal() > 0) {
                     System.out.println("Summary is interesting too.");
@@ -255,6 +285,7 @@ class Executive {
                 }
             }
 
+            //User checks the rating to see if it meets the minimum movie rating they will watch.
             if (user.getChecks().contains(User.Checks.RATING)) {
                 if (movie.getRating().getRatingLevel() >= user.getMinimumRating()) {
                     System.out.println("People seem to rate " + movie.getName() + " well.;");
@@ -265,6 +296,7 @@ class Executive {
                 }
             }
 
+            //User sees if they like any of the actors in the movie
             if (user.getChecks().contains(User.Checks.LIKED_ACTORS)) {
                 if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
                     System.out.println("I like the actors in " + movie.getName());
@@ -274,8 +306,8 @@ class Executive {
                 }
             }
 
+            //User sees if there's any famous actors in the movie.
             if (user.getChecks().contains(User.Checks.ACTORS_FAME)) {
-
                 boolean hasAtLeastOneFamousActor = false;
                 for (Actor actor : movie.getCast().getActors()) {
                     if (actor.getFame() == Fame.A_LIST) {
@@ -287,11 +319,12 @@ class Executive {
                 if (hasAtLeastOneFamousActor) {
                     System.out.println("They have at least one famous actor in " + movie.getName());
                 } else {
-                    System.out.println("I don't like the actors.");
+                    System.out.println("I don't know any of the actors in " + movie.getName());
                     user.setChosenFilm(null);
                 }
             }
 
+            //User sees if they like the director
             if (user.getChecks().contains(User.Checks.DIRECTOR)) {
                 if (user.getLikedDirectors().contains(movie.getCast().getDirector())) {
                     System.out.println("Ohhh... I like the director in " + movie.getName());

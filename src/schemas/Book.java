@@ -1,5 +1,7 @@
 package schemas;
 
+import java.util.Objects;
+
 public class Book {
 
     public enum ReadingDifficulty {
@@ -82,5 +84,21 @@ public class Book {
 
     public void setReadingDifficulty(ReadingDifficulty readingDifficulty) {
         this.readingDifficulty = readingDifficulty;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Book)) return false;
+        Book book = (Book) o;
+        return getPopularityRank() == book.getPopularityRank() &&
+                getWordLength() == book.getWordLength() &&
+                Objects.equals(getName(), book.getName()) &&
+                getReadingDifficulty() == book.getReadingDifficulty();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getPopularityRank(), getWordLength(), getReadingDifficulty());
     }
 }

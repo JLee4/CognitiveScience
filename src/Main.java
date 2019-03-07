@@ -24,12 +24,17 @@ public class Main {
         // This if-else block populates the system with objects corresponding to whichever persona the user chooses.
         // Then the executive takes over and runs through the simulated task.
         int personaNum = 0;
-        try {
-            personaNum = Integer.parseInt(args[0]);
-        } catch (NumberFormatException e) {
-            System.out.println("Please input a valid persona number, you inputted a non-number");
-            exit(0);
+        boolean runAll = false;
+        if (args[0].equals("all")) {
+            runAll = true;
+        } else {
+            try {
+                personaNum = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                System.out.println("Please input a valid persona number, you inputted a non-number");
+                exit(0);
+            }
         }
-        Executive.executive(personaNum, isVerbose);
+        Executive.executive(personaNum, isVerbose, runAll);
     }
 }
