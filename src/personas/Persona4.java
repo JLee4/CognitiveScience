@@ -10,6 +10,9 @@ package personas;
 
 import java.util.List;
 import java.util.ArrayList;
+import schemas.Actor;
+import schemas.Book;
+import schemas.Director;
 import schemas.Film;
 import schemas.FreeTime;
 import schemas.Genre;
@@ -23,6 +26,16 @@ public class Persona4 extends Persona {
         preferredGenres.add(Genre.COMEDY);
         preferredGenres.add(Genre.ROMANTIC_COMEDY);
 
-        return new User(User.Mood.BORED, new FreeTime(2, 0), new Group(6, false, false), User.Attention.LITTLE,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>(), 3, null);
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.ACTORS_FAME);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.BORED, new FreeTime(2, 0), new Group(6,
+                false, false), User.Attention.LITTLE,  new ArrayList<>(),
+                false, null, preferredGenres, checks, 3, likedActors, readBooks,
+                likedDirectors);
     }
 }

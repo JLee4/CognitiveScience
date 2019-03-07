@@ -11,19 +11,7 @@ public class CastMember {
         PRODUCTION_STAFF,
         CORPORATE_STAFF
     }
-    public enum Reputation {
-        EXCELLENT,
-        GOOD,
-        NEUTRAL,
-        BAD,
-        AWFUL
-    }
-    public enum Fame {
-        A_LIST,
-        B_LIST,
-        C_LIST,
-        D_LIST
-    }
+
     private String name;
     private CastType castType;
     private Reputation reputation;

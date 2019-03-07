@@ -44,11 +44,11 @@ public class Film extends Media {
     private Summary summary;
     private CoverPhoto coverPhoto;
     private Cast cast;
-    private boolean hasBook;
+    private Book book;
 
     public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating,
                 Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary,
-                CoverPhoto coverPhoto, Cast cast, boolean hasBook) {
+                CoverPhoto coverPhoto, Cast cast, Book book) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;
@@ -62,7 +62,7 @@ public class Film extends Media {
         this.summary = summary;
         this.coverPhoto = coverPhoto;
         this.cast = cast;
-        this.hasBook = hasBook;
+        this.book = book;
     }
 
     public Duration getLength() {
@@ -162,11 +162,15 @@ public class Film extends Media {
     }
 
     public boolean hasBook() {
-        return hasBook;
+        return book != null;
     }
 
-    public void setHasBook(boolean hasBook) {
-        this.hasBook = hasBook;
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     @Override
@@ -203,7 +207,7 @@ public class Film extends Media {
 
     private String actorsToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (CastMember actor : getCast().getActors()) {
+        for (Actor actor : getCast().getActors()) {
             stringBuilder.append(actor.getName());
             stringBuilder.append(", Reputation: ");
             stringBuilder.append(actor.getReputation().name());
@@ -216,7 +220,7 @@ public class Film extends Media {
 
     public String actorNamesToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (CastMember actor : getCast().getActors()) {
+        for (Actor actor : getCast().getActors()) {
             stringBuilder.append(actor.getName());
             stringBuilder.append(", ");
         }

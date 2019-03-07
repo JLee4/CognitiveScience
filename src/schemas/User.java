@@ -25,7 +25,9 @@ public class User {
         RATING,
         COVER_PHOTO,
         SUMMARY,
-        CAST,
+        LIKED_ACTORS,
+        ACTORS_FAME,
+        DIRECTOR,
         FEATURED_MOVIES,
         NEW_MOVIES,
         RECOMMENDED_MOVIES,
@@ -43,12 +45,14 @@ public class User {
     private List<Checks> checks;
     private boolean hasChosenMovie;
     private Film chosenFilm;
-    private List<CastMember> likedActors;
+    private List<Actor> likedActors;
+    private List<Director> likedDirectors;
     private int minimumRating;
+    private List<Book> readBooks;
 
     public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies,
                 boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks,
-                int minimumRating, List<CastMember> likedActors) {
+                int minimumRating, List<Actor> likedActors, List<Book> readBooks, List<Director> likedDirectors) {
         this.mood = mood;
         this.freeTime = freeTime;
         this.group = group;
@@ -61,6 +65,8 @@ public class User {
         this.hasChosenMovie = false;
         this.minimumRating = minimumRating;
         this.likedActors = likedActors;
+        this.readBooks = readBooks;
+        this.likedDirectors = likedDirectors;
     }
 
     public Mood getMood() {
@@ -163,11 +169,11 @@ public class User {
         this.chosenFilm = currentFilm;
     }
 
-    public List<CastMember> getLikedActors() {
+    public List<Actor> getLikedActors() {
         return likedActors;
     }
 
-    public void setLikedActors(List<CastMember> LikedActors) {
+    public void setLikedActors(List<Actor> LikedActors) {
         this.likedActors = LikedActors;
     }
 
@@ -177,6 +183,22 @@ public class User {
 
     public void setMinimumRating(int minimumRating) {
         this.minimumRating = minimumRating;
+    }
+
+    public List<Book> getReadBooks() {
+        return readBooks;
+    }
+
+    public void setReadBooks(List<Book> readBooks) {
+        this.readBooks = readBooks;
+    }
+
+    public List<Director> getLikedDirectors() {
+        return likedDirectors;
+    }
+
+    public void setLikedDirectors(List<Director> likedDirectors) {
+        this.likedDirectors = likedDirectors;
     }
 
     @Override
@@ -203,7 +225,7 @@ public class User {
 
     private String likedActorsToString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (CastMember actor : likedActors) {
+        for (Actor actor : likedActors) {
             stringBuilder.append(actor.getName());
             stringBuilder.append(", ");
         }

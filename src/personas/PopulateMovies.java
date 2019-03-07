@@ -3,17 +3,22 @@ package personas;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import schemas.Actor;
 import schemas.AgeRating;
 import schemas.Appeal;
+import schemas.Book;
 import schemas.Cast;
 import schemas.CastMember;
 import schemas.CoverPhoto;
+import schemas.Director;
+import schemas.Fame;
 import schemas.Film;
 import schemas.Genre;
 import schemas.GoreAmount;
 import schemas.MediaType;
 import schemas.Preview;
 import schemas.Rating;
+import schemas.Reputation;
 import schemas.Summary;
 
 public class PopulateMovies {
@@ -27,11 +32,11 @@ public class PopulateMovies {
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
-                new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
-                        CastMember.Fame.B_LIST)), false);
-        coco.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));
-        coco.getCast().addActor(new CastMember("Gael Garcia Bernal",CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
-        coco.getCast().addActor(new CastMember("Benjamin Bratt", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
+                new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        coco.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
+        coco.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
+        coco.getCast().addActor(new Actor("Benjamin Bratt", Reputation.GOOD, Fame.B_LIST));
         movies.add(coco);
 
         //Use this as a template for more movie objects (i.e. replace the field with another movie)
@@ -41,13 +46,15 @@ public class PopulateMovies {
                 new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
-                new Cast(new CastMember("Lee Unkrich", CastMember.CastType.DIRECTOR, CastMember.Reputation.NEUTRAL,
-                        CastMember.Fame.B_LIST)), false);
-        template.getCast().addActor(new CastMember("Anthony Gonzalez", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.C_LIST));
-        template.getCast().addActor(new CastMember("Gael Garcia Bernal",CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
-        template.getCast().addActor(new CastMember("Benjamin Bratt", CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
-        movies.add(coco);
+                new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        template.setBook(new Book("example book", 100, 500, Book.ReadingDifficulty.ELEMENTARY_LEVEL));
+        template.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
+        template.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
+        template.getCast().addActor(new Actor("Benjamin Bratt", Reputation.GOOD, Fame.B_LIST));
+        //movies.add(template);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         return movies;
     }
 }

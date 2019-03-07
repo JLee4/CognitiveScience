@@ -7,6 +7,8 @@ import personas.Persona3;
 import personas.Persona4;
 import personas.Persona5;
 import personas.PopulateMovies;
+import schemas.Actor;
+import schemas.Fame;
 import schemas.Film;
 import schemas.Genre;
 import schemas.User;
@@ -260,7 +262,7 @@ class Executive {
                 }
             }
 
-            if (user.getChecks().contains(User.Checks.CAST)) {
+            if (user.getChecks().contains(User.Checks.LIKED_ACTORS)) {
                 if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
                     System.out.println("I like the actors in " + movie.getName());
                 } else {
@@ -268,6 +270,34 @@ class Executive {
                     user.setChosenFilm(null);
                 }
             }
+
+            if (user.getChecks().contains(User.Checks.ACTORS_FAME)) {
+
+                boolean hasAtLeastOneFamousActor = false;
+                for (Actor actor : movie.getCast().getActors()) {
+                    if (actor.getFame() == Fame.A_LIST) {
+                        hasAtLeastOneFamousActor = true;
+                        break;
+                    }
+                }
+
+                if (hasAtLeastOneFamousActor) {
+                    System.out.println("They have at least one famous actor in " + movie.getName());
+                } else {
+                    System.out.println("I don't like the actors.");
+                    user.setChosenFilm(null);
+                }
+            }
+
+            if (user.getChecks().contains(User.Checks.DIRECTOR)) {
+                if (user.getLikedDirectors().contains(movie.getCast().getDirector())) {
+                    System.out.println("Ohhh... I like the director in " + movie.getName());
+                } else {
+                    System.out.println("I don't like the actors.");
+                    user.setChosenFilm(null);
+                }
+            }
+
             if (user.getChosenFilm() != null) {
                 user.setHasChosenMovie(true);
                 break;
@@ -275,14 +305,6 @@ class Executive {
                 System.out.println("There's probably something better than " + movie.getName());
             }
         }
-
-
-        //TODO: So I’m thinking if the user uses the saved list of movies then we can create a scenario where the user
-        // has saved the movie they were watching for later because they didn’t have enough free time then we can output
-        // that some time has passed and the user wants to continue
-//        if (user.usesSavedList() && user.getFreeTime().getHours() < 2 && user.hasChosenMovie()) {
-//            System.out.println("I don't have time to watch all of " + user.getChosenFilm().getName() + " so I'll add it to my saved list");
-//        }
 
         if (user.hasChosenMovie()) {
             System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining.");

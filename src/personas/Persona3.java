@@ -10,6 +10,9 @@ package personas;
 
 import java.util.ArrayList;
 import java.util.List;
+import schemas.Actor;
+import schemas.Book;
+import schemas.Director;
 import schemas.FreeTime;
 import schemas.Genre;
 import schemas.Group;
@@ -19,11 +22,23 @@ public class Persona3 extends Persona {
 
     public static User createUser() {
         List<Genre> preferredGenres = new ArrayList<>();
-        preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
-        preferredGenres.add(Genre.ACTION);
-        preferredGenres.add(Genre.HORROR);
+        for (Genre genre : Genre.values()) {
+            if (genre != Genre.DRAMA && genre != Genre.THRILLER) {
+                preferredGenres.add(genre);
+            }
+        }
 
-        return new User(User.Mood.SAD, new FreeTime(3, 0), new Group(1, false, false), User.Attention.MEDIUM,  new ArrayList<>(), false, null, preferredGenres, new ArrayList<>(), 3, null);
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.RATING);
+        checks.add(User.Checks.SUMMARY);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.SAD, new FreeTime(3, 0), new Group(1,
+                false, false), User.Attention.MEDIUM,  new ArrayList<>(),
+                false, null, preferredGenres, checks, 3, likedActors, readBooks,
+                likedDirectors);
     }
 }

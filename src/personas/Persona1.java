@@ -10,10 +10,15 @@ package personas;
 
 import java.util.ArrayList;
 import java.util.List;
+import schemas.Actor;
+import schemas.Book;
 import schemas.CastMember;
+import schemas.Director;
+import schemas.Fame;
 import schemas.FreeTime;
 import schemas.Genre;
 import schemas.Group;
+import schemas.Reputation;
 import schemas.User;
 
 public class Persona1 extends Persona {
@@ -23,12 +28,16 @@ public class Persona1 extends Persona {
         preferredGenres.add(Genre.COMEDY);
         preferredGenres.add(Genre.DRAMA);
         preferredGenres.add(Genre.ANIMATED);
-        //TODO: add everything below for all personas
         List<User.Checks> checks = new ArrayList<>();
         checks.add(User.Checks.COVER_PHOTO);
-        List<CastMember> likedActors = new ArrayList<>();
-        likedActors.add(new CastMember( "Gael Garcia Bernal",CastMember.CastType.ACTOR, CastMember.Reputation.GOOD, CastMember.Fame.B_LIST));
+        List<Actor> likedActors = new ArrayList<>();
+        likedActors.add(new Actor( "Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
 
-        return new User(User.Mood.HAPPY, new FreeTime(2, 0), new Group(1, false, false), User.Attention.MEDIUM, new ArrayList<>(), false, null, preferredGenres, checks, 3, likedActors);
+        return new User(User.Mood.HAPPY, new FreeTime(2, 0), new Group(1,
+                false, false), User.Attention.MEDIUM, new ArrayList<>(),
+                false, null, preferredGenres, checks, 3, likedActors, readBooks,
+                likedDirectors);
     }
 }

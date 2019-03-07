@@ -5,21 +5,21 @@ import java.util.List;
 
 public class Cast {
 
-    private CastMember director;
+    private Director director;
     private List<CastMember> producers;
-    private List<CastMember> actors;
+    private List<Actor> actors;
 
-    public Cast(CastMember director) {
+    public Cast(Director director) {
         this.director = director;
         this.producers = new ArrayList<>();
         this.actors = new ArrayList<>();
     }
 
-    public CastMember getDirector() {
+    public Director getDirector() {
         return director;
     }
 
-    public void setDirector(CastMember director) {
+    public void setDirector(Director director) {
         this.director = director;
     }
 
@@ -31,11 +31,11 @@ public class Cast {
         this.producers.add(producer);
     }
 
-    public List<CastMember> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public void addActor(CastMember actor) {
+    public void addActor(Actor actor) {
         this.actors.add(actor);
     }
 }
