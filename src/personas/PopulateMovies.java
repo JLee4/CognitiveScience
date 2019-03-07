@@ -23,6 +23,7 @@ import schemas.Summary;
 
 public class PopulateMovies {
 
+    //TODO: add more movies
     public static List<Film> populateMovies(boolean isVerbose) {
         List<Film> movies = new ArrayList<>();
         //Coco
@@ -34,6 +35,7 @@ public class PopulateMovies {
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
                         Fame.B_LIST)), null);
+        coco.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         coco.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
         coco.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
         coco.getCast().addActor(new Actor("Benjamin Bratt", Reputation.GOOD, Fame.B_LIST));
@@ -48,6 +50,7 @@ public class PopulateMovies {
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                 new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
                         Fame.B_LIST)), null);
+        coco.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         template.setBook(new Book("example book", 100, 500, Book.ReadingDifficulty.ELEMENTARY_LEVEL));
         template.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
         template.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));

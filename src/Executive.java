@@ -27,6 +27,9 @@ class Executive {
      * @param isVerbose print verbose outputs including movie details and persona details
      */
     static void executive(int persona, boolean isVerbose) {
+        //TODO: add more personas
+        //TODO: add more comments on the decisions
+        //TODO: add more schemas (complex ones)
         movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:

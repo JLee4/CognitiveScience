@@ -220,7 +220,10 @@ public class User {
             "],\n    Has Chosen Movie: " + hasChosenMovie +
             ",\n    Chosen Film: " + chosenFilmName +
             ",\n    Liked Actors: [" + likedActorsToString() +
-            "],\n    Minimum Rating: ";
+            "],\n    Minimum Rating: " +  minimumRating +
+            ",\n    Liked Directors: [" + likedDirectorsToString() +
+            ",\n    Books Read: [" + readBooksToString() + "]";
+
     }
 
     private String likedActorsToString() {
@@ -231,6 +234,25 @@ public class User {
         }
         return stringBuilder.toString();
     }
+
+    private String likedDirectorsToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Director director : likedDirectors) {
+            stringBuilder.append(director.getName());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
+    private String readBooksToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Book book : readBooks) {
+            stringBuilder.append(book.getName());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
 
     private String seenMoviesToString() {
         StringBuilder stringBuilder = new StringBuilder();

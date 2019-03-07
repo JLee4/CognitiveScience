@@ -18,7 +18,8 @@ This has little relevance to the decision-making but we separated it from the ov
 
 Instructions:
 1) Compile the java files (not necessary if using an IDE that supports running Java)
-2) Run the Main class with "java Main <Persona Number>" where persona number corresponds to number listed in the persona package.
+2) If using an IDE, you select Run Configurations -> add Main.java as the main class -> add program arguments i.e. <Persona Number>
+3) Run the Main class with "java Main <Persona Number>" where persona number corresponds to number listed in the persona package.
     (Currently, there is a total of 5 personas.)
-3) If you want to see the pretty printed details of the movies and the user objects,
+4) If you want to see the pretty printed details of the movies and the user objects,
     run the Main class with "java Main <Persona Number> -verbose".

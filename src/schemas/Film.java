@@ -175,6 +175,13 @@ public class Film extends Media {
 
     @Override
     public String toString() {
+        String book = null;
+        if (getBook() != null) {
+            book = "\n    Name: " + getBook().getName() +
+                    "\n    Popularity Rank: " + getBook().getPopularityRank() +
+                    "\n    Reading Difficulty: " + getBook().getReadingDifficulty() +
+                    "\n    Word Length: " + getBook().getWordLength();
+        }
         return
             "\nName: " + getName() +
             "\nLanguage: " + getLanguage() +
@@ -202,7 +209,10 @@ public class Film extends Media {
             "\n    Director: " + getCast().getDirector().getName() + ", Reputation: "
                     + getCast().getDirector().getReputation().name() + ", "
                     + getCast().getDirector().getFame() +
-            "\n    Actors: " + actorsToString();
+            "\n    Actors: " + actorsToString() +
+            "\nBook: " + book;
+
+
     }
 
     private String actorsToString() {
