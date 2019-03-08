@@ -16,7 +16,7 @@ public class Main {
             System.out.println("Run cognitive task with verbose output: java Main <PersonaNumber> -verbose");
             exit(0);
         }
-        //Verbose means that the more trivial details like movie attributes and cast member attributes
+        //Verbose means that it is a more trivial detail (ex. movie attributes and cast member attributes)
         boolean isVerbose = false;
         if (args.length == 2 && args[1].equals("-verbose")) {
             isVerbose = true;
