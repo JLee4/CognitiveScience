@@ -95,8 +95,7 @@ class Executive {
         List<Film> categorizedMovies = new ArrayList<>();
         if (user.getChecks().contains(User.Checks.FEATURED_MOVIES)) {
             System.out.println("I'll check out the featured movies for something to watch.");
-            //TODO: add print statements for system like below
-            System.out.println("[COGNITION SYSTEM] Narrowing to only featured movies");
+            System.out.println("[COGNITION SYSTEM] Adding featured movies to considered movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -109,6 +108,7 @@ class Executive {
         //Narrows list of movies to only recommended movies, meaning only movies seen by user are recommended
         if (user.getChecks().contains(User.Checks.RECOMMENDED_MOVIES)) {
             System.out.println("I'll check out the recommended movies for something to watch.");
+            System.out.println("[COGNITION SYSTEM] Adding recommended movies to considered movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -121,6 +121,7 @@ class Executive {
         //Narrows list of movies to only new movies, meaning only movies seen by user are new
         if (user.getChecks().contains(User.Checks.NEW_MOVIES)) {
             System.out.println("I'll check out the new movies for something to watch.");
+            System.out.println("[COGNITION SYSTEM] Adding new movies to considered movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -137,6 +138,7 @@ class Executive {
         //when the group is more than 2 (the user is not alone or with one person), the user starts looking at the horror or comedy movies
         if (user.getGroup().getGroupSize() > 2 && !user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with friends, I'll choose a comedy or a horror.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to horror and comedy movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -149,6 +151,8 @@ class Executive {
         //If user is with family, the user avoids choosing non-family-friendly movies
         if (user.getGroup().getGroupSize() > 1 && user.getGroup().isWithFamily()) {
             System.out.println("Since I'm with family, I will choose a movie with less dark themes.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to exclude offensive, grim, or melancholic atmosphere movies");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to exclude movie genres that are not family or comedy");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -164,6 +168,7 @@ class Executive {
         //If user is only with significant other, then the user will choose something romantic
         if (user.getGroup().getGroupSize() == 2 && user.getGroup().isWithSignificantOther()) {
             System.out.println("Since I'm with my significant other, I will choose a romantic movie.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only romantic comedy or romantic movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -176,6 +181,7 @@ class Executive {
         //If the user is alone, then they will just narrow the movies down to their preferred genres.
         if (user.getGroup().getGroupSize() == 1) {
             System.out.println("Since I'm alone, I will prefer a " + user.preferredGeneresToString() + " movie.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only movies with preferred genres");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -188,6 +194,7 @@ class Executive {
         //When users don't pay much attention (e.g. background noise), they choose a lightheated movie.
         if (user.getAttention() == User.Attention.LITTLE) {
             System.out.println("I won't be paying much attention to the movie so I'll put on a lighthearted movie.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only cheerful or humorous movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -200,6 +207,7 @@ class Executive {
         //If user is happy, then choose happy movies
         if (user.getMood() == User.Mood.HAPPY) {
             System.out.println("I'm feeling happy right now, so I'll put on something romantic, lighthearted, or maybe idyllic.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only cheerful, humorous, or idyllic movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -213,6 +221,7 @@ class Executive {
         //If user is bored, then narrow to engaging movies that aren't sad
         if (user.getMood() == User.Mood.BORED) {
             System.out.println("I'm feeling particularly bored. I really wanna watch something that makes me feel emotional in some way.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to exclude melancholic movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -225,6 +234,7 @@ class Executive {
         //If user is sad, then they should decide on movies that uplifts their mood
         if (user.getMood() == User.Mood.SAD) {
             System.out.println("I feel pretty sad. I need to watch something to brighten up my day or something exciting.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to exclude melancholic, mysterious, offensive, or grim movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -238,6 +248,7 @@ class Executive {
         //If user is stressed, then they will choose a happy movie
         if (user.getMood() == User.Mood.STRESSED) {
             System.out.println("I'm so stressed today, I need to watch something cathartic.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only cheerful, humorous, or idyllic movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -260,9 +271,11 @@ class Executive {
             if (user.getChecks().contains(User.Checks.COVER_PHOTO)) {
                 if (movie.getCoverPhoto().getAppeal().getLevel() > 0) {
                     System.out.println(movie.getName() + "'s cover photo is neat.");
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the cover photo");
                     user.setChosenFilm(movie);
                 } else {
                     System.out.println(movie.getName() + "'s cover photo looks bad.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because of the cover photo");
                     continue;
                 }
             }
@@ -271,9 +284,11 @@ class Executive {
             if (user.getChecks().contains(User.Checks.BOOK)) {
                 if (user.getReadBooks().contains(movie.getBook())) {
                     System.out.println("I've read the book for " + movie.getName());
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the book");
                     user.setChosenFilm(movie);
                 } else {
                     System.out.println("I'm a huge reader so I wanna watch the movies of books I've read.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because it doesn't have a book");
                     continue;
                 }
             }
@@ -282,9 +297,11 @@ class Executive {
             if (user.getChecks().contains(User.Checks.PREVIEW)) {
                 if (movie.getPreview().getAppeal().getLevel() > 0) {
                     System.out.println("The preview is good.");
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the preview/trailer");
                     user.setChosenFilm(movie);
                 } else {
                     System.out.println("Preview was " + movie.getPreview().getAppeal().toString());
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the preview/trailer wasn't good");
                     user.setChosenFilm(null);
                 }
             }
@@ -293,9 +310,11 @@ class Executive {
             if (user.getChecks().contains(User.Checks.SUMMARY)) {
                 if (movie.getSummary().getHookLevel().ordinal() > 0) {
                     System.out.println("Summary is interesting too.");
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the summary");
                     user.setChosenFilm(movie);
                 } else {
                     System.out.println("The summary is just not good.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the summary wasn't good");
                     user.setChosenFilm(null);
                 }
             }
@@ -304,9 +323,11 @@ class Executive {
             if (user.getChecks().contains(User.Checks.RATING)) {
                 if (movie.getRating().getRatingLevel() >= user.getMinimumRating()) {
                     System.out.println("People seem to rate " + movie.getName() + " well.;");
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the rating");
                     user.setChosenFilm(movie);
                 } else {
                     System.out.println(movie.getName() + " is rated too low.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the rating isn't good");
                     user.setChosenFilm(null);
                 }
             }
@@ -315,8 +336,10 @@ class Executive {
             if (user.getChecks().contains(User.Checks.LIKED_ACTORS)) {
                 if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
                     System.out.println("I like the actors in " + movie.getName());
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the actors");
                 } else {
                     System.out.println("I don't like the actors.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the actors aren't good");
                     user.setChosenFilm(null);
                 }
             }
@@ -333,8 +356,10 @@ class Executive {
 
                 if (hasAtLeastOneFamousActor) {
                     System.out.println("They have at least one famous actor in " + movie.getName());
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the actors' fame");
                 } else {
                     System.out.println("I don't know any of the actors in " + movie.getName());
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the actors aren't known");
                     user.setChosenFilm(null);
                 }
             }
@@ -343,8 +368,10 @@ class Executive {
             if (user.getChecks().contains(User.Checks.DIRECTOR)) {
                 if (user.getLikedDirectors().contains(movie.getCast().getDirector())) {
                     System.out.println("Ohhh... I like the director in " + movie.getName());
+                    System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the director");
                 } else {
-                    System.out.println("I don't like the actors.");
+                    System.out.println("I don't know the director.");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the director isn't known");
                     user.setChosenFilm(null);
                 }
             }
@@ -354,14 +381,18 @@ class Executive {
                 break;
             } else {
                 System.out.println("There's probably something better than " + movie.getName());
+                System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the user doesn't like what they checked.");
             }
         }
 
         if (user.hasChosenMovie()) {
-            System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining." + "\n");
+            System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining.");
+            System.out.println("[COGNITION SYSTEM] The user chose a movie");
         } else {
-            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.\n");
+            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.");
+            System.out.println("[COGNITION SYSTEM] User finished looking through the list of movies and doesn't like any movie");
         }
+        System.out.println("\n");
     }
 
     private static boolean hasFreeTime() {
