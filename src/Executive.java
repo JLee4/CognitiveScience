@@ -1,11 +1,7 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import personas.Persona1;
-import personas.Persona2;
-import personas.Persona3;
-import personas.Persona4;
-import personas.Persona5;
+import personas.Persona;
 import personas.PopulateMovies;
 import schemas.Actor;
 import schemas.Fame;
@@ -19,7 +15,7 @@ class Executive {
 
     private static User user = null;
     private static List<Film> movies;
-    private static final int NUM_PERSONAS = 5;
+    private static final int NUM_PERSONAS = 5; //NOTE: NUM_PERSONAS should be updated every time a persona is added
 
     //Overloaded method that considers is runAll is true.
     public static void executive(int persona, boolean isVerbose, boolean runAll) {
@@ -38,23 +34,22 @@ class Executive {
      * @param isVerbose print verbose outputs including movie details and persona details
      */
     public static void executive(int persona, boolean isVerbose) {
-        //TODO: add more personas
-        List<Film> movies = PopulateMovies.populateMovies(isVerbose);
+        movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:
-                user = Persona1.createUser();
+                user = Persona.createUser1();
                 break;
             case 2:
-                user = Persona2.createUser();
+                user = Persona.createUser2();
                 break;
             case 3:
-                user = Persona3.createUser();
+                user = Persona.createUser3();
                 break;
             case 4:
-                user = Persona4.createUser();
+                user = Persona.createUser4();
                 break;
             case 5:
-                user = Persona5.createUser();
+                user = Persona.createUser5();
                 break;
             default:
                 System.out.println("You must input a valid number of a persona as an argument.");

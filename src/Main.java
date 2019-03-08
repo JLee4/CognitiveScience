@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         if (args.length < 1 || args.length > 2) {
             System.out.print("When you run this, you must input a <number> corresponding to a persona." +
-                    "\nExample: \"java Main 1\" for running the task with Persona1");
+                    "\nExample: \"java Main 1\" for running the task with Persona 1");
             System.out.println("Run java Main help for list of example commands");
             exit(0);
         }
