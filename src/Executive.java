@@ -22,7 +22,7 @@ class Executive {
     private static final int NUM_PERSONAS = 5;
 
     //Overloaded method that considers is runAll is true.
-    static void executive(int persona, boolean isVerbose, boolean runAll) {
+    public static void executive(int persona, boolean isVerbose, boolean runAll) {
         if (runAll) {
             for (int i = 1; i < NUM_PERSONAS + 1; i++) {
                 executive(i, isVerbose);
@@ -37,9 +37,9 @@ class Executive {
      * @param persona number of the persona invoked
      * @param isVerbose print verbose outputs including movie details and persona details
      */
-    static void executive(int persona, boolean isVerbose) {
+    public static void executive(int persona, boolean isVerbose) {
         //TODO: add more personas
-        movies = PopulateMovies.populateMovies(isVerbose);
+        List<Film> movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:
                 user = Persona1.createUser();

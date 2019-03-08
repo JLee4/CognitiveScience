@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import schemas.Actor;
 import schemas.Book;
-import schemas.CastMember;
 import schemas.Director;
 import schemas.Fame;
 import schemas.FreeTime;

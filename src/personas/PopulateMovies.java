@@ -8,7 +8,6 @@ import schemas.AgeRating;
 import schemas.Appeal;
 import schemas.Book;
 import schemas.Cast;
-import schemas.CastMember;
 import schemas.CoverPhoto;
 import schemas.Director;
 import schemas.Fame;

@@ -1,7 +1,5 @@
 package schemas;
 
-import java.util.Objects;
-
 public class Group {
 
     //NOTE: groupSize also includes the users themselves, so groupSize == 1 means they are alone

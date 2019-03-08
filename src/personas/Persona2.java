@@ -15,12 +15,9 @@ import java.util.List;
 import schemas.Actor;
 import schemas.Book;
 import schemas.Director;
-import schemas.Fame;
-import schemas.Film;
 import schemas.FreeTime;
 import schemas.Genre;
 import schemas.Group;
-import schemas.Reputation;
 import schemas.User;
 
 public class Persona2 extends Persona {

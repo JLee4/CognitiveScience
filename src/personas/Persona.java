@@ -1,7 +1,5 @@
 package personas;
 
-import java.util.List;
-import schemas.Film;
 import schemas.User;
 
 public abstract class Persona {
