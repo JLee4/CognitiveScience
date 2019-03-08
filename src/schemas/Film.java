@@ -197,7 +197,7 @@ public class Film extends Media {
             "\n    Duration: " + LocalTime.MIDNIGHT.plus(getPreview().getLength()).format(DateTimeFormatter.ofPattern("HH:mm")) +
             "\n    Appeal: " + getPreview().getAppeal().getAppealLevel().toString() +
             "\nSummary: " +
-            "\n    Words: " + getSummary().getSummaryWordLength() +
+            "\n    Word Length: " + getSummary().getSummaryWordLength() +
             "\n    Comprehensive: " + getSummary().getComprehensive().name() +
             "\n    Hook Quality: " + getSummary().getHookLevel().name() +
             "\n    Reading Difficulty: " + getSummary().getReadingDifficulty().name() +
