@@ -19,6 +19,16 @@ class Executive {
 
     //Overloaded method that considers is runAll is true.
     public static void executive(int persona, boolean isVerbose, boolean runAll) {
+        movies = PopulateMovies.populateMovies(isVerbose);
+        if (isVerbose) {
+            int i = 1;
+            for (Film movie: movies) {
+                System.out.println("Movie " + i + ":");
+                System.out.println(movie.toString());
+                System.out.println();
+                i++;
+            }
+        }
         if (runAll) {
             for (int i = 1; i < NUM_PERSONAS + 1; i++) {
                 executive(i, isVerbose);
@@ -34,7 +44,6 @@ class Executive {
      * @param isVerbose print verbose outputs including movie details and persona details
      */
     public static void executive(int persona, boolean isVerbose) {
-        movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:
                 user = Persona.createUser1();
@@ -51,19 +60,27 @@ class Executive {
             case 5:
                 user = Persona.createUser5();
                 break;
+//            case 6:
+//                user = Persona.createUser6();
+//                break;
+//            case 7:
+//                user = Persona.createUser7();
+//                break;
+//            case 8:
+//                user = Persona.createUser8();
+//                break;
+//            case 9:
+//                user = Persona.createUser9();
+//                break;
+//            case 10:
+//                user = Persona.createUser10();
+//                break;
             default:
                 System.out.println("You must input a valid number of a persona as an argument.");
                 exit(0);
         }
 
         if (isVerbose) {
-            int i = 1;
-            for (Film movie: movies) {
-                System.out.println("Movie " + i + ":");
-                System.out.println(movie.toString());
-                System.out.println();
-                i++;
-            }
             System.out.println(user.toString() + "\n");
         }
 
@@ -338,9 +355,9 @@ class Executive {
         }
 
         if (user.hasChosenMovie()) {
-            System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining.");
+            System.out.println("I'm watching " + user.getChosenFilm().getName() + ". It seems pretty entertaining." + "\n");
         } else {
-            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.");
+            System.out.println("There's no movies I wanna watch, I'll just pick a show instead.\n");
         }
     }
 

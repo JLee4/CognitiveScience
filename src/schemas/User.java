@@ -216,13 +216,13 @@ public class User {
             "],\n    Uses Saved List: " + usesSavedList +
             ",\n    Saved Movies: [" + savedMoviesToString() +
             "],\n    Preferred Genres: [" + preferredGeneresToString()  +
-            ",\n    User Checks : [" + Arrays.toString(checks.toArray()) +
-            "],\n    Has Chosen Movie: " + hasChosenMovie +
+            "],\n    User Checks : " + Arrays.toString(checks.toArray()) +
+            ",\n    Has Chosen Movie: " + hasChosenMovie +
             ",\n    Chosen Film: " + chosenFilmName +
             ",\n    Liked Actors: [" + likedActorsToString() +
             "],\n    Minimum Rating: " +  minimumRating +
             ",\n    Liked Directors: [" + likedDirectorsToString() +
-            ",\n    Books Read: [" + readBooksToString() + "]";
+            "],\n    Books Read: [" + readBooksToString() + "]";
 
     }
 
