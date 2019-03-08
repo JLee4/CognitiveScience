@@ -72,7 +72,7 @@ public class Persona {
     }
 
 
-    // Persona 3 does not watch many movies a lot, when he/she does, he/she prioritizes the RATING and PLOT SUMMARY of the movie.
+    // Persona 3 does not watch many movies, when he/she does, he/she prioritizes the RATING and PLOT SUMMARY of the movie.
 
     // Persona 3 cares about their MOOD and enjoys all movie GENRES except for "drama" and "thriller"
 
