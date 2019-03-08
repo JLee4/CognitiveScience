@@ -91,10 +91,7 @@ public class Book {
         if (this == o) return true;
         if (!(o instanceof Book)) return false;
         Book book = (Book) o;
-        return getPopularityRank() == book.getPopularityRank() &&
-                getWordLength() == book.getWordLength() &&
-                Objects.equals(getName(), book.getName()) &&
-                getReadingDifficulty() == book.getReadingDifficulty();
+        return Objects.equals(getName().toLowerCase(), book.getName().toLowerCase());
     }
 
     @Override

@@ -205,7 +205,7 @@ public class User {
     public String toString() {
         String chosenFilmName = (chosenFilm != null) ? chosenFilm.getName() : "null";
         return
-            "User:" +
+            "User: {" +
             "\n    Mood: " + mood +
             ",\n    Free Time: " + freeTime.toString() +
             ",\n    Group Size: " + group.getGroupSize() +
@@ -222,7 +222,7 @@ public class User {
             ",\n    Liked Actors: [" + likedActorsToString() +
             "],\n    Minimum Rating: " +  minimumRating +
             ",\n    Liked Directors: [" + likedDirectorsToString() +
-            "],\n    Books Read: [" + readBooksToString() + "]";
+            "],\n    Books Read: [" + readBooksToString() + "]\n}";
 
     }
 

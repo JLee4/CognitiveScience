@@ -13,7 +13,8 @@ public enum Genre {
     ACTION,
     HORROR,
     THRILLER,
-    HISTORICAL_FICTION;
+    HISTORICAL_FICTION,
+    ADVENTURE;
 
     //This sees if a genre is related to another genre e.g. COMEDY is related to ROMANTIC_COMEDY
     //This is determined by ordinal distance.

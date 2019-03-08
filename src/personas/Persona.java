@@ -1,6 +1,7 @@
 package personas;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import schemas.Actor;
 import schemas.Book;
@@ -154,6 +155,138 @@ public class Persona {
 
         return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
                 false, false), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 6 loves to watch movies of all kind and spends several hours a day watching movies.
+
+    // Persona 6 is typically with their significant other.
+
+    // Persona 6 watches all GENRES but specifically likes "science fiction" and classics.
+
+    // Persona 6 cares about low-level aspects such as RATING, PLOT SUMMARY, and the ACTORS' FAME
+
+    // Persona 6 is typically in their usual mood meaning they will watch a movie that has their preferred genres
+    public static User createUser6() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.SCIFI);
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.DRAMA);
+        preferredGenres.add(Genre.ACTION);
+        preferredGenres.add(Genre.THRILLER);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.ACTORS_FAME);
+        checks.add(User.Checks.SUMMARY);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(2,
+                true, false), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 7 only watches in their peripheral when they do homework
+
+    // Persona 7 only watches comedy movies because they're constantly stressed
+
+    // Persona 7 only looks at the cover photo since they don't pay too much attention to the plot
+    public static User createUser7() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.COMEDY);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.STRESSED, new FreeTime(5, 0), new Group(1,
+                false, false), User.Attention.LITTLE,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 8 is a big reader and only watches movies if they have a book counterpart and he/she has read it
+
+    // Persona 8 doesn't care much about the other aspects. If he/she read the book, then they assume they'll like the movie
+    public static User createUser8() {
+        List<Genre> preferredGenres = new ArrayList<>(Arrays.asList(Genre.values()));
+
+        List<User.Checks> checks = new ArrayList<>();
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        readBooks.add(new Book("A Wrinkle in Time", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
+        readBooks.add(new Book("Ready Player One", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
+        readBooks.add(new Book("Gone with the Wind", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("The Godfather", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("Twilight", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
+        readBooks.add(new Book("Lord of the Rings", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("The Hobbit", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("Harry Potter and the Sorcerer's Stone", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
+        readBooks.add(new Book("The Princess Bride", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
+        readBooks.add(new Book("Jurassic Park", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("The Hunger Games", 10, 1000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+        readBooks.add(new Book("1984", 10, 1000, Book.ReadingDifficulty.COLLEGE_LEVEL));
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+
+    // Persona 9 watches featured and recommended movies
+
+    // Persona 9 cares about the cast most of all and watches the ones that have a famous director and/or actors
+
+    // Persona 9 is typically in their usual mood
+    public static User createUser9() {
+        List<Genre> preferredGenres = new ArrayList<>();
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.ACTORS_FAME);
+        checks.add(User.Checks.DIRECTOR);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+        likedDirectors.add(new Director("Steven Spielberg", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("Quentin Tarantino", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("Wes Anderson", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("Ridley Scott", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("Christopher Nolan", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("James Cameron", Reputation.GOOD, Fame.A_LIST));
+        likedDirectors.add(new Director("George Lucas", Reputation.GOOD, Fame.A_LIST));
+
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+
+    // Persona 10 watches movies with family frequently so decisions are always considered with family in mind
+
+    public static User createUser10() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.SCIFI);
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.DRAMA);
+        preferredGenres.add(Genre.ACTION);
+        preferredGenres.add(Genre.ADVENTURE);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.RATING);
+        checks.add(User.Checks.SUMMARY);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+                false, true), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 }

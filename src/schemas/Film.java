@@ -35,7 +35,7 @@ public class Film extends Media {
     private Duration length;
     private Rating rating;
     private AgeRating ageRating;
-    private Genre genre;
+    private List<Genre> genres;
     private GoreAmount goreAmount;
     private Atmosphere atmosphere;
     private Age age;
@@ -47,13 +47,13 @@ public class Film extends Media {
     private Book book;
 
     public Film(String name, MediaType type, String language, Duration length, Rating rating, AgeRating ageRating,
-                Genre genre, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary,
+                List<Genre> genres, GoreAmount goreAmount, Atmosphere atmosphere, Age age, Preview preview, Summary summary,
                 CoverPhoto coverPhoto, Cast cast, Book book) {
         super(name, type, language);
         this.length = length;
         this.rating = rating;
         this.ageRating = ageRating;
-        this.genre = genre;
+        this.genres = genres;
         this.goreAmount = goreAmount;
         this.atmosphere = atmosphere;
         this.age = age;
@@ -89,12 +89,12 @@ public class Film extends Media {
         this.ageRating = ageRating;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public List<Genre> getGenres() {
+        return genres;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 
     public GoreAmount getGoreAmount() {
@@ -188,8 +188,8 @@ public class Film extends Media {
             "\nDuration: " + LocalTime.MIDNIGHT.plus(getLength()).format(DateTimeFormatter.ofPattern("HH:mm")) + //This is really hacky btw
             "\nRating: " + getRating().name() +
             "\nAge Rating: " + getAgeRating().name() +
-            "\nGenre: " + getGenre().name() +
-            "\nGore Amount: " + getGoreAmount().name() +
+            "\nGenre: [" + genresToString() +
+            "]\nGore Amount: " + getGoreAmount().name() +
             "\nAtmosphere: " + getAtmosphere() +
             "\nMovie Age: " + getAge().name() +
             "\nMovie Categories: " + categoriesToString() +
@@ -241,6 +241,15 @@ public class Film extends Media {
         StringBuilder stringBuilder = new StringBuilder();
         for (StreamingCategory category : categories) {
             stringBuilder.append(category.name());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
+    public String genresToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Genre genre : genres) {
+            stringBuilder.append(genre.name());
             stringBuilder.append(", ");
         }
         return stringBuilder.toString();

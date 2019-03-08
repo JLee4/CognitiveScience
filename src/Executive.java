@@ -15,7 +15,7 @@ class Executive {
 
     private static User user = null;
     private static List<Film> movies;
-    private static final int NUM_PERSONAS = 5; //NOTE: NUM_PERSONAS should be updated every time a persona is added
+    private static final int NUM_PERSONAS = 10; //NOTE: NUM_PERSONAS should be updated every time a persona is added
 
     //Overloaded method that considers is runAll is true.
     public static void executive(int persona, boolean isVerbose, boolean runAll) {
@@ -60,27 +60,28 @@ class Executive {
             case 5:
                 user = Persona.createUser5();
                 break;
-//            case 6:
-//                user = Persona.createUser6();
-//                break;
-//            case 7:
-//                user = Persona.createUser7();
-//                break;
-//            case 8:
-//                user = Persona.createUser8();
-//                break;
-//            case 9:
-//                user = Persona.createUser9();
-//                break;
-//            case 10:
-//                user = Persona.createUser10();
-//                break;
+            case 6:
+                user = Persona.createUser6();
+                break;
+            case 7:
+                user = Persona.createUser7();
+                break;
+            case 8:
+                user = Persona.createUser8();
+                break;
+            case 9:
+                user = Persona.createUser9();
+                break;
+            case 10:
+                user = Persona.createUser10();
+                break;
             default:
                 System.out.println("You must input a valid number of a persona as an argument.");
                 exit(0);
         }
 
         if (isVerbose) {
+            System.out.println("User " + persona + ":\n");
             System.out.println(user.toString() + "\n");
         }
 
@@ -94,6 +95,8 @@ class Executive {
         List<Film> categorizedMovies = new ArrayList<>();
         if (user.getChecks().contains(User.Checks.FEATURED_MOVIES)) {
             System.out.println("I'll check out the featured movies for something to watch.");
+            //TODO: add print statements for system like below
+            System.out.println("[COGNITION SYSTEM] Narrowing to only featured movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
@@ -137,7 +140,7 @@ class Executive {
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (movie.getGenre() != Genre.COMEDY && movie.getGenre() != Genre.HORROR) {
+                if (movie.getGenres().contains(Genre.COMEDY) && movie.getGenres().contains(Genre.HORROR)) {
                     iterator.remove();
                 }
             }
@@ -152,7 +155,7 @@ class Executive {
                 if (movie.getAtmosphere() == Film.Atmosphere.OFFENSIVE || movie.getAtmosphere() == Film.Atmosphere.GRIM || movie.getAtmosphere() == Film.Atmosphere.MELANCHOLIC) {
                     iterator.remove();
                 }
-                if (movie.getGenre() != Genre.COMEDY || movie.getGenre() != Genre.FAMILY) {
+                if (!movie.getGenres().contains(Genre.COMEDY) || !movie.getGenres().contains(Genre.FAMILY)) {
                     iterator.remove();
                 }
             }
@@ -164,7 +167,7 @@ class Executive {
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (movie.getGenre() != Genre.ROMANTIC_COMEDY && movie.getGenre() != Genre.ROMANTIC) {
+                if (!movie.getGenres().contains(Genre.ROMANTIC_COMEDY) && !movie.getGenres().contains(Genre.ROMANTIC)) {
                     iterator.remove();
                 }
             }
@@ -176,7 +179,7 @@ class Executive {
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (!user.getPreferredGenres().contains(movie.getGenre())) {
+                if (!user.getPreferredGenres().retainAll(movie.getGenres())) {
                     iterator.remove();
                 }
             }
