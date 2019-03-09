@@ -215,6 +215,7 @@ public class Persona {
         List<Genre> preferredGenres = new ArrayList<>(Arrays.asList(Genre.values()));
 
         List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.BOOK);
         List<Actor> likedActors = new ArrayList<>();
         List<Book> readBooks = new ArrayList<>();
         readBooks.add(new Book("A Wrinkle in Time", 10, 1000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL));
@@ -248,6 +249,8 @@ public class Persona {
         List<User.Checks> checks = new ArrayList<>();
         checks.add(User.Checks.ACTORS_FAME);
         checks.add(User.Checks.DIRECTOR);
+        checks.add(User.Checks.FEATURED_MOVIES);
+        checks.add(User.Checks.RECOMMENDED_MOVIES);
         List<Actor> likedActors = new ArrayList<>();
         List<Book> readBooks = new ArrayList<>();
         List<Director> likedDirectors = new ArrayList<>();
@@ -284,7 +287,7 @@ public class Persona {
         List<Book> readBooks = new ArrayList<>();
         List<Director> likedDirectors = new ArrayList<>();
 
-        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(3,
                 false, true), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }

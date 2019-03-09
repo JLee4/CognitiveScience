@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import personas.Persona;
@@ -44,6 +45,7 @@ class Executive {
      * @param isVerbose print verbose outputs including movie details and persona details
      */
     public static void executive(int persona, boolean isVerbose) {
+        movies = PopulateMovies.populateMovies(isVerbose);
         switch (persona) {
             case 1:
                 user = Persona.createUser1();
@@ -99,8 +101,8 @@ class Executive {
 
         //If user doesn't have free time
         if (!hasFreeTime()) {
-            System.out.println("I don't have enough free time to even choose a movie....");
-            exit(0);
+            System.out.println("I don't have enough free time to even choose a movie....\n");
+            return;
         }
 
         //Narrows list of movies to only featured movies, meaning only movies seen by user are featured
@@ -197,7 +199,7 @@ class Executive {
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (!user.getPreferredGenres().retainAll(movie.getGenres())) {
+                if (Collections.disjoint(movie.getGenres(), user.getPreferredGenres())) {
                     iterator.remove();
                 }
             }
@@ -346,12 +348,12 @@ class Executive {
 
             //User sees if they like any of the actors in the movie
             if (user.getChecks().contains(User.Checks.LIKED_ACTORS)) {
-                if (movie.getCast().getActors().retainAll(user.getLikedActors())) {
+                if (!Collections.disjoint(movie.getCast().getActors(), user.getLikedActors())) {
                     System.out.println("I like the actors in " + movie.getName());
                     System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the actors");
                 } else {
                     System.out.println("I don't like the actors.");
-                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the actors aren't good");
+                    System.out.println("[COGNITION SYSTEM] Ignoring " + movie.getName() + " because the actors aren't liked");
                     user.setChosenFilm(null);
                 }
             }
