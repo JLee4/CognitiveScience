@@ -30,7 +30,6 @@ public class Persona {
         List<User.Checks> checks = new ArrayList<>();
         checks.add(User.Checks.COVER_PHOTO);
         List<Actor> likedActors = new ArrayList<>();
-        likedActors.add(new Actor( "Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
         List<Book> readBooks = new ArrayList<>();
         List<Director> likedDirectors = new ArrayList<>();
 
@@ -286,6 +285,114 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 11 doesn't have any free time.
+
+    public static User createUser11() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.SCIFI);
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.DRAMA);
+        preferredGenres.add(Genre.ACTION);
+        preferredGenres.add(Genre.ADVENTURE);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.RATING);
+        checks.add(User.Checks.SUMMARY);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.BORED, new FreeTime(0, 0), new Group(1,
+                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 12 likes the more non-mainstream movies
+
+    // Persona 12 only cares about the cover photo and rating
+
+    // Persona 12 has watched so many movies that only the new movies are what's considered
+
+    public static User createUser12() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.SCIFI);
+        preferredGenres.add(Genre.DOCUMENTARY);
+        preferredGenres.add(Genre.COMEDY);
+        preferredGenres.add(Genre.FANTASY);
+        preferredGenres.add(Genre.HISTORICAL_FICTION);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.RATING);
+        checks.add(User.Checks.NEW_MOVIES);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 13 likes romantic or drama movies
+
+    // Persona 13 only cares about the cover photo and the famous actors in the movie
+
+    // Persona 13 considers recommended movies since she likes the recommendation algorithm
+
+    public static User createUser13() {
+        List<Genre> preferredGenres = new ArrayList<>();
+        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
+        preferredGenres.add(Genre.DRAMA);
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.ACTORS_FAME);
+        checks.add(User.Checks.RECOMMENDED_MOVIES);
+        List<Actor> likedActors = new ArrayList<>();
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
+                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
+    }
+
+    // Persona 14 likes all genres
+
+    // Persona 14 only cares about the cover photo and preview
+
+    // Persona 14 only considers the movies that has actors he/she likes
+
+    public static User createUser14() {
+        List<Genre> preferredGenres = new ArrayList<>(Arrays.asList(Genre.values()));
+
+        List<User.Checks> checks = new ArrayList<>();
+        checks.add(User.Checks.COVER_PHOTO);
+        checks.add(User.Checks.PREVIEW);
+        checks.add(User.Checks.LIKED_ACTORS);
+        List<Actor> likedActors = new ArrayList<>();
+        likedActors.add(new Actor("Johnny Depp", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Brad Pitt", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Will Smith", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Jennifer Lawrence", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Jennifer Aniston", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Natalie Portman", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Leonardo DiCaprio", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Kate Winslet", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Sandra Bullock", Reputation.GOOD, Fame.A_LIST));
+        likedActors.add(new Actor("Reese Witherspoon", Reputation.GOOD, Fame.A_LIST));
+        List<Book> readBooks = new ArrayList<>();
+        List<Director> likedDirectors = new ArrayList<>();
+
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
                 false, true), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }

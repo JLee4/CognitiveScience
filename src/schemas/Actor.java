@@ -13,8 +13,6 @@ public class Actor extends CastMember {
         if (this == o) return true;
         if (!(o instanceof Actor)) return false;
         Actor actor = (Actor) o;
-        return Objects.equals(getName().toLowerCase(), actor.getName().toLowerCase()) &&
-                getReputation() == actor.getReputation() &&
-                getFame() == actor.getFame();
+        return Objects.equals(getName().toLowerCase(), actor.getName().toLowerCase());
     }
 }

@@ -13,8 +13,6 @@ public class Director extends CastMember {
         if (this == o) return true;
         if (!(o instanceof Director)) return false;
         Director director = (Director) o;
-        return Objects.equals(getName().toLowerCase(), director.getName().toLowerCase()) &&
-                getReputation() == director.getReputation() &&
-                getFame() == director.getFame();
+        return Objects.equals(getName().toLowerCase(), director.getName().toLowerCase());
     }
 }

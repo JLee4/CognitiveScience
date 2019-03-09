@@ -15,7 +15,7 @@ class Executive {
 
     private static User user = null;
     private static List<Film> movies;
-    private static final int NUM_PERSONAS = 10; //NOTE: NUM_PERSONAS should be updated every time a persona is added
+    private static final int NUM_PERSONAS = 14; //NOTE: NUM_PERSONAS should be updated every time a persona is added
 
     //Overloaded method that considers is runAll is true.
     public static void executive(int persona, boolean isVerbose, boolean runAll) {
@@ -74,6 +74,18 @@ class Executive {
                 break;
             case 10:
                 user = Persona.createUser10();
+                break;
+            case 11:
+                user = Persona.createUser11();
+                break;
+            case 12:
+                user = Persona.createUser12();
+                break;
+            case 13:
+                user = Persona.createUser13();
+                break;
+            case 14:
+                user = Persona.createUser14();
                 break;
             default:
                 System.out.println("You must input a valid number of a persona as an argument.");
@@ -225,7 +237,7 @@ class Executive {
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (movie.getAtmosphere() != Film.Atmosphere.MELANCHOLIC) {
+                if (movie.getAtmosphere() == Film.Atmosphere.MELANCHOLIC) {
                     iterator.remove();
                 }
             }
@@ -322,7 +334,7 @@ class Executive {
             //User checks the rating to see if it meets the minimum movie rating they will watch.
             if (user.getChecks().contains(User.Checks.RATING)) {
                 if (movie.getRating().getRatingLevel() >= user.getMinimumRating()) {
-                    System.out.println("People seem to rate " + movie.getName() + " well.;");
+                    System.out.println("People seem to rate " + movie.getName() + " well.");
                     System.out.println("[COGNITION SYSTEM] Moving onto other checks with " + movie.getName() + " because of the rating");
                     user.setChosenFilm(movie);
                 } else {
