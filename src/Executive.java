@@ -46,6 +46,7 @@ class Executive {
      */
     public static void executive(int persona, boolean isVerbose) {
         movies = PopulateMovies.populateMovies(isVerbose);
+        Collections.shuffle(movies);
         switch (persona) {
             case 1:
                 user = Persona.createUser1();
