@@ -58,7 +58,7 @@ public class PopulateMovies {
                         Fame.B_LIST)), null);
         shrek.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         shrek.getCast().addActor(new Actor("Mike Meyers", Reputation.GOOD, Fame.B_LIST));
-        skrek.getCast().addActor(new Actor("Eddie Murphy", Reputation.GOOD, Fame.A_LIST));
+        shrek.getCast().addActor(new Actor("Eddie Murphy", Reputation.GOOD, Fame.A_LIST));
         shrek.getCast().addActor(new Actor("Cameron Diaz", Reputation.GOOD, Fame.A_LIST));
         movies.add(shrek);
 
@@ -83,14 +83,14 @@ public class PopulateMovies {
 
         // Film 4: The 40-Year-Old Virgin
         genres = new ArrayList<>();
-        genres.add(Genre.ROMANCE);
+        genres.add(Genre.ROMANTIC);
         genres.add(Genre.COMEDY);
         Film the_40_year_old_virgin = new Film("The 40-Year-Old Virgin", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7980),
                 Rating.THREE_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(119), new Appeal(Appeal.AppealLevel.ICONIC)),
                 new Summary(156, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.BAD,
                         Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTOR, new Appeal(Appeal.AppealLevel.WEIRD)),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.WEIRD)),
                 new Cast(new Director("Judd Apatow", Reputation.NEUTRAL,
                         Fame.B_LIST)), null);
         the_40_year_old_virgin.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
@@ -162,7 +162,7 @@ public class PopulateMovies {
         genres = new ArrayList<>();
         genres.add(Genre.DRAMA);
         genres.add(Genre.FANTASY);
-        genres.add(Genre.ROMANCE);
+        genres.add(Genre.ROMANTIC);
         Film twilight = new Film("Twilight", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7320),
                 Rating.THREE_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(32), new Appeal(Appeal.AppealLevel.MEMORABLE)),
@@ -219,7 +219,7 @@ public class PopulateMovies {
         // Film 11: What Men Want
         genres = new ArrayList<>();
         genres.add(Genre.FANTASY);
-        genres.add(Genre.ROMANCE);
+        genres.add(Genre.ROMANTIC);
         genres.add(Genre.COMEDY);
         Film what_men_want = new Film("What Men Want", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7020),
                 Rating.TWO_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.CHAOTIC,

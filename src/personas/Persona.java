@@ -244,7 +244,7 @@ public class Persona {
 
     // Persona 9 is typically in their usual mood
     public static User createUser9() {
-        List<Genre> preferredGenres = new ArrayList<>();
+        List<Genre> preferredGenres = new ArrayList<>(Arrays.asList(Genre.values()));
 
         List<User.Checks> checks = new ArrayList<>();
         checks.add(User.Checks.ACTORS_FAME);
@@ -288,7 +288,7 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(3,
-                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 
@@ -312,7 +312,7 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.BORED, new FreeTime(0, 0), new Group(1,
-                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 
@@ -339,7 +339,7 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
-                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 
@@ -364,7 +364,7 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
-                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 
@@ -396,7 +396,7 @@ public class Persona {
         List<Director> likedDirectors = new ArrayList<>();
 
         return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
-                false, true), User.Attention.FULL,  new ArrayList<>(), false,
+                false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
 }
