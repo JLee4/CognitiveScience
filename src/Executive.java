@@ -182,12 +182,12 @@ class Executive {
 
         //If user is only with significant other, then the user will choose something romantic
         if (user.getGroup().getGroupSize() == 2 && user.getGroup().isWithSignificantOther()) {
-            System.out.println("Since I'm with my significant other, I will choose a romantic movie.");
-            System.out.println("[COGNITION SYSTEM] Narrowing movies to only romantic comedy or romantic movies");
+            System.out.println("Since I'm with my significant other, I will choose a romantic or funny movie.");
+            System.out.println("[COGNITION SYSTEM] Narrowing movies to only comedy or romantic movies");
             Iterator<Film> iterator = movies.iterator();
             while (iterator.hasNext()) {
                 Film movie = iterator.next();
-                if (!movie.getGenres().contains(Genre.ROMANTIC_COMEDY) && !movie.getGenres().contains(Genre.ROMANTIC)) {
+                if (!movie.getGenres().contains(Genre.COMEDY) || !movie.getGenres().contains(Genre.ROMANTIC)) {
                     iterator.remove();
                 }
             }

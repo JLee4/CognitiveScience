@@ -372,7 +372,7 @@ public class PopulateMovies {
                 Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(147), new Appeal(Appeal.AppealLevel.WEIRD)),
                 new Summary(46, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.OKAY,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
                         new Cast(new Director("Gus Van Sant", Reputation.GOOD,
                                 Fame.B_LIST)), null);
         good_will_hunting.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
@@ -441,7 +441,7 @@ public class PopulateMovies {
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(157), new Appeal(Appeal.AppealLevel.ICONIC)),
                 new Summary(121, Summary.Comprehensive.SOMEWHAT, Summary.Hook.BAD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.EYE_WEIRD)),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.WEIRD)),
                 new Cast(new Director("Adam McKay", Reputation.GOOD,
                         Fame.B_LIST)), null);
         stepbrothers.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);

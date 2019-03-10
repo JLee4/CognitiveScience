@@ -111,7 +111,7 @@ public class Persona {
     public static User createUser4() {
         List<Genre> preferredGenres = new ArrayList<>();
         preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
 
         List<User.Checks> checks = new ArrayList<>();
         checks.add(User.Checks.COVER_PHOTO);
@@ -139,7 +139,7 @@ public class Persona {
         List<Genre> preferredGenres = new ArrayList<>();
         preferredGenres.add(Genre.SCIFI);
         preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
         preferredGenres.add(Genre.DRAMA);
         preferredGenres.add(Genre.ACTION);
         preferredGenres.add(Genre.THRILLER);
@@ -170,7 +170,7 @@ public class Persona {
         List<Genre> preferredGenres = new ArrayList<>();
         preferredGenres.add(Genre.SCIFI);
         preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
         preferredGenres.add(Genre.DRAMA);
         preferredGenres.add(Genre.ACTION);
         preferredGenres.add(Genre.THRILLER);
@@ -274,7 +274,7 @@ public class Persona {
         List<Genre> preferredGenres = new ArrayList<>();
         preferredGenres.add(Genre.SCIFI);
         preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
         preferredGenres.add(Genre.DRAMA);
         preferredGenres.add(Genre.ACTION);
         preferredGenres.add(Genre.ADVENTURE);
@@ -298,7 +298,7 @@ public class Persona {
         List<Genre> preferredGenres = new ArrayList<>();
         preferredGenres.add(Genre.SCIFI);
         preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.ROMANTIC);
         preferredGenres.add(Genre.DRAMA);
         preferredGenres.add(Genre.ACTION);
         preferredGenres.add(Genre.ADVENTURE);
@@ -351,7 +351,7 @@ public class Persona {
 
     public static User createUser13() {
         List<Genre> preferredGenres = new ArrayList<>();
-        preferredGenres.add(Genre.ROMANTIC_COMEDY);
+        preferredGenres.add(Genre.COMEDY);
         preferredGenres.add(Genre.ROMANTIC);
         preferredGenres.add(Genre.DRAMA);
 

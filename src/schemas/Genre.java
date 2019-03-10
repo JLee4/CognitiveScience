@@ -5,7 +5,6 @@ public enum Genre {
     ANIMATED,
     FAMILY,
     COMEDY,
-    ROMANTIC_COMEDY,
     ROMANTIC,
     FANTASY,
     SCIFI,
@@ -14,7 +13,8 @@ public enum Genre {
     HORROR,
     THRILLER,
     HISTORICAL_FICTION,
-    ADVENTURE;
+    ADVENTURE,
+    MYSTERY;
 
     //This sees if a genre is related to another genre e.g. COMEDY is related to ROMANTIC_COMEDY
     //This is determined by ordinal distance.
