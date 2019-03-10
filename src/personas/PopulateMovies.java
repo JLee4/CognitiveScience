@@ -308,6 +308,258 @@ public class PopulateMovies {
         jurassic_park.getCast().addActor(new Actor("Jeff Goldblum", Reputation.GOOD, Fame.B_LIST));
         movies.add(jurassic_park);
 
+        // Film 16: The Fault in Our Stars
+        // NOTE: did not add book aspects
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.ROMANTIC);
+        Film the_fault_in_our_stars = new Film("The Fault in Our Stars", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7980),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(139), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(60, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.BAD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Josh Boone", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        the_fault_in_our_stars.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        the_fault_in_our_stars.getCast().addActor(new Actor("Shailene Woodley", Reputation.GOOD, Fame.A_LIST));
+        the_fault_in_our_stars.getCast().addActor(new Actor("Ansel Elgort", Reputation.EXCELLENT, Fame.A_LIST));
+        the_fault_in_our_stars.getCast().addActor(new Actor("Nat Wolff", Reputation.GOOD, Fame.B_LIST));
+        movies.add(the_fault_in_our_stars);
+
+        // Film 17: Legally Blonde
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        genres.add(Genre.ROMANTIC);
+        Film legally_blonde = new Film("Legally Blonde", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5760),
+                Rating.THREE_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(141), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(156, Summary.Comprehensive.MOSTLY, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Robert Luketic", Reputation.GOOD,
+                        Fame.B_LIST)), null);
+        legally_blonde.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        legally_blonde.getCast().addActor(new Actor("Reese Witherspoon", Reputation.EXCELLENT, Fame.A_LIST));
+        legally_blonde.getCast().addActor(new Actor("Luke Wilson", Reputation.EXCELLENT, Fame.A_LIST));
+        legally_blonde.getCast().addActor(new Actor("Selma Blair", Reputation.GOOD, Fame.C_LIST));
+        movies.add(legally_blonde);
+
+        // Film 18: Top Gun
+        genres = new ArrayList<>();
+        genres.add(Genre.ACTION);
+        genres.add(Genre.DRAMA);
+        Film top_gun = new Film("Top Gun", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6600),
+                Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.CHAOTIC,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(88), new Appeal(Appeal.AppealLevel.WEIRD)),
+                new Summary(96, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.BAD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Tony Scott", Reputation.GOOD,
+                        Fame.B_LIST)), null);
+        top_gun.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        top_gun.getCast().addActor(new Actor("Tom Cruise", Reputation.EXCELLENT, Fame.A_LIST));
+        top_gun.getCast().addActor(new Actor("Tim Robbins", Reputation.GOOD, Fame.B_LIST));
+        top_gun.getCast().addActor(new Actor("Kelly McGillis", Reputation.GOOD, Fame.B_LIST));
+        movies.add(top_gun);
+
+        // Film 19: Good Will Hunting
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.ROMANTIC);
+        Film good_will_hunting = new Film("Good Will Hunting", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7560),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(147), new Appeal(Appeal.AppealLevel.WEIRD)),
+                new Summary(46, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING),
+                        new Cast(new Director("Gus Van Sant", Reputation.GOOD,
+                                Fame.B_LIST)), null);
+        good_will_hunting.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        good_will_hunting.getCast().addActor(new Actor("Robin Williams", Reputation.EXCELLENT, Fame.A_LIST));
+        good_will_hunting.getCast().addActor(new Actor("Matt Damon", Reputation.EXCELLENT, Fame.A_LIST));
+        good_will_hunting.getCast().addActor(new Actor("Ben Affleck", Reputation.GOOD, Fame.B_LIST));
+        movies.add(good_will_hunting);
+
+        // Film 20: Napoleon Dynamite
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        Film napoleon_dynamite = new Film("Napoleon Dynamite", MediaType.FILM, "English", Duration.ZERO.plusSeconds(4896),
+                Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(73), new Appeal(Appeal.AppealLevel.BAD)),
+                new Summary(40, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Jared Hess", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        napoleon_dynamite.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        napoleon_dynamite.getCast().addActor(new Actor("Jon Heder", Reputation.GOOD, Fame.A_LIST));
+        napoleon_dynamite.getCast().addActor(new Actor("Efren Ramirez", Reputation.GOOD, Fame.B_LIST));
+        napoleon_dynamite.getCast().addActor(new Actor("Jon Gries", Reputation.GOOD, Fame.A_LIST));
+        movies.add(napoleon_dynamite);
+
+        // Film 21: The Other Guys
+        genres = new ArrayList<>();
+        genres.add(Genre.ACTION);
+        genres.add(Genre.COMEDY);
+        Film the_other_guys = new Film("The Other Guys", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5292),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(153), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(76, Summary.Comprehensive.MOSTLY, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Adam McKay", Reputation.GOOD,
+                        Fame.A_LIST)), null);
+        the_other_guys.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        the_other_guys.getCast().addActor(new Actor("Will Ferrell", Reputation.GOOD, Fame.A_LIST));
+        the_other_guys.getCast().addActor(new Actor("Mark Wahlberg", Reputation.EXCELLENT, Fame.A_LIST));
+        the_other_guys.getCast().addActor(new Actor("Derek Jeter", Reputation.GOOD, Fame.C_LIST));
+        movies.add(the_other_guys);
+
+        // Film 22: Anchorman
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        Film anchorman = new Film("Anchorman", MediaType.FILM, "English", Duration.ZERO.plusSeconds(4824),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(143), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(174, Summary.Comprehensive.MOSTLY, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Adam McKay", Reputation.GOOD,
+                        Fame.A_LIST)), null);
+        anchorman.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        anchorman.getCast().addActor(new Actor("Will Ferrell", Reputation.GOOD, Fame.A_LIST));
+        anchorman.getCast().addActor(new Actor("Christina Applegate", Reputation.GOOD, Fame.A_LIST));
+        anchorman.getCast().addActor(new Actor("Steve Carell", Reputation.EXCELLENT, Fame.A_LIST));
+        movies.add(anchorman);
+
+        // Film 23: Stepbrothers
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        Film stepbrothers = new Film("Stepbrothers", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5880),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(157), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(121, Summary.Comprehensive.SOMEWHAT, Summary.Hook.BAD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.EYE_WEIRD)),
+                new Cast(new Director("Adam McKay", Reputation.GOOD,
+                        Fame.B_LIST)), null);
+        stepbrothers.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        stepbrothers.getCast().addActor(new Actor("Will Ferrell", Reputation.GOOD, Fame.A_LIST));
+        stepbrothers.getCast().addActor(new Actor("John C. Reilly", Reputation.GOOD, Fame.A_LIST));
+        stepbrothers.getCast().addActor(new Actor("Mary Steenburgen", Reputation.EXCELLENT, Fame.A_LIST));
+        movies.add(stepbrothers);
+
+        // Film 24: Pretty Woman
+        genres = new ArrayList<>();
+        genres.add(Genre.ROMANTIC);
+        genres.add(Genre.COMEDY);
+        Film pretty_woman = new Film("Pretty Woman", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5616),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(176), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(169, Summary.Comprehensive.SPOILS_PLOT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Garry Marshall", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        pretty_woman.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        pretty_woman.getCast().addActor(new Actor("Richard Gere", Reputation.GOOD, Fame.A_LIST));
+        pretty_woman.getCast().addActor(new Actor("Julia Roberts", Reputation.EXCELLENT, Fame.A_LIST));
+        pretty_woman.getCast().addActor(new Actor("Jason Alexander", Reputation.GOOD, Fame.A_LIST));
+        movies.add(pretty_woman);
+
+        // Film 25: Remember the Titans
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        Film remember_the_titans = new Film("Remember the Titans", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5508),
+                Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(153), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(91, Summary.Comprehensive.MOSTLY, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Cast(new Director("Boaz Yakin", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        remember_the_titans.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        remember_the_titans.getCast().addActor(new Actor("Denzel Washington", Reputation.EXCELLENT, Fame.A_LIST));
+        remember_the_titans.getCast().addActor(new Actor("Will Patton", Reputation.GOOD, Fame.B_LIST));
+        remember_the_titans.getCast().addActor(new Actor("Wood Harris", Reputation.GOOD, Fame.B_LIST));
+        movies.add(remember_the_titans);
+
+        // Film 26: A Star is Born
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.ROMANTIC);
+        Film a_star_is_born = new Film("A Star is Born", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7776),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.NEW, new Preview(Duration.ZERO.plusSeconds(143), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(65, Summary.Comprehensive.SOMEWHAT, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Bradley Cooper", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        a_star_is_born.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        a_star_is_born.getCast().addActor(new Actor("Lady Gaga", Reputation.GOOD, Fame.A_LIST));
+        a_star_is_born.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.EXCELLENT, Fame.A_LIST));
+        a_star_is_born.getCast().addActor(new Actor("Sam Elliott", Reputation.EXCELLENT, Fame.A_LIST));
+        movies.add(a_star_is_born);
+
+        // Film 27: Birdbox
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.HORROR);
+        genres.add(Genre.SCIFI);
+        Film birdbox = new Film("Birdbox", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7344),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.LITTLE, Film.Atmosphere.GRIM,
+                Film.Age.NEW, new Preview(Duration.ZERO.plusSeconds(180), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(63, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Susanne Bier", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        birdbox.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        birdbox.getCast().addActor(new Actor("Sandra Bullock", Reputation.EXCELLENT, Fame.A_LIST));
+        birdbox.getCast().addActor(new Actor("Trevante Rhodes", Reputation.GOOD, Fame.B_LIST));
+        birdbox.getCast().addActor(new Actor("John Malkovich", Reputation.GOOD, Fame.B_LIST));
+        movies.add(birdbox);
+
+        // Film 28: The Conjuring
+        genres = new ArrayList<>();
+        genres.add(Genre.HORROR);
+        genres.add(Genre.MYSTERY);
+        genres.add(Genre.THRILLER);
+        Film the_conjuring = new Film("The Conjuring", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5472),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.LITTLE, Film.Atmosphere.GRIM,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(146), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(98, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Cast(new Director("James Wan", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        the_conjuring.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        the_conjuring.getCast().addActor(new Actor("Patrick Wilson", Reputation.GOOD, Fame.A_LIST));
+        the_conjuring.getCast().addActor(new Actor("Vera Farmiga", Reputation.GOOD, Fame.A_LIST));
+        the_conjuring.getCast().addActor(new Actor("Ron Livingston", Reputation.GOOD, Fame.B_LIST));
+        movies.add(the_conjuring);
+
+        // Film 29: Crazy Rich Asians
+        // NOTE: did not add book aspects
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        genres.add(Genre.ROMANTIC);
+        Film crazy_rich_asians = new Film("Crazy Rich Asians", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7200),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
+                Film.Age.NEW, new Preview(Duration.ZERO.plusSeconds(143), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(69, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Jon M. Chu", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        crazy_rich_asians.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        crazy_rich_asians.getCast().addActor(new Actor("Constance Wu", Reputation.GOOD, Fame.C_LIST));
+        crazy_rich_asians.getCast().addActor(new Actor("Henry Golding", Reputation.GOOD, Fame.C_LIST));
+        crazy_rich_asians.getCast().addActor(new Actor("Michelle Yeoh", Reputation.GOOD, Fame.A_LIST));
+        movies.add(crazy_rich_asians);
+
         //Use this as a template for more movie objects (i.e. replace the field with another movie)
         genres = new ArrayList<>();
         genres.add(Genre.ANIMATED);
