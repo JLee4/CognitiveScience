@@ -560,24 +560,223 @@ public class PopulateMovies {
         crazy_rich_asians.getCast().addActor(new Actor("Michelle Yeoh", Reputation.GOOD, Fame.A_LIST));
         movies.add(crazy_rich_asians);
 
-        //Use this as a template for more movie objects (i.e. replace the field with another movie)
+        //Film 30: Jennifer's Body
+        genres = new ArrayList<>();
+        genres.add(Genre.HORROR);
+        genres.add(Genre.COMEDY);
+        Film jennifers_body = new Film("Jennifer's Body", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6120),
+                Rating.TWO_STARS, AgeRating.R, genres, GoreAmount.LARGE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(108), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(103, Summary.Comprehensive.MOSTLY, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Karyn Kusama", Reputation.NEUTRAL,
+                        Fame.C_LIST)), null);
+        jennifers_body.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        jennifers_body.getCast().addActor(new Actor("Megan Fox", Reputation.NEUTRAL, Fame.B_LIST));
+        jennifers_body.getCast().addActor(new Actor("Amanda Seyfried", Reputation.EXCELLENT, Fame.A_LIST));
+        jennifers_body.getCast().addActor(new Actor("Adam Brody", Reputation.GOOD, Fame.B_LIST));
+        movies.add(jennifers_body);
+
+        //Film 31: The Dark Knight Rises
+        genres = new ArrayList<>();
+        genres.add(Genre.ACTION);
+        genres.add(Genre.THRILLER);
+        Film dark_knight_rises = new Film("The Dark Knight Rises", MediaType.FILM, "English", Duration.ZERO.plusSeconds(9840),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.GRIM,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(135), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(145, Summary.Comprehensive.MOSTLY, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Christopher Nolan", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        dark_knight_rises.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        dark_knight_rises.getCast().addActor(new Actor("Christian Bale", Reputation.GOOD, Fame.A_LIST));
+        dark_knight_rises.getCast().addActor(new Actor("Anne Hathaway", Reputation.EXCELLENT, Fame.A_LIST));
+        dark_knight_rises.getCast().addActor(new Actor("Tom Hardy", Reputation.NEUTRAL, Fame.A_LIST));
+        movies.add(dark_knight_rises);
+
+        //Film 32: Charlie and the Chocolate Factory
+        genres = new ArrayList<>();
+        genres.add(Genre.COMEDY);
+        genres.add(Genre.FAMILY);
+        genres.add(Genre.ADVENTURE);
+        Film charlie_chocolate_factory = new Film("Charlie and the Chocolate Factory", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6900),
+                Rating.THREE_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(176), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Summary(42, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.OKAY,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.UNINTERESTING)),
+                new Cast(new Director("Tim Burton", Reputation.GOOD,
+                        Fame.A_LIST)), null);
+        charlie_chocolate_factory.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        charlie_chocolate_factory.getCast().addActor(new Actor("Johnny Depp", Reputation.NEUTRAL, Fame.A_LIST));
+        charlie_chocolate_factory.getCast().addActor(new Actor("Freddie Highmore", Reputation.GOOD, Fame.B_LIST));
+        movies.add(charlie_chocolate_factory);
+
+        //Film 33: Forrest Gump
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.ROMANTIC);
+        Film forrest_gump = new Film("Forrest Gump", MediaType.FILM, "English", Duration.ZERO.plusSeconds(8520),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(234), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(200, Summary.Comprehensive.MOSTLY, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Robert Zemeckis", Reputation.GOOD,
+                        Fame.B_LIST)), null);
+        forrest_gump.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        forrest_gump.getCast().addActor(new Actor("Tom Hanks", Reputation.EXCELLENT, Fame.A_LIST));
+        forrest_gump.getCast().addActor(new Actor("Robin Wright", Reputation.GOOD, Fame.B_LIST));
+        forrest_gump.getCast().addActor(new Actor("Gary Sinise", Reputation.GOOD, Fame.B_LIST));
+        movies.add(forrest_gump);
+
+        //Film 34: Pan's Labyrinth
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.FANTASY);
+        genres.add(Genre.SCIFI);
+        Film pans_labyrinth = new Film("Pan's Labyrinth", MediaType.FILM, "Spanish", Duration.ZERO.plusSeconds(7080),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.LARGE, Film.Atmosphere.GRIM,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(150), new Appeal(Appeal.AppealLevel.WEIRD)),
+                new Summary(49, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.WEIRD)),
+                new Cast(new Director("Guillermo del Toro", Reputation.GOOD,
+                        Fame.A_LIST)), null);
+        pans_labyrinth.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        pans_labyrinth.getCast().addActor(new Actor("Ivana Baquero", Reputation.GOOD, Fame.B_LIST));
+        pans_labyrinth.getCast().addActor(new Actor("Maribel Verdú", Reputation.GOOD, Fame.B_LIST));
+        movies.add(pans_labyrinth);
+
+        //Film 35: Interstellar
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.ADVENTURE);
+        genres.add(Genre.SCIFI);
+        Film interstellar = new Film("Interstellar", MediaType.FILM, "English", Duration.ZERO.plusSeconds(10140),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MYSTERIOUS,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(152), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(35, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Christopher Nolan", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        interstellar.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        interstellar.getCast().addActor(new Actor("Matthew McConaughey", Reputation.EXCELLENT, Fame.A_LIST));
+        interstellar.getCast().addActor(new Actor("Anne Hathaway", Reputation.EXCELLENT, Fame.A_LIST));
+        interstellar.getCast().addActor(new Actor("Jessica Chastain", Reputation.GOOD, Fame.A_LIST));
+        movies.add(interstellar);
+
+        //Film 36: Inception
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        genres.add(Genre.SCIFI);
+        genres.add(Genre.ADVENTURE);
+        genres.add(Genre.ACTION);
+        Film inception = new Film("Inception", MediaType.FILM, "English", Duration.ZERO.plusSeconds(8880),
+                Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MYSTERIOUS,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(144), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(44, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Christopher Nolan", Reputation.EXCELLENT,
+                        Fame.A_LIST)), null);
+        inception.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        inception.getCast().addActor(new Actor("Leonardo DiCaprio", Reputation.EXCELLENT, Fame.A_LIST));
+        inception.getCast().addActor(new Actor("Joseph Gordon-Levitt", Reputation.GOOD, Fame.A_LIST));
+        inception.getCast().addActor(new Actor("Ellen Page", Reputation.GOOD, Fame.B_LIST));
+        movies.add(inception);
+
+        //Film 37: The Emoji Movie
         genres = new ArrayList<>();
         genres.add(Genre.ANIMATED);
-        genres.add(Genre.ADVENTURE);
+        genres.add(Genre.FAMILY);
         genres.add(Genre.COMEDY);
-        Film template = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
-                Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
-                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
-                new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
+        Film emoji_movie = new Film("The Emoji Movie", MediaType.FILM, "English", Duration.ZERO.plusSeconds(5160),
+                Rating.ONE_STAR, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(157), new Appeal(Appeal.AppealLevel.ICONIC)),
+                new Summary(14, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.BAD,
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
-                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
-                new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
+                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+                new Cast(new Director("Tony Leondis", Reputation.GOOD,
                         Fame.B_LIST)), null);
-        template.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
-        template.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
-        template.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
-        template.getCast().addActor(new Actor("Benjamin Bratt", Reputation.GOOD, Fame.B_LIST));
-        //movies.add(template);
+        emoji_movie.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        emoji_movie.getCast().addActor(new Actor("T.J. Miller", Reputation.BAD, Fame.B_LIST));
+        emoji_movie.getCast().addActor(new Actor("James Corden", Reputation.GOOD, Fame.A_LIST));
+        emoji_movie.getCast().addActor(new Actor("Anna Faris", Reputation.GOOD, Fame.A_LIST));
+        movies.add(emoji_movie);
+
+        //Film 38: Spider-Man
+        genres = new ArrayList<>();
+        genres.add(Genre.ACTION);
+        genres.add(Genre.ADVENTURE);
+        genres.add(Genre.SCIFI);
+        Film spiderman = new Film("Spider-Man", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7260),
+                Rating.THREE_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.CHAOTIC,
+                Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(149), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(34, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Cast(new Director("Sam Raimi", Reputation.NEUTRAL,
+                        Fame.B_LIST)), null);
+        spiderman.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        spiderman.getCast().addActor(new Actor("Tobey Maguire", Reputation.GOOD, Fame.B_LIST));
+        spiderman.getCast().addActor(new Actor("Kirsten Dunst", Reputation.GOOD, Fame.B_LIST));
+        movies.add(spiderman);
+
+        //Film 39: Blue is the Warmest Color
+        genres = new ArrayList<>();
+        genres.add(Genre.ROMANTIC);
+        genres.add(Genre.DRAMA);
+        Film blue_warmest_color = new Film("Blue is the Warmest Color", MediaType.FILM, "French", Duration.ZERO.plusSeconds(10800),
+                Rating.FOUR_STARS, AgeRating.R, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(108), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(50, Summary.Comprehensive.SOMEWHAT, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.UNINTERESTING)),
+                new Cast(new Director("Abdellatif Kechiche", Reputation.NEUTRAL,
+                        Fame.C_LIST)), null);
+        blue_warmest_color.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        blue_warmest_color.getCast().addActor(new Actor("Léa Seydoux", Reputation.NEUTRAL, Fame.C_LIST));
+        blue_warmest_color.getCast().addActor(new Actor("Adèle Exarchopoulos", Reputation.NEUTRAL, Fame.C_LIST));
+        movies.add(blue_warmest_color);
+
+        //Film 40: The Shawshank Redemption
+        genres = new ArrayList<>();
+        genres.add(Genre.DRAMA);
+        Film shawshank_redemption = new Film("The Shawshank Redemption", MediaType.FILM, "English", Duration.ZERO.plusSeconds(8640),
+                Rating.FIVE_STARS, AgeRating.R, genres, GoreAmount.MEDIUM, Film.Atmosphere.MELANCHOLIC,
+                Film.Age.OLD, new Preview(Duration.ZERO.plusSeconds(130), new Appeal(Appeal.AppealLevel.MEMORABLE)),
+                new Summary(69, Summary.Comprehensive.MOSTLY, Summary.Hook.GOOD,
+                        Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
+                new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.UNINTERESTING)),
+                new Cast(new Director("Frank Darabont", Reputation.GOOD,
+                        Fame.A_LIST)), null);
+        shawshank_redemption.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+        shawshank_redemption.getCast().addActor(new Actor("Morgan Freeman", Reputation.GOOD, Fame.A_LIST));
+        shawshank_redemption.getCast().addActor(new Actor("Tim Robbins", Reputation.GOOD, Fame.B_LIST));
+        movies.add(shawshank_redemption);
+
+        //Use this as a template for more movie objects (i.e. replace the field with another movie)
+//        genres = new ArrayList<>();
+//        genres.add(Genre.ANIMATED);
+//        genres.add(Genre.ADVENTURE);
+//        genres.add(Genre.COMEDY);
+//        Film template = new Film("Coco", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6300),
+//                Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
+//                Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(60), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+//                new Summary(100, Summary.Comprehensive.VERY_LITTLE, Summary.Hook.GOOD,
+//                        Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
+//                new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT, new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
+//                new Cast(new Director("Lee Unkrich", Reputation.NEUTRAL,
+//                        Fame.B_LIST)), null);
+//        template.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
+//        template.getCast().addActor(new Actor("Anthony Gonzalez", Reputation.GOOD, Fame.C_LIST));
+//        template.getCast().addActor(new Actor("Gael Garcia Bernal", Reputation.GOOD, Fame.B_LIST));
+//        template.getCast().addActor(new Actor("Benjamin Bratt", Reputation.GOOD, Fame.B_LIST));
+//        movies.add(template);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         return movies;
