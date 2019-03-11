@@ -232,7 +232,7 @@ public class Persona {
         readBooks.add(new Book("1984", 10, 1000, Book.ReadingDifficulty.COLLEGE_LEVEL));
         List<Director> likedDirectors = new ArrayList<>();
 
-        return new User(User.Mood.BORED, new FreeTime(5, 0), new Group(1,
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
                 false, false), User.Attention.FULL,  new ArrayList<>(), false,
                 null, preferredGenres, checks, 3, likedActors, readBooks, likedDirectors);
     }
