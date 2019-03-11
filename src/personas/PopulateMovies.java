@@ -301,7 +301,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_THEME, new Appeal(Appeal.AppealLevel.MEMORABLE)),
                 new Cast(new Director("Steven Spielberg", Reputation.GOOD,
-                        Fame.A_LIST)), null);
+                        Fame.A_LIST)), new Book("Jurassic Park", 1, 10000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
         jurassic_park.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         jurassic_park.getCast().addActor(new Actor("Sam Neill", Reputation.GOOD, Fame.C_LIST));
         jurassic_park.getCast().addActor(new Actor("Laura Dern", Reputation.NEUTRAL, Fame.B_LIST));
