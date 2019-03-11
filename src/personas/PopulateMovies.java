@@ -138,11 +138,11 @@ public class PopulateMovies {
         movies.add(the_incredibles);
 
         // Film 7: Harry Potter and the Sorcerer's Stone
-        // NOTE: did not add book aspects
         genres = new ArrayList<>();
         genres.add(Genre.FAMILY);
         genres.add(Genre.ADVENTURE);
         genres.add(Genre.FANTASY);
+        Book harry = new Book("Harry Potter and the Sorcerer's Stone", 1, 76944, Book.ReadingDifficulty.ELEMENTARY_LEVEL);
         Film harry_potter = new Film("Harry Potter and the Sorcerer's Stone", MediaType.FILM, "English", Duration.ZERO.plusSeconds(9120),
                 Rating.FOUR_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(61), new Appeal(Appeal.AppealLevel.ICONIC)),
@@ -150,7 +150,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.COMPLEX, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
                 new Cast(new Director("Chris Columbus", Reputation.NEUTRAL,
-                        Fame.B_LIST)), null);
+                        Fame.B_LIST)), harry);
         harry_potter.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         harry_potter.getCast().addActor(new Actor("Daniel Radcliffe", Reputation.GOOD, Fame.A_LIST));
         harry_potter.getCast().addActor(new Actor("Rupert Grint", Reputation.GOOD, Fame.A_LIST));
@@ -158,11 +158,11 @@ public class PopulateMovies {
         movies.add(harry_potter);
 
         // Film 8: Twilight
-        // NOTE: did not add book aspects
         genres = new ArrayList<>();
         genres.add(Genre.DRAMA);
         genres.add(Genre.FANTASY);
         genres.add(Genre.ROMANTIC);
+        Book twi = new Book("Twilight", 1, 119000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL);
         Film twilight = new Film("Twilight", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7320),
                 Rating.THREE_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(32), new Appeal(Appeal.AppealLevel.MEMORABLE)),
@@ -170,7 +170,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.WEIRD)),
                 new Cast(new Director("Catherine Hardwicke", Reputation.NEUTRAL,
-                        Fame.B_LIST)), null);
+                        Fame.B_LIST)), twi);
         twilight.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         twilight.getCast().addActor(new Actor("Kristen Stewart", Reputation.GOOD, Fame.C_LIST));
         twilight.getCast().addActor(new Actor("Robert Pattinson", Reputation.GOOD, Fame.B_LIST));
@@ -309,10 +309,10 @@ public class PopulateMovies {
         movies.add(jurassic_park);
 
         // Film 16: The Fault in Our Stars
-        // NOTE: did not add book aspects
         genres = new ArrayList<>();
         genres.add(Genre.DRAMA);
         genres.add(Genre.ROMANTIC);
+        Book fault = new Book("The Fault in Our Stars", 1, 92000, Book.ReadingDifficulty.MIDDLE_SCHOOL_LEVEL);
         Film the_fault_in_our_stars = new Film("The Fault in Our Stars", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7980),
                 Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.MELANCHOLIC,
                 Film.Age.SOMEWHAT_NEW, new Preview(Duration.ZERO.plusSeconds(139), new Appeal(Appeal.AppealLevel.MEMORABLE)),
@@ -320,7 +320,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_PLOT_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
                 new Cast(new Director("Josh Boone", Reputation.NEUTRAL,
-                        Fame.B_LIST)), null);
+                        Fame.B_LIST)), fault);
         the_fault_in_our_stars.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         the_fault_in_our_stars.getCast().addActor(new Actor("Shailene Woodley", Reputation.GOOD, Fame.A_LIST));
         the_fault_in_our_stars.getCast().addActor(new Actor("Ansel Elgort", Reputation.EXCELLENT, Fame.A_LIST));
@@ -542,10 +542,10 @@ public class PopulateMovies {
         movies.add(the_conjuring);
 
         // Film 29: Crazy Rich Asians
-        // NOTE: did not add book aspects
         genres = new ArrayList<>();
         genres.add(Genre.COMEDY);
         genres.add(Genre.ROMANTIC);
+        Book crazy = new Book("Crazy Rich Asians", 1, 120000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL);
         Film crazy_rich_asians = new Film("Crazy Rich Asians", MediaType.FILM, "English", Duration.ZERO.plusSeconds(7200),
                 Rating.FOUR_STARS, AgeRating.PG_13, genres, GoreAmount.NONE, Film.Atmosphere.CHEERFUL,
                 Film.Age.NEW, new Preview(Duration.ZERO.plusSeconds(143), new Appeal(Appeal.AppealLevel.MEMORABLE)),
@@ -553,7 +553,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.MEDIUM, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.MEMORABLE)),
                 new Cast(new Director("Jon M. Chu", Reputation.NEUTRAL,
-                        Fame.B_LIST)), null);
+                        Fame.B_LIST)), crazy);
         crazy_rich_asians.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         crazy_rich_asians.getCast().addActor(new Actor("Constance Wu", Reputation.GOOD, Fame.C_LIST));
         crazy_rich_asians.getCast().addActor(new Actor("Henry Golding", Reputation.GOOD, Fame.C_LIST));
@@ -601,6 +601,7 @@ public class PopulateMovies {
         genres.add(Genre.COMEDY);
         genres.add(Genre.FAMILY);
         genres.add(Genre.ADVENTURE);
+        Book charlie = new Book("Charlie and the Chocolate Factory", 1, 30644, Book.ReadingDifficulty.ELEMENTARY_LEVEL);
         Film charlie_chocolate_factory = new Film("Charlie and the Chocolate Factory", MediaType.FILM, "English", Duration.ZERO.plusSeconds(6900),
                 Rating.THREE_STARS, AgeRating.PG, genres, GoreAmount.NONE, Film.Atmosphere.HUMOROUS,
                 Film.Age.SOMEWHAT_OLD, new Preview(Duration.ZERO.plusSeconds(176), new Appeal(Appeal.AppealLevel.EYE_CATCHING)),
@@ -608,7 +609,7 @@ public class PopulateMovies {
                         Summary.ReadingDifficulty.ELEMENTARY_LEVEL),
                 new CoverPhoto(CoverPhoto.Complexity.SIMPLE, CoverPhoto.Iconography.REVEALS_ACTORS, new Appeal(Appeal.AppealLevel.UNINTERESTING)),
                 new Cast(new Director("Tim Burton", Reputation.GOOD,
-                        Fame.A_LIST)), null);
+                        Fame.A_LIST)), charlie);
         charlie_chocolate_factory.getRating().setRatedBy(Rating.RatedBy.ROTTEN_TOMATOES);
         charlie_chocolate_factory.getCast().addActor(new Actor("Johnny Depp", Reputation.NEUTRAL, Fame.A_LIST));
         charlie_chocolate_factory.getCast().addActor(new Actor("Freddie Highmore", Reputation.GOOD, Fame.B_LIST));
