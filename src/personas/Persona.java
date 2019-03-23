@@ -18,36 +18,53 @@ public class Persona {
     //TODO: 5 points of learning we could do
     /*
     Learning their preferences (genres)
-    Learning which movies are bad and what to avoid
-    Merging preferences with group (especially SO)
+    Learning which movies are bad and what to avoid //TODO
+    Merging preferences with group (especially SO) //TODO
     Rewatching something because it's guaranteed they'd enjoy it if there's nothing good or not enough free time
-    Learning the specific points in ratings, summaries, and reviews that increase chances of an enjoyable movie
+    Learning the specific points in ratings, summaries, and reviews that increase chances of an enjoyable movie //TODO
      */
 
-    // Persona 1 is focused on the high-level aspects of movie selection.
-
-    // Persona 1 cares about MOOD and GENRE of a potential movie.
-
-    // Persona 1 does looks at the cover photo but only that
-
-    // Persona 1 is typically in a "happy" mood and enjoys the genres "comedy" and "drama".
-    public static User createUser1() {
-        List<Genre> preferredGenres = new ArrayList<>();
-        preferredGenres.add(Genre.COMEDY);
-        preferredGenres.add(Genre.DRAMA);
-        preferredGenres.add(Genre.ANIMATED);
+    //This generic persona is a clean slate where it doesn't have preferences yet
+    //The goal is for the persona to learn their preferences, what movies are bad,
+    // the specific signs of a bad movie from the cover photo, summary, reviews, etc., and learning the preferences
+    // of the group the persona is with.
+    public static User createUser() {
+        List<Genre> preferredGenres = new ArrayList<>(Arrays.asList(Genre.values()));
         List<User.Checks> checks = new ArrayList<>();
-        checks.add(User.Checks.COVER_PHOTO);
         List<Actor> likedActors = new ArrayList<>();
         List<Book> readBooks = new ArrayList<>();
         List<Director> likedDirectors = new ArrayList<>();
 
-        return new User(User.Mood.HAPPY, new FreeTime(2, 0), new Group(1,
-                false, false), User.Attention.MEDIUM, new ArrayList<>(),
-                false, null, preferredGenres, checks, 3, likedActors, readBooks,
+        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
+                false, false), User.Attention.FULL, new ArrayList<>(),
+                false, null, preferredGenres, checks, 0, likedActors, readBooks,
                 likedDirectors);
     }
 
+//    // Persona 1 is focused on the high-level aspects of movie selection.
+//
+//    // Persona 1 cares about MOOD and GENRE of a potential movie.
+//
+//    // Persona 1 does looks at the cover photo but only that
+//
+//    // Persona 1 is typically in a "happy" mood and enjoys the genres "comedy" and "drama".
+//    public static User createUser1() {
+//        List<Genre> preferredGenres = new ArrayList<>();
+//        preferredGenres.add(Genre.COMEDY);
+//        preferredGenres.add(Genre.DRAMA);
+//        preferredGenres.add(Genre.ANIMATED);
+//        List<User.Checks> checks = new ArrayList<>();
+//        checks.add(User.Checks.COVER_PHOTO);
+//        List<Actor> likedActors = new ArrayList<>();
+//        List<Book> readBooks = new ArrayList<>();
+//        List<Director> likedDirectors = new ArrayList<>();
+//
+//        return new User(User.Mood.HAPPY, new FreeTime(2, 0), new Group(1,
+//                false, false), User.Attention.MEDIUM, new ArrayList<>(),
+//                false, null, preferredGenres, checks, 3, likedActors, readBooks,
+//                likedDirectors);
+//    }
+//
 //
 //    // Persona 2 is focused on the high-level aspects of movie selection.
 //

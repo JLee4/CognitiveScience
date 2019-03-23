@@ -47,53 +47,54 @@ class Executive {
     public static void executive(int persona, boolean isVerbose) {
         movies = PopulateMovies.populateMovies(isVerbose);
         Collections.shuffle(movies);
-        switch (persona) {
-            case 1:
-                user = Persona.createUser1();
-                break;
-            case 2:
-                user = Persona.createUser2();
-                break;
-            case 3:
-                user = Persona.createUser3();
-                break;
-            case 4:
-                user = Persona.createUser4();
-                break;
-            case 5:
-                user = Persona.createUser5();
-                break;
-            case 6:
-                user = Persona.createUser6();
-                break;
-            case 7:
-                user = Persona.createUser7();
-                break;
-            case 8:
-                user = Persona.createUser8();
-                break;
-            case 9:
-                user = Persona.createUser9();
-                break;
-            case 10:
-                user = Persona.createUser10();
-                break;
-            case 11:
-                user = Persona.createUser11();
-                break;
-            case 12:
-                user = Persona.createUser12();
-                break;
-            case 13:
-                user = Persona.createUser13();
-                break;
-            case 14:
-                user = Persona.createUser14();
-                break;
-            default:
-                System.out.println("You must input a valid number of a persona as an argument.");
-                exit(0);
-        }
+        user = Persona.createUser();
+//        switch (persona) {
+//            case 1:
+//                user = Persona.createUser1();
+//                break;
+//            case 2:
+//                user = Persona.createUser2();
+//                break;
+//            case 3:
+//                user = Persona.createUser3();
+//                break;
+//            case 4:
+//                user = Persona.createUser4();
+//                break;
+//            case 5:
+//                user = Persona.createUser5();
+//                break;
+//            case 6:
+//                user = Persona.createUser6();
+//                break;
+//            case 7:
+//                user = Persona.createUser7();
+//                break;
+//            case 8:
+//                user = Persona.createUser8();
+//                break;
+//            case 9:
+//                user = Persona.createUser9();
+//                break;
+//            case 10:
+//                user = Persona.createUser10();
+//                break;
+//            case 11:
+//                user = Persona.createUser11();
+//                break;
+//            case 12:
+//                user = Persona.createUser12();
+//                break;
+//            case 13:
+//                user = Persona.createUser13();
+//                break;
+//            case 14:
+//                user = Persona.createUser14();
+//                break;
+//            default:
+//                System.out.println("You must input a valid number of a persona as an argument.");
+//                exit(0);
+//        }
 
         if (isVerbose) {
             System.out.println("User " + persona + ":\n");

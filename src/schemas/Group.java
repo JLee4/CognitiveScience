@@ -1,16 +1,32 @@
 package schemas;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Group {
 
     //NOTE: groupSize also includes the users themselves, so groupSize == 1 means they are alone
     private int groupSize;
     private boolean withSignificantOther;
     private boolean withFamily;
+    private List<User> members = new ArrayList<>();
 
     public Group(int groupSize, boolean withSignificantOther, boolean withFamily) {
         this.groupSize = groupSize;
         this.withSignificantOther = withSignificantOther;
         this.withFamily = withFamily;
+    }
+
+    public List<User> getMembers() {
+        return members;
+    }
+
+    public void setMembers(List<User> members) {
+        this.members = members;
+    }
+
+    public void addMember(User member) {
+        this.members.add(member);
     }
 
     public int getGroupSize() {

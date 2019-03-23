@@ -1,6 +1,8 @@
 package schemas;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class User {
@@ -50,6 +52,12 @@ public class User {
     private int minimumRating;
     private List<Book> readBooks;
 
+    //Project 3 vars
+    private String name;
+    private List<Film> badMovies = new ArrayList<>();
+    private HashMap<Checks, List<DislikeThreshold>> badMoviesCharacteristics = new HashMap<>();
+    private HashMap<String, List<Genre>> groupMemberPreferences = new HashMap<>();
+
     public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies,
                 boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks,
                 int minimumRating, List<Actor> likedActors, List<Book> readBooks, List<Director> likedDirectors) {
@@ -67,6 +75,56 @@ public class User {
         this.likedActors = likedActors;
         this.readBooks = readBooks;
         this.likedDirectors = likedDirectors;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Film> getBadMovies() {
+        return badMovies;
+    }
+
+    public void setBadMovies(List<Film> badMovies) {
+        this.badMovies = badMovies;
+    }
+
+    public void addBadMovie(Film badMovie) {
+        this.badMovies.add(badMovie);
+    }
+
+    public HashMap<Checks, List<DislikeThreshold>> getBadMoviesCharacteristics() {
+        return badMoviesCharacteristics;
+    }
+
+    public void setBadMoviesCharacteristics(HashMap<Checks, List<DislikeThreshold>> badMoviesCharacteristics) {
+        this.badMoviesCharacteristics = badMoviesCharacteristics;
+    }
+
+    public void putBadMoviesCharacteristic(Checks check, DislikeThreshold dislikeThreshold) {
+        if (this.badMoviesCharacteristics.get(check) == null) {
+            this.badMoviesCharacteristics.put(check, new ArrayList<>());
+        }
+        this.badMoviesCharacteristics.get(check).add(dislikeThreshold);
+    }
+
+    public HashMap<String, List<Genre>> getGroupMemberPreferences() {
+        return groupMemberPreferences;
+    }
+
+    public void setGroupMemberPreferences(HashMap<String, List<Genre>> groupMemberPreferences) {
+        this.groupMemberPreferences = groupMemberPreferences;
+    }
+
+    public void addGroupMemberPreference(String name, Genre preference) {
+        if (this.groupMemberPreferences.get(name) == null) {
+            this.groupMemberPreferences.put(name, new ArrayList<>());
+        }
+        this.groupMemberPreferences.get(name).add(preference);
     }
 
     public Mood getMood() {
@@ -191,6 +249,13 @@ public class User {
 
     public void setReadBooks(List<Book> readBooks) {
         this.readBooks = readBooks;
+    }
+
+    public void addReadBook(Book readBook) {
+        if (readBooks == null) {
+            readBooks = new ArrayList<>();
+        }
+        readBooks.add(readBook);
     }
 
     public List<Director> getLikedDirectors() {
