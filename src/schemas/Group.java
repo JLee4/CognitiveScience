@@ -9,7 +9,7 @@ public class Group {
     private int groupSize;
     private boolean withSignificantOther;
     private boolean withFamily;
-    private List<User> members = new ArrayList<>();
+    private List<GroupMember> members = new ArrayList<>();
 
     public Group(int groupSize, boolean withSignificantOther, boolean withFamily) {
         this.groupSize = groupSize;
@@ -17,15 +17,15 @@ public class Group {
         this.withFamily = withFamily;
     }
 
-    public List<User> getMembers() {
+    public List<GroupMember> getMembers() {
         return members;
     }
 
-    public void setMembers(List<User> members) {
+    public void setMembers(List<GroupMember> members) {
         this.members = members;
     }
 
-    public void addMember(User member) {
+    public void addMember(GroupMember member) {
         this.members.add(member);
     }
 

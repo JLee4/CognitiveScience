@@ -44,6 +44,26 @@ public class Appeal {
         this.appealLevel = appealLevel;
     }
 
+    public int getPointLevel() {
+        switch(getAppealLevel()) {
+            case ICONIC:
+                return -50;
+            case MEMORABLE:
+                return -20;
+            case EYE_CATCHING:
+                return 0;
+            case UNINTERESTING:
+                return 50;
+            case WEIRD:
+                return 70;
+            case BAD:
+                return 100;
+            case DISTASTEFUL:
+                return 200;
+        }
+        return 0;
+    }
+
     @Override
     public String toString() {
         return appealLevel.name().toLowerCase();

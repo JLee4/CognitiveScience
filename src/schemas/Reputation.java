@@ -19,4 +19,20 @@ public enum Reputation {
     public void setKnownScandals(List<String> knownScandals) {
         this.knownScandals = knownScandals;
     }
+
+    public int getPointLevel() {
+        switch(this) {
+            case EXCELLENT:
+                return -20;
+            case GOOD:
+                return 30;
+            case NEUTRAL:
+                return 50;
+            case BAD:
+                return 80;
+            case AWFUL:
+                return 100;
+        }
+        return 0;
+    }
 }

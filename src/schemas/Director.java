@@ -15,4 +15,8 @@ public class Director extends CastMember {
         Director director = (Director) o;
         return Objects.equals(getName().toLowerCase(), director.getName().toLowerCase());
     }
+
+    public int getPointLevel() {
+        return (getReputation().getPointLevel() + getFame().getPointLevel()) * 2;
+    }
 }

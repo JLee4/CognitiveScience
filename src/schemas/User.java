@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class User {
 
@@ -27,13 +29,15 @@ public class User {
         RATING,
         COVER_PHOTO,
         SUMMARY,
-        LIKED_ACTORS,
+        ACTORS,
         ACTORS_FAME,
         DIRECTOR,
         FEATURED_MOVIES,
         NEW_MOVIES,
         RECOMMENDED_MOVIES,
-        BOOK
+        BOOK,
+        GORE_AMOUNT,
+        AGE
     }
 
     private Mood mood;
@@ -55,8 +59,8 @@ public class User {
     //Project 3 vars
     private String name;
     private List<Film> badMovies = new ArrayList<>();
-    private HashMap<Checks, List<DislikeThreshold>> badMoviesCharacteristics = new HashMap<>();
-    private HashMap<String, List<Genre>> groupMemberPreferences = new HashMap<>();
+    private Map<Checks, DislikeThreshold> badMoviesCharacteristics = new HashMap<>();
+    private Map<String, Set<Genre>> groupMemberPreferences = new HashMap<>();
 
     public User(Mood mood, FreeTime freeTime, Group group, Attention attention, List<Film> seenMovies,
                 boolean usesSavedList, List<Film> savedMovies, List<Genre> preferredGenres, List<Checks> checks,
@@ -97,34 +101,20 @@ public class User {
         this.badMovies.add(badMovie);
     }
 
-    public HashMap<Checks, List<DislikeThreshold>> getBadMoviesCharacteristics() {
+    public Map<Checks, DislikeThreshold> getBadMoviesCharacteristics() {
         return badMoviesCharacteristics;
     }
 
-    public void setBadMoviesCharacteristics(HashMap<Checks, List<DislikeThreshold>> badMoviesCharacteristics) {
+    public void setBadMoviesCharacteristics(Map<Checks, DislikeThreshold> badMoviesCharacteristics) {
         this.badMoviesCharacteristics = badMoviesCharacteristics;
     }
 
-    public void putBadMoviesCharacteristic(Checks check, DislikeThreshold dislikeThreshold) {
-        if (this.badMoviesCharacteristics.get(check) == null) {
-            this.badMoviesCharacteristics.put(check, new ArrayList<>());
-        }
-        this.badMoviesCharacteristics.get(check).add(dislikeThreshold);
-    }
-
-    public HashMap<String, List<Genre>> getGroupMemberPreferences() {
+    public Map<String, Set<Genre>> getGroupMemberPreferences() {
         return groupMemberPreferences;
     }
 
-    public void setGroupMemberPreferences(HashMap<String, List<Genre>> groupMemberPreferences) {
+    public void setGroupMemberPreferences(Map<String, Set<Genre>> groupMemberPreferences) {
         this.groupMemberPreferences = groupMemberPreferences;
-    }
-
-    public void addGroupMemberPreference(String name, Genre preference) {
-        if (this.groupMemberPreferences.get(name) == null) {
-            this.groupMemberPreferences.put(name, new ArrayList<>());
-        }
-        this.groupMemberPreferences.get(name).add(preference);
     }
 
     public Mood getMood() {
@@ -271,6 +261,7 @@ public class User {
         String chosenFilmName = (chosenFilm != null) ? chosenFilm.getName() : "null";
         return
             "User: {" +
+            "\n    Name: " + name +
             "\n    Mood: " + mood +
             ",\n    Free Time: " + freeTime.toString() +
             ",\n    Group Size: " + group.getGroupSize() +
@@ -287,8 +278,42 @@ public class User {
             ",\n    Liked Actors: [" + likedActorsToString() +
             "],\n    Minimum Rating: " +  minimumRating +
             ",\n    Liked Directors: [" + likedDirectorsToString() +
-            "],\n    Books Read: [" + readBooksToString() + "]\n}";
+            "],\n    Books Read: [" + readBooksToString() +
+            "],\n    Disliked Movies: [" + badMoviesToString() +
+            "],\n    Learned Bad Movie Characteristics: [" + badMovieCharacteristicsToString() +
+            "],\n    Group Member Preferences: [" + groupMemberPreferencesToString() +
+            "\n}";
 
+    }
+    private String badMoviesToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Film movie : badMovies) {
+            stringBuilder.append(movie.getName());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
+    private String badMovieCharacteristicsToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (DislikeThreshold dislikeThreshold : badMoviesCharacteristics.values()) {
+            stringBuilder.append(dislikeThreshold.getMovieCharacteristic());
+            stringBuilder.append(": max points - ");
+            stringBuilder.append(dislikeThreshold.getMaxPointValue());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
+    }
+
+    private String groupMemberPreferencesToString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<String, Set<Genre>> entry : groupMemberPreferences.entrySet()) {
+            stringBuilder.append(entry.getKey());
+            stringBuilder.append(": ");
+            stringBuilder.append(entry.getValue());
+            stringBuilder.append(", ");
+        }
+        return stringBuilder.toString();
     }
 
     private String likedActorsToString() {

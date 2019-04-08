@@ -22,4 +22,18 @@ public enum Fame {
     public int getFameLevel() {
         return ordinal() + 1;
     }
+
+    public int getPointLevel() {
+        switch (this) {
+            case D_LIST:
+                return 100;
+            case C_LIST:
+                return 80;
+            case B_LIST:
+                return 30;
+            case A_LIST:
+                return -20;
+        }
+        return 0;
+    }
 }

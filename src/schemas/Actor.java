@@ -15,4 +15,8 @@ public class Actor extends CastMember {
         Actor actor = (Actor) o;
         return Objects.equals(getName().toLowerCase(), actor.getName().toLowerCase());
     }
+
+    public int getPointLevel() {
+        return getReputation().getPointLevel() + getFame().getPointLevel();
+    }
 }

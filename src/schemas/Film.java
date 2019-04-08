@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Film extends Media {
 
@@ -12,7 +13,21 @@ public class Film extends Media {
         NEW,
         SOMEWHAT_NEW,
         SOMEWHAT_OLD,
-        OLD
+        OLD;
+
+        public int getPointLevel() {
+            switch(this) {
+                case NEW:
+                    return 0;
+                case SOMEWHAT_NEW:
+                    return 50;
+                case SOMEWHAT_OLD:
+                    return 70;
+                case OLD:
+                    return 80;
+            }
+            return 0;
+        }
     }
 
     public enum StreamingCategory {
@@ -253,5 +268,13 @@ public class Film extends Media {
             stringBuilder.append(", ");
         }
         return stringBuilder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Film)) return false;
+        Film film = (Film) o;
+        return Objects.equals(getName(), film.getName());
     }
 }

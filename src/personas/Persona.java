@@ -2,7 +2,9 @@ package personas;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import schemas.Actor;
 import schemas.Book;
 import schemas.Director;
@@ -10,22 +12,18 @@ import schemas.Fame;
 import schemas.FreeTime;
 import schemas.Genre;
 import schemas.Group;
+import schemas.GroupMember;
 import schemas.Reputation;
 import schemas.User;
 
 public class Persona {
 
-    //TODO: 5 points of learning we could do
-    /*
-    Learning their preferences (genres)
-    Learning which movies are bad and what to avoid //TODO
-    Merging preferences with group (especially SO) //TODO
-    Rewatching something because it's guaranteed they'd enjoy it if there's nothing good or not enough free time
-    Learning the specific points in ratings, summaries, and reviews that increase chances of an enjoyable movie //TODO
-     */
+    private static User user;
+    //List of possible group members the agent could be choosing a movie with.
+    private static List<GroupMember> agentFriendsFamily;
 
     //This generic persona is a clean slate where it doesn't have preferences yet
-    //The goal is for the persona to learn their preferences, what movies are bad,
+    //The goal is for the persona to learn what movies are bad,
     // the specific signs of a bad movie from the cover photo, summary, reviews, etc., and learning the preferences
     // of the group the persona is with.
     public static User createUser() {
@@ -34,11 +32,144 @@ public class Persona {
         List<Actor> likedActors = new ArrayList<>();
         List<Book> readBooks = new ArrayList<>();
         List<Director> likedDirectors = new ArrayList<>();
+        Group group = new Group(1, false, false);
 
-        return new User(User.Mood.USUAL, new FreeTime(5, 0), new Group(1,
-                false, false), User.Attention.FULL, new ArrayList<>(),
+        User user = new User(User.Mood.USUAL, new FreeTime(5, 0), group, User.Attention.FULL, new ArrayList<>(),
                 false, null, preferredGenres, checks, 0, likedActors, readBooks,
                 likedDirectors);
+
+        user.setName("The Agent");
+        Persona.user = user;
+        createAgentGroupMembers();
+        return user;
+    }
+
+    public static User changeUserGroup() {
+        Group group = user.getGroup();
+        List<GroupMember> agentGroupMembers = new ArrayList<>();
+        Collections.shuffle(agentFriendsFamily);
+        Random rand = new Random();
+        for (int i = 0; i < rand.nextInt(6); i++) {
+            agentGroupMembers.add(agentFriendsFamily.get(i));
+        }
+        group.setMembers(agentGroupMembers);
+        group.setGroupSize(agentGroupMembers.size());
+        return user;
+    }
+
+    public static void createAgentGroupMembers() {
+        agentFriendsFamily = new ArrayList<>();
+
+        List<Genre> groupMember1Genres = new ArrayList<>();
+        List<Director> groupMember1Directors = new ArrayList<>();
+        List<Actor> groupMember1Actors = new ArrayList<>();
+        List<Book> groupMember1Books = new ArrayList<>();
+
+        groupMember1Genres.add(Genre.ACTION);
+        groupMember1Genres.add(Genre.SCIFI);
+        groupMember1Genres.add(Genre.FANTASY);
+        groupMember1Genres.add(Genre.ADVENTURE);
+        groupMember1Genres.add(Genre.THRILLER);
+        groupMember1Genres.add(Genre.MYSTERY);
+        groupMember1Genres.add(Genre.HISTORICAL_FICTION);
+        groupMember1Genres.add(Genre.DRAMA);
+        groupMember1Directors.add(new Director("Steven Spielberg", Reputation.GOOD, Fame.A_LIST));
+        groupMember1Actors.add(new Actor("Samuel L. Jackson", Reputation.GOOD, Fame.A_LIST));
+        groupMember1Books.add(new Book("Jurassic Park", 1, 10000, Book.ReadingDifficulty.HIGH_SCHOOL_LEVEL));
+
+        GroupMember groupMember1 = new GroupMember(groupMember1Genres, 0, groupMember1Actors, groupMember1Books, groupMember1Directors);
+        groupMember1.setName("groupMember1");
+        agentFriendsFamily.add(groupMember1);
+
+        List<Genre> groupMember2Genres = new ArrayList<>();
+        List<Director> groupMember2Directors = new ArrayList<>();
+        List<Actor> groupMember2Actors = new ArrayList<>();
+        List<Book> groupMember2Books = new ArrayList<>();
+
+        groupMember2Genres.add(Genre.ACTION);
+        groupMember2Genres.add(Genre.COMEDY);
+        groupMember2Genres.add(Genre.ADVENTURE);
+        groupMember2Genres.add(Genre.DOCUMENTARY);
+        groupMember2Genres.add(Genre.ANIMATED);
+        groupMember2Genres.add(Genre.FAMILY);
+        groupMember2Genres.add(Genre.ROMANTIC);
+
+        GroupMember groupMember2 = new GroupMember(groupMember2Genres, 0, groupMember2Actors, groupMember2Books, groupMember2Directors);
+        groupMember2.setName("groupMember2");
+        agentFriendsFamily.add(groupMember2);
+
+        List<Genre> groupMember3Genres = new ArrayList<>();
+        List<Director> groupMember3Directors = new ArrayList<>();
+        List<Actor> groupMember3Actors = new ArrayList<>();
+        List<Book> groupMember3Books = new ArrayList<>();
+
+        groupMember3Genres.add(Genre.ROMANTIC);
+        groupMember3Genres.add(Genre.DOCUMENTARY);
+        groupMember3Genres.add(Genre.DRAMA);
+        groupMember3Genres.add(Genre.ANIMATED);
+        groupMember3Genres.add(Genre.HORROR);
+        groupMember3Genres.add(Genre.MYSTERY);
+
+        GroupMember groupMember3 = new GroupMember(groupMember3Genres, 0, groupMember3Actors, groupMember3Books, groupMember3Directors);
+        groupMember3.setName("groupMember3");
+        agentFriendsFamily.add(groupMember3);
+
+        List<Genre> groupMember4Genres = new ArrayList<>();
+        List<Director> groupMember4Directors = new ArrayList<>();
+        List<Actor> groupMember4Actors = new ArrayList<>();
+        List<Book> groupMember4Books = new ArrayList<>();
+
+        groupMember4Genres.add(Genre.HORROR);
+        groupMember4Genres.add(Genre.MYSTERY);
+        groupMember4Genres.add(Genre.THRILLER);
+        groupMember4Genres.add(Genre.DRAMA);
+        groupMember4Genres.add(Genre.ADVENTURE);
+        groupMember4Genres.add(Genre.ACTION);
+
+        GroupMember groupMember4 = new GroupMember(groupMember4Genres, 0, groupMember4Actors, groupMember4Books, groupMember4Directors);
+        groupMember4.setName("groupMember4");
+        agentFriendsFamily.add(groupMember4);
+
+        List<Genre> groupMember5Genres = new ArrayList<>();
+        List<Director> groupMember5Directors = new ArrayList<>();
+        List<Actor> groupMember5Actors = new ArrayList<>();
+        List<Book> groupMember5Books = new ArrayList<>();
+
+        groupMember5Genres.add(Genre.DOCUMENTARY);
+        groupMember5Genres.add(Genre.ANIMATED);
+        groupMember5Genres.add(Genre.FAMILY);
+        groupMember5Genres.add(Genre.COMEDY);
+        groupMember5Genres.add(Genre.THRILLER);
+        groupMember5Genres.add(Genre.ADVENTURE);
+
+        GroupMember groupMember5 = new GroupMember(groupMember5Genres, 0, groupMember5Actors, groupMember5Books, groupMember5Directors);
+        groupMember5.setName("groupMember5");
+        agentFriendsFamily.add(groupMember5);
+
+        List<Genre> groupMember6Genres = new ArrayList<>();
+        List<Director> groupMember6Directors = new ArrayList<>();
+        List<Actor> groupMember6Actors = new ArrayList<>();
+        List<Book> groupMember6Books = new ArrayList<>();
+
+        groupMember6Genres.add(Genre.ACTION);
+        groupMember6Genres.add(Genre.DRAMA);
+        groupMember6Genres.add(Genre.HISTORICAL_FICTION);
+        groupMember6Genres.add(Genre.ADVENTURE);
+        groupMember6Genres.add(Genre.THRILLER);
+        groupMember6Genres.add(Genre.FANTASY);
+
+        GroupMember groupMember6 = new GroupMember(groupMember6Genres, 0, groupMember6Actors, groupMember6Books, groupMember6Directors);
+        groupMember6.setName("groupMember6");
+        agentFriendsFamily.add(groupMember6);
+
+        List<Genre> groupMember7Genres = new ArrayList<>(Arrays.asList(Genre.values()));
+        List<Director> groupMember7Directors = new ArrayList<>();
+        List<Actor> groupMember7Actors = new ArrayList<>();
+        List<Book> groupMember7Books = new ArrayList<>();
+
+        GroupMember groupMember7 = new GroupMember(groupMember7Genres, 0, groupMember7Actors, groupMember7Books, groupMember7Directors);
+        groupMember7.setName("groupMember7");
+        agentFriendsFamily.add(groupMember7);
     }
 
 //    // Persona 1 is focused on the high-level aspects of movie selection.

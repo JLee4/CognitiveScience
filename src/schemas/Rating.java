@@ -26,4 +26,20 @@ public enum Rating {
     public int getRatingLevel() {
         return ordinal() + 1;
     }
+
+    public int getPointLevel() {
+        switch(this) {
+            case ONE_STAR:
+                return 250;
+            case TWO_STARS:
+                return 150;
+            case THREE_STARS:
+                return 80;
+            case FOUR_STARS:
+                return 0;
+            case FIVE_STARS:
+                return -50;
+        }
+        return 0;
+    }
 }

@@ -22,7 +22,7 @@ import schemas.Summary;
 
 public class PopulateMovies {
 
-    public static List<Film> populateMovies(boolean isVerbose) {
+    public static List<Film> populateMovies() {
         List<Film> movies = new ArrayList<>();
 
         // Film 1: Coco
