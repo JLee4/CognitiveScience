@@ -203,7 +203,6 @@ class Executive {
                 System.out.println("[COGNITION SYSTEM] User is cognitively merging group member preferences");
             }
 
-            System.out.println(groupPreferenceCounts);
             List<Genre> mergedGenrePreferences = new ArrayList<>();
             for (Map.Entry<Genre, Integer> entry : groupPreferenceCounts.entrySet()) {
                 if (entry.getValue() > 1) {
